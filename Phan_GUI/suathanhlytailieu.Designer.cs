@@ -90,7 +90,7 @@
             // 
             this.txt_timkiem.Location = new System.Drawing.Point(124, 27);
             this.txt_timkiem.Name = "txt_timkiem";
-            this.txt_timkiem.Size = new System.Drawing.Size(708, 30);
+            this.txt_timkiem.Size = new System.Drawing.Size(618, 30);
             this.txt_timkiem.TabIndex = 16;
             // 
             // btn_them

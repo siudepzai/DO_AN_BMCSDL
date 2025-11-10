@@ -37,5 +37,11 @@ namespace DO_AN_BMCSDL.Phan_GUI
         {
             this.Close();
         }
+
+        private void btn_sua_Click(object sender, EventArgs e)
+        {
+            suathongtindocgia suathongtindocgia = new suathongtindocgia();
+            suathongtindocgia.ShowDialog();
+        }
     }
 }

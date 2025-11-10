@@ -1,6 +1,6 @@
 ﻿namespace DO_AN_BMCSDL.Phan_GUI
 {
-    partial class QL_phong
+    partial class QL_phieumuon
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QL_phong));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QL_phieumuon));
             this.btn_thoat = new System.Windows.Forms.Button();
             this.btn_TK = new System.Windows.Forms.Button();
             this.pnl_thanhquanly = new System.Windows.Forms.Panel();
@@ -38,18 +38,18 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.menuHideTimer = new System.Windows.Forms.Timer(this.components);
             this.dgvMuonTra = new System.Windows.Forms.DataGridView();
-            this.logo = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.lab_ = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.btn_thongtinphong = new System.Windows.Forms.Button();
+            this.btn_thongtintailieu = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.logo = new System.Windows.Forms.PictureBox();
             this.pnl_thanhquanly.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMuonTra)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
-            this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_thoat
@@ -70,9 +70,9 @@
             this.btn_TK.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btn_TK.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_TK.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_TK.Location = new System.Drawing.Point(934, 21);
+            this.btn_TK.Location = new System.Drawing.Point(938, 21);
             this.btn_TK.Name = "btn_TK";
-            this.btn_TK.Size = new System.Drawing.Size(97, 35);
+            this.btn_TK.Size = new System.Drawing.Size(88, 35);
             this.btn_TK.TabIndex = 15;
             this.btn_TK.Text = "Tìm";
             this.btn_TK.UseVisualStyleBackColor = false;
@@ -80,37 +80,37 @@
             // pnl_thanhquanly
             // 
             this.pnl_thanhquanly.Controls.Add(this.btn_thoat);
-            this.pnl_thanhquanly.Location = new System.Drawing.Point(2, 140);
+            this.pnl_thanhquanly.Location = new System.Drawing.Point(12, 163);
             this.pnl_thanhquanly.Name = "pnl_thanhquanly";
-            this.pnl_thanhquanly.Size = new System.Drawing.Size(189, 67);
-            this.pnl_thanhquanly.TabIndex = 29;
+            this.pnl_thanhquanly.Size = new System.Drawing.Size(180, 67);
+            this.pnl_thanhquanly.TabIndex = 34;
             // 
             // lab_muontra
             // 
             this.lab_muontra.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lab_muontra.Location = new System.Drawing.Point(3, 1);
+            this.lab_muontra.Location = new System.Drawing.Point(12, 1);
             this.lab_muontra.Name = "lab_muontra";
-            this.lab_muontra.Size = new System.Drawing.Size(287, 41);
+            this.lab_muontra.Size = new System.Drawing.Size(278, 41);
             this.lab_muontra.TabIndex = 14;
             this.lab_muontra.Text = "QUẢN LÝ ĐỌC GIẢ";
             this.lab_muontra.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txt_timkiem
             // 
-            this.txt_timkiem.Location = new System.Drawing.Point(478, 21);
+            this.txt_timkiem.Location = new System.Drawing.Point(482, 21);
             this.txt_timkiem.Multiline = true;
             this.txt_timkiem.Name = "txt_timkiem";
-            this.txt_timkiem.Size = new System.Drawing.Size(459, 35);
+            this.txt_timkiem.Size = new System.Drawing.Size(450, 35);
             this.txt_timkiem.TabIndex = 2;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.panel3.Controls.Add(this.lab_muontra);
-            this.panel3.Location = new System.Drawing.Point(2, 92);
+            this.panel3.Location = new System.Drawing.Point(12, 115);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1186, 42);
-            this.panel3.TabIndex = 28;
+            this.panel3.Size = new System.Drawing.Size(1177, 42);
+            this.panel3.TabIndex = 33;
             // 
             // menuHideTimer
             // 
@@ -119,43 +119,54 @@
             // dgvMuonTra
             // 
             this.dgvMuonTra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMuonTra.Location = new System.Drawing.Point(107, 319);
+            this.dgvMuonTra.Location = new System.Drawing.Point(54, 336);
             this.dgvMuonTra.Name = "dgvMuonTra";
             this.dgvMuonTra.RowHeadersWidth = 51;
             this.dgvMuonTra.RowTemplate.Height = 24;
-            this.dgvMuonTra.Size = new System.Drawing.Size(993, 271);
-            this.dgvMuonTra.TabIndex = 30;
-            // 
-            // logo
-            // 
-            this.logo.ErrorImage = ((System.Drawing.Image)(resources.GetObject("logo.ErrorImage")));
-            this.logo.Image = global::DO_AN_BMCSDL.Properties.Resources.Logo_1;
-            this.logo.InitialImage = global::DO_AN_BMCSDL.Properties.Resources.Logo_1;
-            this.logo.Location = new System.Drawing.Point(3, 3);
-            this.logo.Name = "logo";
-            this.logo.Size = new System.Drawing.Size(490, 84);
-            this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.logo.TabIndex = 0;
-            this.logo.TabStop = false;
-            // 
-            // panel2
-            // 
-            this.panel2.Location = new System.Drawing.Point(3, 93);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1097, 64);
-            this.panel2.TabIndex = 1;
+            this.dgvMuonTra.Size = new System.Drawing.Size(984, 271);
+            this.dgvMuonTra.TabIndex = 35;
             // 
             // lab_
             // 
             this.lab_.Dock = System.Windows.Forms.DockStyle.Right;
             this.lab_.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lab_.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lab_.Location = new System.Drawing.Point(585, 0);
+            this.lab_.Location = new System.Drawing.Point(526, 0);
             this.lab_.Name = "lab_";
-            this.lab_.Size = new System.Drawing.Size(583, 90);
+            this.lab_.Size = new System.Drawing.Size(574, 90);
             this.lab_.TabIndex = 2;
             this.lab_.Text = " HỌC HẾT SỨC-CHƠI HẾT MÌNH";
             this.lab_.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel2
+            // 
+            this.panel2.Location = new System.Drawing.Point(12, 93);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1088, 64);
+            this.panel2.TabIndex = 1;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.btn_thongtintailieu);
+            this.panel4.Controls.Add(this.btn_TK);
+            this.panel4.Controls.Add(this.txt_timkiem);
+            this.panel4.Location = new System.Drawing.Point(12, 256);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1088, 69);
+            this.panel4.TabIndex = 36;
+            // 
+            // btn_thongtintailieu
+            // 
+            this.btn_thongtintailieu.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btn_thongtintailieu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_thongtintailieu.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_thongtintailieu.Location = new System.Drawing.Point(187, 10);
+            this.btn_thongtintailieu.Name = "btn_thongtintailieu";
+            this.btn_thongtintailieu.Size = new System.Drawing.Size(271, 48);
+            this.btn_thongtintailieu.TabIndex = 16;
+            this.btn_thongtintailieu.Text = "Tài liêu-sách";
+            this.btn_thongtintailieu.UseVisualStyleBackColor = false;
+            this.btn_thongtintailieu.Click += new System.EventHandler(this.btn_thongtintailieu_Click);
             // 
             // panel1
             // 
@@ -166,54 +177,42 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1168, 90);
-            this.panel1.TabIndex = 27;
+            this.panel1.Size = new System.Drawing.Size(1100, 90);
+            this.panel1.TabIndex = 32;
             // 
-            // panel4
+            // logo
             // 
-            this.panel4.Controls.Add(this.btn_thongtinphong);
-            this.panel4.Controls.Add(this.btn_TK);
-            this.panel4.Controls.Add(this.txt_timkiem);
-            this.panel4.Location = new System.Drawing.Point(-12, 233);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1177, 69);
-            this.panel4.TabIndex = 31;
+            this.logo.ErrorImage = ((System.Drawing.Image)(resources.GetObject("logo.ErrorImage")));
+            this.logo.Image = global::DO_AN_BMCSDL.Properties.Resources.Logo_1;
+            this.logo.InitialImage = global::DO_AN_BMCSDL.Properties.Resources.Logo_1;
+            this.logo.Location = new System.Drawing.Point(12, 3);
+            this.logo.Name = "logo";
+            this.logo.Size = new System.Drawing.Size(481, 84);
+            this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.logo.TabIndex = 0;
+            this.logo.TabStop = false;
             // 
-            // btn_thongtinphong
-            // 
-            this.btn_thongtinphong.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btn_thongtinphong.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_thongtinphong.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_thongtinphong.Location = new System.Drawing.Point(183, 10);
-            this.btn_thongtinphong.Name = "btn_thongtinphong";
-            this.btn_thongtinphong.Size = new System.Drawing.Size(280, 48);
-            this.btn_thongtinphong.TabIndex = 16;
-            this.btn_thongtinphong.Text = "Phòng";
-            this.btn_thongtinphong.UseVisualStyleBackColor = false;
-            this.btn_thongtinphong.Click += new System.EventHandler(this.btn_thongtinphong_Click);
-            // 
-            // QL_phong
+            // Thongtintailieu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1168, 619);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(1100, 619);
             this.Controls.Add(this.pnl_thanhquanly);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.dgvMuonTra);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "QL_phong";
-            this.Text = "QL_phong";
-            this.Load += new System.EventHandler(this.QL_phong_Load);
+            this.Name = "Thongtintailieu";
+            this.Text = "Thongtintailieu";
             this.pnl_thanhquanly.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMuonTra)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
-            this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -228,11 +227,11 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Timer menuHideTimer;
         private System.Windows.Forms.DataGridView dgvMuonTra;
-        private System.Windows.Forms.PictureBox logo;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lab_;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.PictureBox logo;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button btn_thongtinphong;
+        private System.Windows.Forms.Button btn_thongtintailieu;
+        private System.Windows.Forms.Panel panel1;
     }
 }

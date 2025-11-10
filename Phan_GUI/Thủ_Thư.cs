@@ -283,7 +283,10 @@ namespace DO_AN_BMCSDL.Phan_GUI
 
         private void btn_q_Click(object sender, EventArgs e)
         {
-
+            QL_phieumuon  phieumuonsach = new QL_phieumuon();
+            phieumuonsach.FormClosed += (s, args) => this.Show(); // Hiện lại form chính khi đóng QL_phieumuon
+            this.Hide();
+            phieumuonsach.Show();
         }
 
         private void btn_lapphieumuon_Click(object sender, EventArgs e)
