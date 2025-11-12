@@ -33,19 +33,19 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.txt_timkiem = new System.Windows.Forms.TextBox();
             this.menuHideTimer = new System.Windows.Forms.Timer(this.components);
-            this.dataGrid_hocgia = new System.Windows.Forms.DataGridView();
+            this.dgvDocGia = new System.Windows.Forms.DataGridView();
             this.lab_QLdocgia = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lab_ = new System.Windows.Forms.Label();
+            this.logo = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btn_TK = new System.Windows.Forms.Button();
             this.lab_danhsachdocgia = new System.Windows.Forms.Label();
             this.btn_thoat = new System.Windows.Forms.Button();
-            this.logo = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_hocgia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDocGia)).BeginInit();
             this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -66,15 +66,15 @@
             // 
             this.menuHideTimer.Interval = 1000;
             // 
-            // dataGrid_hocgia
+            // dgvDocGia
             // 
-            this.dataGrid_hocgia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGrid_hocgia.Location = new System.Drawing.Point(8, 176);
-            this.dataGrid_hocgia.Name = "dataGrid_hocgia";
-            this.dataGrid_hocgia.RowHeadersWidth = 51;
-            this.dataGrid_hocgia.RowTemplate.Height = 24;
-            this.dataGrid_hocgia.Size = new System.Drawing.Size(1017, 336);
-            this.dataGrid_hocgia.TabIndex = 47;
+            this.dgvDocGia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDocGia.Location = new System.Drawing.Point(8, 176);
+            this.dgvDocGia.Name = "dgvDocGia";
+            this.dgvDocGia.RowHeadersWidth = 51;
+            this.dgvDocGia.RowTemplate.Height = 24;
+            this.dgvDocGia.Size = new System.Drawing.Size(1017, 336);
+            this.dgvDocGia.TabIndex = 47;
             // 
             // lab_QLdocgia
             // 
@@ -110,6 +110,18 @@
             this.lab_.Text = " HỌC HẾT SỨC-CHƠI HẾT MÌNH";
             this.lab_.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // logo
+            // 
+            this.logo.ErrorImage = ((System.Drawing.Image)(resources.GetObject("logo.ErrorImage")));
+            this.logo.Image = global::DO_AN_BMCSDL.Properties.Resources.Logo_1;
+            this.logo.InitialImage = global::DO_AN_BMCSDL.Properties.Resources.Logo_1;
+            this.logo.Location = new System.Drawing.Point(3, 3);
+            this.logo.Name = "logo";
+            this.logo.Size = new System.Drawing.Size(490, 84);
+            this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.logo.TabIndex = 0;
+            this.logo.TabStop = false;
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
@@ -132,6 +144,7 @@
             this.btn_TK.TabIndex = 15;
             this.btn_TK.Text = "Tìm";
             this.btn_TK.UseVisualStyleBackColor = false;
+            this.btn_TK.Click += new System.EventHandler(this.btn_TK_Click);
             // 
             // lab_danhsachdocgia
             // 
@@ -155,37 +168,26 @@
             this.btn_thoat.UseVisualStyleBackColor = false;
             this.btn_thoat.Click += new System.EventHandler(this.btn_thoat_Click);
             // 
-            // logo
-            // 
-            this.logo.ErrorImage = ((System.Drawing.Image)(resources.GetObject("logo.ErrorImage")));
-            this.logo.Image = global::DO_AN_BMCSDL.Properties.Resources.Logo_1;
-            this.logo.InitialImage = global::DO_AN_BMCSDL.Properties.Resources.Logo_1;
-            this.logo.Location = new System.Drawing.Point(3, 3);
-            this.logo.Name = "logo";
-            this.logo.Size = new System.Drawing.Size(490, 84);
-            this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.logo.TabIndex = 0;
-            this.logo.TabStop = false;
-            // 
             // Timdocgia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1025, 562);
             this.Controls.Add(this.btn_thoat);
-            this.Controls.Add(this.dataGrid_hocgia);
+            this.Controls.Add(this.dgvDocGia);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.lab_danhsachdocgia);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Timdocgia";
             this.Text = "Timdocgia";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_hocgia)).EndInit();
+            this.Load += new System.EventHandler(this.Timdocgia_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDocGia)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -196,7 +198,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txt_timkiem;
         private System.Windows.Forms.Timer menuHideTimer;
-        private System.Windows.Forms.DataGridView dataGrid_hocgia;
+        private System.Windows.Forms.DataGridView dgvDocGia;
         private System.Windows.Forms.Label lab_QLdocgia;
         private System.Windows.Forms.PictureBox logo;
         private System.Windows.Forms.Panel panel1;

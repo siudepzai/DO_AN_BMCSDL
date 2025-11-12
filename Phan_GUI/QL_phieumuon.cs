@@ -1,17 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using _40_caesarOracle;
+using Oracle.ManagedDataAccess.Client;
+using System;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DO_AN_BMCSDL.Phan_GUI
 {
     public partial class QL_phieumuon : Form
     {
+        // 🛠️ Giả định tên DataGridView là dgvMuonTra
+
         public QL_phieumuon()
         {
             InitializeComponent();
@@ -21,28 +20,176 @@ namespace DO_AN_BMCSDL.Phan_GUI
         {
             this.Close();
         }
-        // Hàm tải dữ liệu Tài liệu/Sách
-        private DataTable LoadDataTaiLieuSach()
+
+        private void QL_phieumuon_Load(object sender, EventArgs e)
         {
-            // ... Thực hiện truy vấn Oracle SELECT * FROM PHIEU_MUON_SACH ...
-            // Trả về DataTable chứa dữ liệu mượn/trả sách
-            // Ví dụ: return GetOracleData("SELECT MaSach, MaDocGia, TinhTrang FROM...");
-            return new DataTable(); // Placeholder
+            try
+            {
+                // Thiết lập Database
+                Database.Set_Database("localhost", "1521", "ORCL", "C##DO_AN", "12345");
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show("Lỗi thiết lập thông tin DB: " + ex.Message, "Lỗi nghiêm trọng");
+                return;
+            }
+
+            // Thiết lập Font và Style cho DataGridView
+            if (dgvMuonTra != null)
+            {
+                dgvMuonTra.Font = new Font("Times New Roman", 12, FontStyle.Regular);
+                dgvMuonTra.ColumnHeadersDefaultCellStyle.Font = new Font("Times New Roman", 12, FontStyle.Bold);
+                dgvMuonTra.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+                // Gán sự kiện CellContentClick để mở Form xử lý phiếu
+                dgvMuonTra.CellContentClick -= dgvPhieuYeuCau_CellContentClick;
+                dgvMuonTra.CellContentClick += dgvPhieuYeuCau_CellContentClick;
+
+                // Gán sự kiện định dạng ô để tô màu trạng thái
+                dgvMuonTra.CellFormatting -= dgvPhieuYeuCau_CellFormatting;
+                dgvMuonTra.CellFormatting += dgvPhieuYeuCau_CellFormatting;
+
+                // Tải dữ liệu ban đầu
+                LoadDataPhieuMuon();
+            }
         }
 
-        private void btn_thongtintailieu_Click(object sender, EventArgs e)
+        // --- HÀM TẢI DỮ LIỆU PHIẾU MƯỢN/TRẢ (Sửa lỗi ORA-00904) ---
+        private void LoadDataPhieuMuon(string searchTerm = "")
         {
-            // 1. Cập nhật màu sắc Button (Đánh dấu nút đang được chọn)
-            btn_thongtintailieu.BackColor = Color.FromArgb(170, 170, 170); // Xám đậm
+            string sql = @"
+                SELECT
+                    ROWNUM AS STT,
+                    TRIM(T2.MATAILIEU) AS ""Ma tai lieu - sach"",
+                    TRIM(T3.MATHANHVIEN) AS ""Ma doc gia"",
+                    'Muon sach' AS ""Yeu cau"", 
+                    TRIM(T2.HIENTRANG) AS ""Trang thai xu ly"",  -- 🛠️ SỬA LỖI: Lấy HIENTRANG từ CHITIETPHIEUMUON (T2)
+                    TRIM(T1.MAPHIEUMUON) AS ""Ma phieu"" 
+                FROM PHIEUMUON T1
+                JOIN CHITIETPHIEUMUON T2 ON T1.MAPHIEUMUON = T2.MAPHIEUMUON
+                JOIN THEBANDOC T4 ON T1.MASOTHE = T4.MASOTHE
+                JOIN DOCGIA T3 ON T4.MATHANHVIEN = T3.MATHANHVIEN
+                WHERE (LOWER(TRIM(T2.MATAILIEU)) LIKE '%' || :searchTerm || '%' OR
+                       LOWER(TRIM(T3.MATHANHVIEN)) LIKE '%' || :searchTerm || '%')
+                ORDER BY T1.NGAYMUON DESC";
 
-            // 2. Tải và gán nguồn dữ liệu mới
-            dgvMuonTra.DataSource = LoadDataTaiLieuSach();
+            try
+            {
+                if (Database.Connect())
+                {
+                    OracleParameter param = new OracleParameter("searchTerm", searchTerm.ToLower());
+                    DataTable dt = Database.ExecuteQuery(sql, param);
+                    dgvMuonTra.DataSource = dt;
 
-            // 3. Cập nhật Tiêu đề cột (Tùy chọn, nếu tên cột trong CSDL khác nhau)
-            dgvMuonTra.Columns["MaPhong"].HeaderText = "Mã tài liệu"; // Ví dụ: đổi tên cột Mã phòng thành Mã tài liệu
+                    // 1. Thêm cột nút bấm nếu chưa có
+                    SetupButtonColumn();
 
-            // 4. Kích hoạt lại định dạng màu (Nếu cần)
-            dgvMuonTra.Invalidate();
+                    // 2. Ẩn cột Ma phieu
+                    if (dgvMuonTra.Columns.Contains("Ma phieu"))
+                    {
+                        dgvMuonTra.Columns["Ma phieu"].Visible = false;
+                    }
+
+                    // Căn giữa các cột
+                    foreach (DataGridViewColumn col in dgvMuonTra.Columns)
+                    {
+                        col.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                        col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải dữ liệu Phiếu Mượn/Trả Sách:\n" + ex.Message, "Lỗi SQL");
+            }
+            finally
+            {
+                Database.Close();
+            }
+        }
+
+        // --- CÁC HÀM XỬ LÝ DATAGRIDVIEW ---
+
+        private void SetupButtonColumn()
+        {
+            if (!dgvMuonTra.Columns.Contains("btnThongTinPhieu"))
+            {
+                DataGridViewButtonColumn btnColumn = new DataGridViewButtonColumn();
+                btnColumn.Name = "btnThongTinPhieu";
+                btnColumn.HeaderText = "";
+                btnColumn.Text = "Thông tin phiếu";
+                btnColumn.UseColumnTextForButtonValue = true;
+                btnColumn.DefaultCellStyle.BackColor = Color.LightGray;
+                btnColumn.DefaultCellStyle.SelectionBackColor = Color.Gray;
+
+                dgvMuonTra.Columns.Add(btnColumn);
+            }
+        }
+
+        // 🔹 Xử lý click vào nút "Thông tin phiếu"
+        private void dgvPhieuYeuCau_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dgvMuonTra.Columns[e.ColumnIndex].Name == "btnThongTinPhieu")
+            {
+                try
+                {
+                    string maPhieu = dgvMuonTra.Rows[e.RowIndex].Cells["Ma phieu"].Value.ToString().Trim();
+
+                    // Mở Form xử lý phiếu (Thay thế bằng tên Form chi tiết của bạn nếu có)
+                    thongtinphieu_dulieu formXuLy = new thongtinphieu_dulieu(maPhieu);
+                    formXuLy.FormClosed += FormXuLy_FormClosed;
+                    formXuLy.ShowDialog();
+                    MessageBox.Show($"Mở Form xử lý chi tiết cho Phiếu: {maPhieu}", "Thông tin phiếu");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi mở Form chi tiết phiếu: " + ex.Message, "Lỗi");
+                }
+            }
+        }
+
+        // 🔹 Định dạng màu sắc cho cột "Trạng thái xử lý"
+        private void dgvPhieuYeuCau_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgvMuonTra != null && dgvMuonTra.Columns[e.ColumnIndex].HeaderText == "Trạng thái xử lý")
+            {
+                string trangThai = e.Value?.ToString().Trim();
+
+                if (trangThai == "Đồng ý" || trangThai == "Dong y")
+                {
+                    e.CellStyle.ForeColor = Color.DarkGreen;
+                    e.CellStyle.Font = new Font(e.CellStyle.Font, FontStyle.Bold);
+                }
+                else if (trangThai == "Từ chối" || trangThai == "Tu choi" || trangThai == "Cho duyet mat") // Thêm trạng thái thất bại
+                {
+                    e.CellStyle.ForeColor = Color.Red;
+                    e.CellStyle.Font = new Font(e.CellStyle.Font, FontStyle.Bold);
+                }
+                else // Chờ xác nhận, Đang mượn, Trả sách
+                {
+                    e.CellStyle.ForeColor = Color.Orange;
+                }
+            }
+        }
+
+       
+        private void FormXuLy_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // if (sender is Thongtinphieumuon form && form.DialogResult == DialogResult.OK)
+            // {
+            //     LoadDataPhieuMuon();
+            // }
+            LoadDataPhieuMuon();
+        }
+
+
+        private void btn_TK_Click(object sender, EventArgs e)
+        {
+
+            // Giả định có TextBox txt_timkiem
+            string searchTerm = txt_timkiem.Text.Trim();
+            LoadDataPhieuMuon(searchTerm);
+            MessageBox.Show("Đã thực hiện tìm kiếm.", "Tìm kiếm");
         }
     }
 }

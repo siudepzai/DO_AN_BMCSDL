@@ -31,10 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QL_tailieu));
             this.btn_TK = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_tentacgia = new System.Windows.Forms.TextBox();
+            this.txt_tentailieu = new System.Windows.Forms.TextBox();
+            this.txt_tinhtrang = new System.Windows.Forms.TextBox();
+            this.txt_matailieu = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -42,29 +42,29 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btn_thoat = new System.Windows.Forms.Button();
             this.btn_giahanthe = new System.Windows.Forms.Button();
-            this.dataGrid_hocgia = new System.Windows.Forms.DataGridView();
+            this.dgv_tailieu = new System.Windows.Forms.DataGridView();
             this.btn_xoa = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txt_ngonngu = new System.Windows.Forms.TextBox();
             this.pnl_thanhquanly = new System.Windows.Forms.Panel();
-            this.btn_capnhat = new System.Windows.Forms.Button();
+            this.btn_capnhattailieu = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lab_ = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.logo = new System.Windows.Forms.PictureBox();
             this.lab_QLdocgia = new System.Windows.Forms.Label();
             this.txt_timkiem = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.menuHideTimer = new System.Windows.Forms.Timer(this.components);
             this.lab_danhsachtailieu = new System.Windows.Forms.Label();
-            this.logo = new System.Windows.Forms.PictureBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txt_chiphi = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_hocgia)).BeginInit();
+            this.txt_theloai = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_tailieu)).BeginInit();
             this.pnl_thanhquanly.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_TK
@@ -78,34 +78,35 @@
             this.btn_TK.TabIndex = 15;
             this.btn_TK.Text = "Tìm";
             this.btn_TK.UseVisualStyleBackColor = false;
+            this.btn_TK.Click += new System.EventHandler(this.btn_TK_Click);
             // 
-            // textBox4
+            // txt_tentacgia
             // 
-            this.textBox4.Location = new System.Drawing.Point(737, 205);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(307, 30);
-            this.textBox4.TabIndex = 25;
+            this.txt_tentacgia.Location = new System.Drawing.Point(737, 205);
+            this.txt_tentacgia.Name = "txt_tentacgia";
+            this.txt_tentacgia.Size = new System.Drawing.Size(307, 30);
+            this.txt_tentacgia.TabIndex = 25;
             // 
-            // textBox2
+            // txt_tentailieu
             // 
-            this.textBox2.Location = new System.Drawing.Point(243, 205);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(307, 30);
-            this.textBox2.TabIndex = 23;
+            this.txt_tentailieu.Location = new System.Drawing.Point(243, 205);
+            this.txt_tentailieu.Name = "txt_tentailieu";
+            this.txt_tentailieu.Size = new System.Drawing.Size(307, 30);
+            this.txt_tentailieu.TabIndex = 23;
             // 
-            // textBox3
+            // txt_tinhtrang
             // 
-            this.textBox3.Location = new System.Drawing.Point(737, 163);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(307, 30);
-            this.textBox3.TabIndex = 24;
+            this.txt_tinhtrang.Location = new System.Drawing.Point(737, 163);
+            this.txt_tinhtrang.Name = "txt_tinhtrang";
+            this.txt_tinhtrang.Size = new System.Drawing.Size(307, 30);
+            this.txt_tinhtrang.TabIndex = 24;
             // 
-            // textBox1
+            // txt_matailieu
             // 
-            this.textBox1.Location = new System.Drawing.Point(243, 163);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(307, 30);
-            this.textBox1.TabIndex = 22;
+            this.txt_matailieu.Location = new System.Drawing.Point(243, 163);
+            this.txt_matailieu.Name = "txt_matailieu";
+            this.txt_matailieu.Size = new System.Drawing.Size(307, 30);
+            this.txt_matailieu.TabIndex = 22;
             // 
             // label5
             // 
@@ -180,15 +181,15 @@
             this.btn_giahanthe.Text = "Gia hạn thẻ";
             this.btn_giahanthe.UseVisualStyleBackColor = false;
             // 
-            // dataGrid_hocgia
+            // dgv_tailieu
             // 
-            this.dataGrid_hocgia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGrid_hocgia.Location = new System.Drawing.Point(5, 460);
-            this.dataGrid_hocgia.Name = "dataGrid_hocgia";
-            this.dataGrid_hocgia.RowHeadersWidth = 51;
-            this.dataGrid_hocgia.RowTemplate.Height = 24;
-            this.dataGrid_hocgia.Size = new System.Drawing.Size(1170, 247);
-            this.dataGrid_hocgia.TabIndex = 30;
+            this.dgv_tailieu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_tailieu.Location = new System.Drawing.Point(5, 460);
+            this.dgv_tailieu.Name = "dgv_tailieu";
+            this.dgv_tailieu.RowHeadersWidth = 51;
+            this.dgv_tailieu.RowTemplate.Height = 24;
+            this.dgv_tailieu.Size = new System.Drawing.Size(1170, 247);
+            this.dgv_tailieu.TabIndex = 30;
             // 
             // btn_xoa
             // 
@@ -201,34 +202,34 @@
             this.btn_xoa.Text = "Xóa";
             this.btn_xoa.UseVisualStyleBackColor = false;
             // 
-            // textBox5
+            // txt_ngonngu
             // 
-            this.textBox5.Location = new System.Drawing.Point(243, 251);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(307, 30);
-            this.textBox5.TabIndex = 26;
+            this.txt_ngonngu.Location = new System.Drawing.Point(243, 251);
+            this.txt_ngonngu.Name = "txt_ngonngu";
+            this.txt_ngonngu.Size = new System.Drawing.Size(307, 30);
+            this.txt_ngonngu.TabIndex = 26;
             // 
             // pnl_thanhquanly
             // 
             this.pnl_thanhquanly.Controls.Add(this.btn_thoat);
             this.pnl_thanhquanly.Controls.Add(this.btn_giahanthe);
             this.pnl_thanhquanly.Controls.Add(this.btn_xoa);
-            this.pnl_thanhquanly.Controls.Add(this.btn_capnhat);
+            this.pnl_thanhquanly.Controls.Add(this.btn_capnhattailieu);
             this.pnl_thanhquanly.Location = new System.Drawing.Point(5, 347);
             this.pnl_thanhquanly.Name = "pnl_thanhquanly";
             this.pnl_thanhquanly.Size = new System.Drawing.Size(1173, 67);
             this.pnl_thanhquanly.TabIndex = 29;
             // 
-            // btn_capnhat
+            // btn_capnhattailieu
             // 
-            this.btn_capnhat.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btn_capnhat.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_capnhat.Location = new System.Drawing.Point(199, 9);
-            this.btn_capnhat.Name = "btn_capnhat";
-            this.btn_capnhat.Size = new System.Drawing.Size(190, 45);
-            this.btn_capnhat.TabIndex = 0;
-            this.btn_capnhat.Text = "Cập nhật";
-            this.btn_capnhat.UseVisualStyleBackColor = false;
+            this.btn_capnhattailieu.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btn_capnhattailieu.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_capnhattailieu.Location = new System.Drawing.Point(199, 9);
+            this.btn_capnhattailieu.Name = "btn_capnhattailieu";
+            this.btn_capnhattailieu.Size = new System.Drawing.Size(190, 45);
+            this.btn_capnhattailieu.TabIndex = 0;
+            this.btn_capnhattailieu.Text = "Cập nhật";
+            this.btn_capnhattailieu.UseVisualStyleBackColor = false;
             // 
             // panel1
             // 
@@ -260,6 +261,18 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1097, 64);
             this.panel2.TabIndex = 1;
+            // 
+            // logo
+            // 
+            this.logo.ErrorImage = ((System.Drawing.Image)(resources.GetObject("logo.ErrorImage")));
+            this.logo.Image = global::DO_AN_BMCSDL.Properties.Resources.Logo_1;
+            this.logo.InitialImage = global::DO_AN_BMCSDL.Properties.Resources.Logo_1;
+            this.logo.Location = new System.Drawing.Point(3, 3);
+            this.logo.Name = "logo";
+            this.logo.Size = new System.Drawing.Size(490, 84);
+            this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.logo.TabIndex = 0;
+            this.logo.TabStop = false;
             // 
             // lab_QLdocgia
             // 
@@ -303,24 +316,12 @@
             this.lab_danhsachtailieu.TabIndex = 36;
             this.lab_danhsachtailieu.Text = "Danh sách tài liệu";
             // 
-            // logo
+            // txt_chiphi
             // 
-            this.logo.ErrorImage = ((System.Drawing.Image)(resources.GetObject("logo.ErrorImage")));
-            this.logo.Image = global::DO_AN_BMCSDL.Properties.Resources.Logo_1;
-            this.logo.InitialImage = global::DO_AN_BMCSDL.Properties.Resources.Logo_1;
-            this.logo.Location = new System.Drawing.Point(3, 3);
-            this.logo.Name = "logo";
-            this.logo.Size = new System.Drawing.Size(490, 84);
-            this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.logo.TabIndex = 0;
-            this.logo.TabStop = false;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(243, 287);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(307, 30);
-            this.textBox6.TabIndex = 26;
+            this.txt_chiphi.Location = new System.Drawing.Point(243, 287);
+            this.txt_chiphi.Name = "txt_chiphi";
+            this.txt_chiphi.Size = new System.Drawing.Size(307, 30);
+            this.txt_chiphi.TabIndex = 26;
             // 
             // label6
             // 
@@ -342,47 +343,48 @@
             this.label7.TabIndex = 31;
             this.label7.Text = "Thể loại:";
             // 
-            // textBox7
+            // txt_theloai
             // 
-            this.textBox7.Location = new System.Drawing.Point(737, 241);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(307, 30);
-            this.textBox7.TabIndex = 25;
+            this.txt_theloai.Location = new System.Drawing.Point(737, 241);
+            this.txt_theloai.Name = "txt_theloai";
+            this.txt_theloai.Size = new System.Drawing.Size(307, 30);
+            this.txt_theloai.TabIndex = 25;
             // 
             // QL_tailieu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1190, 715);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txt_theloai);
+            this.Controls.Add(this.txt_tentacgia);
+            this.Controls.Add(this.txt_tentailieu);
+            this.Controls.Add(this.txt_tinhtrang);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_matailieu);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGrid_hocgia);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.dgv_tailieu);
+            this.Controls.Add(this.txt_chiphi);
+            this.Controls.Add(this.txt_ngonngu);
             this.Controls.Add(this.pnl_thanhquanly);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.lab_danhsachtailieu);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "QL_tailieu";
             this.Text = "QL_tailieu";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_hocgia)).EndInit();
+            this.Load += new System.EventHandler(this.QL_tailieu_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_tailieu)).EndInit();
             this.pnl_thanhquanly.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -391,10 +393,10 @@
         #endregion
 
         private System.Windows.Forms.Button btn_TK;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_tentacgia;
+        private System.Windows.Forms.TextBox txt_tentailieu;
+        private System.Windows.Forms.TextBox txt_tinhtrang;
+        private System.Windows.Forms.TextBox txt_matailieu;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -402,11 +404,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_thoat;
         private System.Windows.Forms.Button btn_giahanthe;
-        private System.Windows.Forms.DataGridView dataGrid_hocgia;
+        private System.Windows.Forms.DataGridView dgv_tailieu;
         private System.Windows.Forms.Button btn_xoa;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txt_ngonngu;
         private System.Windows.Forms.Panel pnl_thanhquanly;
-        private System.Windows.Forms.Button btn_capnhat;
         private System.Windows.Forms.PictureBox logo;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lab_;
@@ -416,9 +417,10 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Timer menuHideTimer;
         private System.Windows.Forms.Label lab_danhsachtailieu;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txt_chiphi;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txt_theloai;
+        private System.Windows.Forms.Button btn_capnhattailieu;
     }
 }

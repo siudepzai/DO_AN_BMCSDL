@@ -54,7 +54,6 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.btn_q = new System.Windows.Forms.Button();
             this.btn_lapphieumuon = new System.Windows.Forms.Button();
-            this.btn_tracuuphieumuon = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btn_timdocgia = new System.Windows.Forms.Button();
             this.btn_timtailieu = new System.Windows.Forms.Button();
@@ -345,10 +344,9 @@
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.panel5.Controls.Add(this.btn_q);
             this.panel5.Controls.Add(this.btn_lapphieumuon);
-            this.panel5.Controls.Add(this.btn_tracuuphieumuon);
             this.panel5.Location = new System.Drawing.Point(398, 135);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(190, 142);
+            this.panel5.Size = new System.Drawing.Size(190, 96);
             this.panel5.TabIndex = 5;
             this.panel5.Visible = false;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
@@ -357,7 +355,7 @@
             // 
             this.btn_q.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.btn_q.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_q.Location = new System.Drawing.Point(6, 97);
+            this.btn_q.Location = new System.Drawing.Point(7, 50);
             this.btn_q.Name = "btn_q";
             this.btn_q.Size = new System.Drawing.Size(183, 41);
             this.btn_q.TabIndex = 0;
@@ -376,18 +374,6 @@
             this.btn_lapphieumuon.Text = "Lập phiếu mượn";
             this.btn_lapphieumuon.UseVisualStyleBackColor = false;
             this.btn_lapphieumuon.Click += new System.EventHandler(this.btn_lapphieumuon_Click);
-            // 
-            // btn_tracuuphieumuon
-            // 
-            this.btn_tracuuphieumuon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btn_tracuuphieumuon.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_tracuuphieumuon.Location = new System.Drawing.Point(7, 51);
-            this.btn_tracuuphieumuon.Name = "btn_tracuuphieumuon";
-            this.btn_tracuuphieumuon.Size = new System.Drawing.Size(183, 41);
-            this.btn_tracuuphieumuon.TabIndex = 0;
-            this.btn_tracuuphieumuon.Text = "Tra cứu phiếu mượn";
-            this.btn_tracuuphieumuon.UseVisualStyleBackColor = false;
-            this.btn_tracuuphieumuon.Click += new System.EventHandler(this.btn_tracuuphieumuon_Click);
             // 
             // panel6
             // 
@@ -499,7 +485,6 @@
         private System.Windows.Forms.Button btn_QL_xuphat;
         private System.Windows.Forms.Button btn_q;
         private System.Windows.Forms.Button btn_lapphieumuon;
-        private System.Windows.Forms.Button btn_tracuuphieumuon;
         private System.Windows.Forms.Button btn_timdocgia;
         private System.Windows.Forms.Button btn_timtailieu;
         private System.Windows.Forms.Timer menuHideTimer;

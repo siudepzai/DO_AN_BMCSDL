@@ -332,6 +332,7 @@
             this.btn_TK.TabIndex = 19;
             this.btn_TK.Text = "Tìm";
             this.btn_TK.UseVisualStyleBackColor = false;
+            this.btn_TK.Click += new System.EventHandler(this.btn_TK_Click);
             // 
             // txt_timkiem
             // 
@@ -352,9 +353,10 @@
             this.Controls.Add(this.pnl_themdocgia);
             this.Controls.Add(this.lab_sauthongtindocgia);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "suathongtindocgia";
             this.Text = "suathongtindocgia";
+            this.Load += new System.EventHandler(this.suathongtindocgia_Load);
             this.pnl_themdocgia.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

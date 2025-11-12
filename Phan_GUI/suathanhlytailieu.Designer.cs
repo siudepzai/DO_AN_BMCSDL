@@ -40,13 +40,13 @@
             this.lab_ghichu = new System.Windows.Forms.Label();
             this.lab_ngaylapphieu = new System.Windows.Forms.Label();
             this.lab_maphieu = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvChiTiet = new System.Windows.Forms.DataGridView();
             this.lab_tailieuthanhly = new System.Windows.Forms.Label();
             this.btn_huy = new System.Windows.Forms.Button();
             this.btn_luu = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvChiTiet)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_xoa
@@ -68,7 +68,7 @@
             this.panel1.Controls.Add(this.btn_xoa);
             this.panel1.Controls.Add(this.btn_them);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.dgvChiTiet);
             this.panel1.Location = new System.Drawing.Point(12, 72);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(966, 489);
@@ -85,6 +85,7 @@
             this.btn_TK.TabIndex = 17;
             this.btn_TK.Text = "Tìm";
             this.btn_TK.UseVisualStyleBackColor = false;
+            this.btn_TK.Click += new System.EventHandler(this.btn_TK_Click);
             // 
             // txt_timkiem
             // 
@@ -167,15 +168,16 @@
             this.lab_maphieu.TabIndex = 0;
             this.lab_maphieu.Text = "Mã phiếu:";
             // 
-            // dataGridView1
+            // dgvChiTiet
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(21, 255);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(925, 226);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvChiTiet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvChiTiet.Location = new System.Drawing.Point(28, 260);
+            this.dgvChiTiet.Name = "dgvChiTiet";
+            this.dgvChiTiet.RowHeadersWidth = 51;
+            this.dgvChiTiet.RowTemplate.Height = 24;
+            this.dgvChiTiet.Size = new System.Drawing.Size(925, 226);
+            this.dgvChiTiet.TabIndex = 0;
+            this.dgvChiTiet.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvChiTiet_CellContentClick);
             // 
             // lab_tailieuthanhly
             // 
@@ -185,7 +187,7 @@
             this.lab_tailieuthanhly.Name = "lab_tailieuthanhly";
             this.lab_tailieuthanhly.Size = new System.Drawing.Size(992, 69);
             this.lab_tailieuthanhly.TabIndex = 5;
-            this.lab_tailieuthanhly.Text = "THÊM TẠI LIỆU THANH LÝ";
+            this.lab_tailieuthanhly.Text = "SỬA TẠI LIỆU THANH LÝ";
             this.lab_tailieuthanhly.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btn_huy
@@ -225,11 +227,12 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "suathanhlytailieu";
             this.Text = "suathanhlytailieu";
+            this.Load += new System.EventHandler(this.suathanhlytailieu_Load_1);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvChiTiet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -246,7 +249,7 @@
         private System.Windows.Forms.Label lab_ghichu;
         private System.Windows.Forms.Label lab_ngaylapphieu;
         private System.Windows.Forms.Label lab_maphieu;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvChiTiet;
         private System.Windows.Forms.Label lab_tailieuthanhly;
         private System.Windows.Forms.Button btn_huy;
         private System.Windows.Forms.Button btn_luu;

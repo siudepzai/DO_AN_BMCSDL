@@ -30,17 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(lapphieumuon));
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtNgayLap = new System.Windows.Forms.TextBox();
+            this.txtMaDocGia = new System.Windows.Forms.TextBox();
+            this.txtNguoiLap = new System.Windows.Forms.TextBox();
+            this.txtMaPhieuMuon = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.lab_danhsachdocgia = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_thoat = new System.Windows.Forms.Button();
-            this.dataGrid_hocgia = new System.Windows.Forms.DataGridView();
+            this.dgvDanhSachDocGia = new System.Windows.Forms.DataGridView();
             this.btn_Them = new System.Windows.Forms.Button();
             this.pnl_thanhquanly = new System.Windows.Forms.Panel();
             this.logo = new System.Windows.Forms.PictureBox();
@@ -50,40 +50,40 @@
             this.lab_Lphieumuon = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.menuHideTimer = new System.Windows.Forms.Timer(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_hocgia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachDocGia)).BeginInit();
             this.pnl_thanhquanly.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox4
+            // txtNgayLap
             // 
-            this.textBox4.Location = new System.Drawing.Point(766, 187);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(307, 30);
-            this.textBox4.TabIndex = 25;
+            this.txtNgayLap.Location = new System.Drawing.Point(766, 187);
+            this.txtNgayLap.Name = "txtNgayLap";
+            this.txtNgayLap.Size = new System.Drawing.Size(307, 30);
+            this.txtNgayLap.TabIndex = 25;
             // 
-            // textBox2
+            // txtMaDocGia
             // 
-            this.textBox2.Location = new System.Drawing.Point(286, 186);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(307, 30);
-            this.textBox2.TabIndex = 23;
+            this.txtMaDocGia.Location = new System.Drawing.Point(286, 186);
+            this.txtMaDocGia.Name = "txtMaDocGia";
+            this.txtMaDocGia.Size = new System.Drawing.Size(307, 30);
+            this.txtMaDocGia.TabIndex = 23;
             // 
-            // textBox3
+            // txtNguoiLap
             // 
-            this.textBox3.Location = new System.Drawing.Point(766, 145);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(307, 30);
-            this.textBox3.TabIndex = 24;
+            this.txtNguoiLap.Location = new System.Drawing.Point(766, 145);
+            this.txtNguoiLap.Name = "txtNguoiLap";
+            this.txtNguoiLap.Size = new System.Drawing.Size(307, 30);
+            this.txtNguoiLap.TabIndex = 24;
             // 
-            // textBox1
+            // txtMaPhieuMuon
             // 
-            this.textBox1.Location = new System.Drawing.Point(286, 144);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(307, 30);
-            this.textBox1.TabIndex = 22;
+            this.txtMaPhieuMuon.Location = new System.Drawing.Point(286, 144);
+            this.txtMaPhieuMuon.Name = "txtMaPhieuMuon";
+            this.txtMaPhieuMuon.Size = new System.Drawing.Size(307, 30);
+            this.txtMaPhieuMuon.TabIndex = 22;
             // 
             // label5
             // 
@@ -147,15 +147,15 @@
             this.btn_thoat.UseVisualStyleBackColor = false;
             this.btn_thoat.Click += new System.EventHandler(this.btn_thoat_Click);
             // 
-            // dataGrid_hocgia
+            // dgvDanhSachDocGia
             // 
-            this.dataGrid_hocgia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGrid_hocgia.Location = new System.Drawing.Point(12, 362);
-            this.dataGrid_hocgia.Name = "dataGrid_hocgia";
-            this.dataGrid_hocgia.RowHeadersWidth = 51;
-            this.dataGrid_hocgia.RowTemplate.Height = 24;
-            this.dataGrid_hocgia.Size = new System.Drawing.Size(1170, 284);
-            this.dataGrid_hocgia.TabIndex = 30;
+            this.dgvDanhSachDocGia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDanhSachDocGia.Location = new System.Drawing.Point(12, 362);
+            this.dgvDanhSachDocGia.Name = "dgvDanhSachDocGia";
+            this.dgvDanhSachDocGia.RowHeadersWidth = 51;
+            this.dgvDanhSachDocGia.RowTemplate.Height = 24;
+            this.dgvDanhSachDocGia.Size = new System.Drawing.Size(1170, 284);
+            this.dgvDanhSachDocGia.TabIndex = 30;
             // 
             // btn_Them
             // 
@@ -167,6 +167,7 @@
             this.btn_Them.TabIndex = 0;
             this.btn_Them.Text = "Thêm";
             this.btn_Them.UseVisualStyleBackColor = false;
+            this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click_1);
             // 
             // pnl_thanhquanly
             // 
@@ -248,16 +249,16 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1185, 619);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtNgayLap);
+            this.Controls.Add(this.txtMaDocGia);
+            this.Controls.Add(this.txtNguoiLap);
+            this.Controls.Add(this.txtMaPhieuMuon);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lab_danhsachdocgia);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGrid_hocgia);
+            this.Controls.Add(this.dgvDanhSachDocGia);
             this.Controls.Add(this.pnl_thanhquanly);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
@@ -265,7 +266,8 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "lapphieumuon";
             this.Text = "lapphieumuon";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_hocgia)).EndInit();
+            this.Load += new System.EventHandler(this.lapphieumuon_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachDocGia)).EndInit();
             this.pnl_thanhquanly.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -277,17 +279,17 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNgayLap;
+        private System.Windows.Forms.TextBox txtMaDocGia;
+        private System.Windows.Forms.TextBox txtNguoiLap;
+        private System.Windows.Forms.TextBox txtMaPhieuMuon;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lab_danhsachdocgia;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_thoat;
-        private System.Windows.Forms.DataGridView dataGrid_hocgia;
+        private System.Windows.Forms.DataGridView dgvDanhSachDocGia;
         private System.Windows.Forms.Button btn_Them;
         private System.Windows.Forms.Panel pnl_thanhquanly;
         private System.Windows.Forms.PictureBox logo;

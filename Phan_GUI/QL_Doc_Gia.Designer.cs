@@ -43,12 +43,12 @@
             this.btn_xoa = new System.Windows.Forms.Button();
             this.btn_sua = new System.Windows.Forms.Button();
             this.btn_them = new System.Windows.Forms.Button();
-            this.dataGrid_hocgia = new System.Windows.Forms.DataGridView();
+            this.dgvDocGia = new System.Windows.Forms.DataGridView();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.pnl_thanhquanly.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_hocgia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDocGia)).BeginInit();
             this.SuspendLayout();
             // 
             // menuHideTimer
@@ -147,6 +147,7 @@
             this.btn_thongtin.TabIndex = 0;
             this.btn_thongtin.Text = "Thông tin";
             this.btn_thongtin.UseVisualStyleBackColor = true;
+            this.btn_thongtin.Click += new System.EventHandler(this.btn_thongtin_Click);
             // 
             // btn_xoa
             // 
@@ -156,6 +157,7 @@
             this.btn_xoa.TabIndex = 0;
             this.btn_xoa.Text = "Xóa";
             this.btn_xoa.UseVisualStyleBackColor = true;
+            this.btn_xoa.Click += new System.EventHandler(this.btn_xoa_Click);
             // 
             // btn_sua
             // 
@@ -177,22 +179,23 @@
             this.btn_them.UseVisualStyleBackColor = true;
             this.btn_them.Click += new System.EventHandler(this.btn_them_Click);
             // 
-            // dataGrid_hocgia
+            // dgvDocGia
             // 
-            this.dataGrid_hocgia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGrid_hocgia.Location = new System.Drawing.Point(6, 246);
-            this.dataGrid_hocgia.Name = "dataGrid_hocgia";
-            this.dataGrid_hocgia.RowHeadersWidth = 51;
-            this.dataGrid_hocgia.RowTemplate.Height = 24;
-            this.dataGrid_hocgia.Size = new System.Drawing.Size(1170, 370);
-            this.dataGrid_hocgia.TabIndex = 16;
+            this.dgvDocGia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDocGia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDocGia.Location = new System.Drawing.Point(6, 246);
+            this.dgvDocGia.Name = "dgvDocGia";
+            this.dgvDocGia.RowHeadersWidth = 51;
+            this.dgvDocGia.RowTemplate.Height = 24;
+            this.dgvDocGia.Size = new System.Drawing.Size(1170, 370);
+            this.dgvDocGia.TabIndex = 16;
             // 
             // QL_Doc_Gia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1177, 628);
-            this.Controls.Add(this.dataGrid_hocgia);
+            this.Controls.Add(this.dgvDocGia);
             this.Controls.Add(this.pnl_thanhquanly);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
@@ -206,7 +209,7 @@
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.pnl_thanhquanly.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_hocgia)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDocGia)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -226,6 +229,6 @@
         private System.Windows.Forms.Button btn_xoa;
         private System.Windows.Forms.Button btn_sua;
         private System.Windows.Forms.Button btn_them;
-        private System.Windows.Forms.DataGridView dataGrid_hocgia;
+        private System.Windows.Forms.DataGridView dgvDocGia;
     }
 }

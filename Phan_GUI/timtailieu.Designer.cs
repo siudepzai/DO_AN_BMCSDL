@@ -34,7 +34,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.txt_timkiem = new System.Windows.Forms.TextBox();
             this.menuHideTimer = new System.Windows.Forms.Timer(this.components);
-            this.dataGrid_hocgia = new System.Windows.Forms.DataGridView();
+            this.dgvTaiLieu = new System.Windows.Forms.DataGridView();
             this.lab_QLtailieu = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lab_ = new System.Windows.Forms.Label();
@@ -42,7 +42,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.btn_TK = new System.Windows.Forms.Button();
             this.lab_danhsachtailieu = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_hocgia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTaiLieu)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.panel3.SuspendLayout();
@@ -78,15 +78,15 @@
             // 
             this.menuHideTimer.Interval = 1000;
             // 
-            // dataGrid_hocgia
+            // dgvTaiLieu
             // 
-            this.dataGrid_hocgia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGrid_hocgia.Location = new System.Drawing.Point(8, 204);
-            this.dataGrid_hocgia.Name = "dataGrid_hocgia";
-            this.dataGrid_hocgia.RowHeadersWidth = 51;
-            this.dataGrid_hocgia.RowTemplate.Height = 24;
-            this.dataGrid_hocgia.Size = new System.Drawing.Size(1010, 336);
-            this.dataGrid_hocgia.TabIndex = 59;
+            this.dgvTaiLieu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTaiLieu.Location = new System.Drawing.Point(8, 204);
+            this.dgvTaiLieu.Name = "dgvTaiLieu";
+            this.dgvTaiLieu.RowHeadersWidth = 51;
+            this.dgvTaiLieu.RowTemplate.Height = 24;
+            this.dgvTaiLieu.Size = new System.Drawing.Size(1010, 336);
+            this.dgvTaiLieu.TabIndex = 59;
             // 
             // lab_QLtailieu
             // 
@@ -156,6 +156,7 @@
             this.btn_TK.TabIndex = 15;
             this.btn_TK.Text = "Tìm";
             this.btn_TK.UseVisualStyleBackColor = false;
+            this.btn_TK.Click += new System.EventHandler(this.btn_TK_Click);
             // 
             // lab_danhsachtailieu
             // 
@@ -173,15 +174,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1018, 593);
             this.Controls.Add(this.btn_thoat);
-            this.Controls.Add(this.dataGrid_hocgia);
+            this.Controls.Add(this.dgvTaiLieu);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.lab_danhsachtailieu);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "timtailieu";
             this.Text = "timtailieu";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_hocgia)).EndInit();
+            this.Load += new System.EventHandler(this.timtailieu_Load_1);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTaiLieu)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.panel3.ResumeLayout(false);
@@ -197,7 +199,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txt_timkiem;
         private System.Windows.Forms.Timer menuHideTimer;
-        private System.Windows.Forms.DataGridView dataGrid_hocgia;
+        private System.Windows.Forms.DataGridView dgvTaiLieu;
         private System.Windows.Forms.Label lab_QLtailieu;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lab_;

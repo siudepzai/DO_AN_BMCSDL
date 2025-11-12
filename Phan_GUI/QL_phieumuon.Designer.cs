@@ -76,6 +76,7 @@
             this.btn_TK.TabIndex = 15;
             this.btn_TK.Text = "Tìm";
             this.btn_TK.UseVisualStyleBackColor = false;
+            this.btn_TK.Click += new System.EventHandler(this.btn_TK_Click);
             // 
             // pnl_thanhquanly
             // 
@@ -166,7 +167,6 @@
             this.btn_thongtintailieu.TabIndex = 16;
             this.btn_thongtintailieu.Text = "Tài liêu-sách";
             this.btn_thongtintailieu.UseVisualStyleBackColor = false;
-            this.btn_thongtintailieu.Click += new System.EventHandler(this.btn_thongtintailieu_Click);
             // 
             // panel1
             // 
@@ -192,7 +192,7 @@
             this.logo.TabIndex = 0;
             this.logo.TabStop = false;
             // 
-            // Thongtintailieu
+            // QL_phieumuon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -204,8 +204,9 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "Thongtintailieu";
+            this.Name = "QL_phieumuon";
             this.Text = "Thongtintailieu";
+            this.Load += new System.EventHandler(this.QL_phieumuon_Load);
             this.pnl_thanhquanly.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMuonTra)).EndInit();

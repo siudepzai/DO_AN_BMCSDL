@@ -184,6 +184,7 @@
             this.MinimizeBox = false;
             this.Name = "THONGTINVIPHAM";
             this.Text = "THONGTINVIPHAM";
+            this.Load += new System.EventHandler(this.THONGTINVIPHAM_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

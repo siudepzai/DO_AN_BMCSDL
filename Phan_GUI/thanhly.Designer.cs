@@ -41,13 +41,13 @@
             this.btn_sua = new System.Windows.Forms.Button();
             this.btn_them = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGrid_hocgia = new System.Windows.Forms.DataGridView();
             this.logo = new System.Windows.Forms.PictureBox();
+            this.dgvThanhLy = new System.Windows.Forms.DataGridView();
             this.panel3.SuspendLayout();
             this.pnl_thanhquanly.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_hocgia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvThanhLy)).BeginInit();
             this.SuspendLayout();
             // 
             // menuHideTimer
@@ -121,6 +121,7 @@
             this.btn_xoa.TabIndex = 0;
             this.btn_xoa.Text = "Xóa";
             this.btn_xoa.UseVisualStyleBackColor = true;
+            this.btn_xoa.Click += new System.EventHandler(this.btn_xoa_Click);
             // 
             // btn_sua
             // 
@@ -154,16 +155,6 @@
             this.panel1.Size = new System.Drawing.Size(1176, 90);
             this.panel1.TabIndex = 17;
             // 
-            // dataGrid_hocgia
-            // 
-            this.dataGrid_hocgia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGrid_hocgia.Location = new System.Drawing.Point(6, 244);
-            this.dataGrid_hocgia.Name = "dataGrid_hocgia";
-            this.dataGrid_hocgia.RowHeadersWidth = 51;
-            this.dataGrid_hocgia.RowTemplate.Height = 24;
-            this.dataGrid_hocgia.Size = new System.Drawing.Size(1170, 370);
-            this.dataGrid_hocgia.TabIndex = 20;
-            // 
             // logo
             // 
             this.logo.ErrorImage = ((System.Drawing.Image)(resources.GetObject("logo.ErrorImage")));
@@ -176,6 +167,17 @@
             this.logo.TabIndex = 0;
             this.logo.TabStop = false;
             // 
+            // dgvThanhLy
+            // 
+            this.dgvThanhLy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvThanhLy.Location = new System.Drawing.Point(6, 244);
+            this.dgvThanhLy.Name = "dgvThanhLy";
+            this.dgvThanhLy.RowHeadersWidth = 51;
+            this.dgvThanhLy.RowTemplate.Height = 24;
+            this.dgvThanhLy.Size = new System.Drawing.Size(1170, 370);
+            this.dgvThanhLy.TabIndex = 20;
+            this.dgvThanhLy.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvThanhLy_CellContentClick);
+            // 
             // thanhly
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
@@ -184,16 +186,17 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.pnl_thanhquanly);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.dataGrid_hocgia);
+            this.Controls.Add(this.dgvThanhLy);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "thanhly";
             this.Text = "thanhly";
+            this.Load += new System.EventHandler(this.thanhly_Load_1);
             this.panel3.ResumeLayout(false);
             this.pnl_thanhquanly.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_hocgia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvThanhLy)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -212,6 +215,6 @@
         private System.Windows.Forms.Button btn_them;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox logo;
-        private System.Windows.Forms.DataGridView dataGrid_hocgia;
+        private System.Windows.Forms.DataGridView dgvThanhLy;
     }
 }

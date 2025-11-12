@@ -41,13 +41,12 @@
             this.btn_thoat = new System.Windows.Forms.Button();
             this.btn_thongtin = new System.Windows.Forms.Button();
             this.btn_xoa = new System.Windows.Forms.Button();
-            this.btn_them = new System.Windows.Forms.Button();
-            this.dataGrid_hocgia = new System.Windows.Forms.DataGridView();
+            this.dgv_thongtinvipham = new System.Windows.Forms.DataGridView();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.pnl_thanhquanly.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_hocgia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_thongtinvipham)).BeginInit();
             this.SuspendLayout();
             // 
             // menuHideTimer
@@ -121,7 +120,6 @@
             this.pnl_thanhquanly.Controls.Add(this.btn_thoat);
             this.pnl_thanhquanly.Controls.Add(this.btn_thongtin);
             this.pnl_thanhquanly.Controls.Add(this.btn_xoa);
-            this.pnl_thanhquanly.Controls.Add(this.btn_them);
             this.pnl_thanhquanly.Location = new System.Drawing.Point(3, 155);
             this.pnl_thanhquanly.Name = "pnl_thanhquanly";
             this.pnl_thanhquanly.Size = new System.Drawing.Size(1173, 67);
@@ -129,51 +127,49 @@
             // 
             // btn_thoat
             // 
+            this.btn_thoat.BackColor = System.Drawing.Color.Cyan;
+            this.btn_thoat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_thoat.Location = new System.Drawing.Point(734, 9);
             this.btn_thoat.Name = "btn_thoat";
             this.btn_thoat.Size = new System.Drawing.Size(190, 45);
             this.btn_thoat.TabIndex = 0;
             this.btn_thoat.Text = "Thoát";
-            this.btn_thoat.UseVisualStyleBackColor = true;
+            this.btn_thoat.UseVisualStyleBackColor = false;
             this.btn_thoat.Click += new System.EventHandler(this.btn_thoat_Click);
             // 
             // btn_thongtin
             // 
+            this.btn_thongtin.BackColor = System.Drawing.Color.Cyan;
+            this.btn_thongtin.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_thongtin.Location = new System.Drawing.Point(485, 9);
             this.btn_thongtin.Name = "btn_thongtin";
             this.btn_thongtin.Size = new System.Drawing.Size(190, 45);
             this.btn_thongtin.TabIndex = 0;
             this.btn_thongtin.Text = "Thông tin";
-            this.btn_thongtin.UseVisualStyleBackColor = true;
+            this.btn_thongtin.UseVisualStyleBackColor = false;
             this.btn_thongtin.Click += new System.EventHandler(this.btn_thongtin_Click);
             // 
             // btn_xoa
             // 
+            this.btn_xoa.BackColor = System.Drawing.Color.Cyan;
+            this.btn_xoa.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_xoa.Location = new System.Drawing.Point(226, 9);
             this.btn_xoa.Name = "btn_xoa";
             this.btn_xoa.Size = new System.Drawing.Size(190, 45);
             this.btn_xoa.TabIndex = 0;
             this.btn_xoa.Text = "Xóa";
-            this.btn_xoa.UseVisualStyleBackColor = true;
+            this.btn_xoa.UseVisualStyleBackColor = false;
+            this.btn_xoa.Click += new System.EventHandler(this.btn_xoa_Click_1);
             // 
-            // btn_them
+            // dgv_thongtinvipham
             // 
-            this.btn_them.Location = new System.Drawing.Point(3, 9);
-            this.btn_them.Name = "btn_them";
-            this.btn_them.Size = new System.Drawing.Size(190, 45);
-            this.btn_them.TabIndex = 0;
-            this.btn_them.Text = "Thêm";
-            this.btn_them.UseVisualStyleBackColor = true;
-            // 
-            // dataGrid_hocgia
-            // 
-            this.dataGrid_hocgia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGrid_hocgia.Location = new System.Drawing.Point(6, 249);
-            this.dataGrid_hocgia.Name = "dataGrid_hocgia";
-            this.dataGrid_hocgia.RowHeadersWidth = 51;
-            this.dataGrid_hocgia.RowTemplate.Height = 24;
-            this.dataGrid_hocgia.Size = new System.Drawing.Size(1170, 370);
-            this.dataGrid_hocgia.TabIndex = 20;
+            this.dgv_thongtinvipham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_thongtinvipham.Location = new System.Drawing.Point(6, 253);
+            this.dgv_thongtinvipham.Name = "dgv_thongtinvipham";
+            this.dgv_thongtinvipham.RowHeadersWidth = 51;
+            this.dgv_thongtinvipham.RowTemplate.Height = 24;
+            this.dgv_thongtinvipham.Size = new System.Drawing.Size(1170, 366);
+            this.dgv_thongtinvipham.TabIndex = 20;
             // 
             // xulyvipham
             // 
@@ -183,18 +179,19 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnl_thanhquanly);
-            this.Controls.Add(this.dataGrid_hocgia);
+            this.Controls.Add(this.dgv_thongtinvipham);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "xulyvipham";
             this.Text = "xulyvipham";
+            this.Load += new System.EventHandler(this.xulyvipham_Load);
             this.panel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.pnl_thanhquanly.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_hocgia)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_thongtinvipham)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -212,7 +209,6 @@
         private System.Windows.Forms.Button btn_thoat;
         private System.Windows.Forms.Button btn_thongtin;
         private System.Windows.Forms.Button btn_xoa;
-        private System.Windows.Forms.Button btn_them;
-        private System.Windows.Forms.DataGridView dataGrid_hocgia;
+        private System.Windows.Forms.DataGridView dgv_thongtinvipham;
     }
 }
