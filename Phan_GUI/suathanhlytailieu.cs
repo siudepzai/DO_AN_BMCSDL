@@ -11,20 +11,15 @@ namespace DO_AN_BMCSDL.Phan_GUI
     {
         private string _maHoaDon;
 
-        // Giả định tên controls: txtMaPhieu, txtNgayLap, txtGhiChu
-
-        // Constructor mặc định (giữ nguyên)
         public suathanhlytailieu()
         {
             InitializeComponent();
         }
-
-        // 🛠️ BỔ SUNG: Constructor nhận Mã hóa đơn để sửa
         public suathanhlytailieu(string maHoaDon)
         {
             InitializeComponent();
             _maHoaDon = maHoaDon;
-            this.Load += suathanhlytailieu_Load; // Gán sự kiện Load
+            this.Load += suathanhlytailieu_Load; 
         }
 
         private void suathanhlytailieu_Load(object sender, EventArgs e)
@@ -36,13 +31,10 @@ namespace DO_AN_BMCSDL.Phan_GUI
         }
         private void CreateDataGridViewColumns()
         {
-            // Giả định tên DGV là dgvChiTiet
             if (dgvChiTiet == null || dgvChiTiet.Columns.Count > 0) return;
 
-            // Tắt chế độ tự tạo cột (nếu có)
             dgvChiTiet.AutoGenerateColumns = false;
 
-            // Thêm các cột theo thiết kế của bạn
             dgvChiTiet.Columns.Add(new DataGridViewTextBoxColumn()
             {
                 Name = "ColMaTaiLieu",
@@ -55,14 +47,13 @@ namespace DO_AN_BMCSDL.Phan_GUI
                 HeaderText = "Tên tài liệu - sách"
             });
 
-            // Nếu Kho là ComboBox (tùy chọn), bạn dùng DataGridViewComboBoxColumn
+       
             dgvChiTiet.Columns.Add(new DataGridViewTextBoxColumn()
             {
                 Name = "ColKho",
                 HeaderText = "Kho"
             });
 
-            // Tùy chọn: Thêm cột nút Xóa dòng
             DataGridViewButtonColumn deleteCol = new DataGridViewButtonColumn();
             deleteCol.HeaderText = "Xóa";
             deleteCol.Text = "Xóa";
@@ -70,11 +61,9 @@ namespace DO_AN_BMCSDL.Phan_GUI
             deleteCol.Width = 50;
             dgvChiTiet.Columns.Add(deleteCol);
 
-            // Điều chỉnh cột # (STT) nếu cần
-            // dgvChiTiet.Columns[0].ReadOnly = true; 
+           
         }
 
-        // --- Tải chi tiết phiếu thanh lý cũ ---
         private void LoadChiTietThanhLy()
         {
             string sql = @"
@@ -167,7 +156,7 @@ namespace DO_AN_BMCSDL.Phan_GUI
 
         private void btn_TK_Click(object sender, EventArgs e)
         {
-            // Logic tìm kiếm tài liệu (nếu có DGV)
+          
         }
 
         private void dgvChiTiet_CellContentClick(object sender, DataGridViewCellEventArgs e)

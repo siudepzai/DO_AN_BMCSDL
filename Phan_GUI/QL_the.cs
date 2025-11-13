@@ -30,7 +30,7 @@ namespace DO_AN_BMCSDL.Phan_GUI
         {
             try
             {
-                // Thiết lập Database
+               
                 Database.Set_Database("localhost", "1521", "ORCL", "C##DO_AN", "12345");
             }
             catch (ArgumentException ex)
@@ -39,34 +39,27 @@ namespace DO_AN_BMCSDL.Phan_GUI
                 return;
             }
 
-            // Thiết lập Font và Style cho DataGridView
             dgv_thongtinthe.Font = new Font("Times New Roman", 12, FontStyle.Regular);
             dgv_thongtinthe.ColumnHeadersDefaultCellStyle.Font = new Font("Times New Roman", 12, FontStyle.Bold);
             dgv_thongtinthe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            // Tải dữ liệu lần đầu (Không cần tham số, dùng mặc định)
             LoadDataTheDocGia();
-            // Gán sự kiện CellClick
             dgv_thongtinthe.CellClick += dgv_thongtinthe_CellClick;
 
             LoadDataTheDocGia();
 
-            // Thiết lập trạng thái ban đầu: Chỉ xem/chỉnh sửa
             SetFormMode(false);
         }
 
-        // --- HÀM THIẾT LẬP TRẠNG THÁI FORM (Mở khóa Địa chỉ, Vai trò, Tình trạng) ---
         private void SetFormMode(bool isEditable)
         {
             _isAddingNew = isEditable;
 
-            //  Khóa các trường KHÔNG THỂ sửa (Mã thẻ, Mã TV/Họ tên)
+           
             txt_masothe.ReadOnly = true;
             txt_hoten.ReadOnly = true;
 
-            //  Mở khóa các trường CÓ THỂ sửa
-            txt_tinhtrang.ReadOnly = !isEditable; // Mở khóa Tình trạng
+            txt_tinhtrang.ReadOnly = !isEditable; 
 
-            // Chế độ Cập nhật/Xem thẻ cũ
             if (!_isAddingNew)
             {
                 txt_diachi.ReadOnly = false;
@@ -74,50 +67,47 @@ namespace DO_AN_BMCSDL.Phan_GUI
             }
             else
             {
-                // Chế độ Thêm mới: Chỉ mở Mã thẻ và Họ tên (Mã TV)
+                
                 txt_masothe.ReadOnly = false;
                 txt_hoten.ReadOnly = false;
                 txt_diachi.ReadOnly = true;
                 txt_vaitro.ReadOnly = true;
             }
 
-            // Cập nhật nút dựa trên trạng thái
+           
             btn_capnhat.Text = _isAddingNew ? "Lưu Thẻ" : "Cập nhật";
 
          }
 
-        // --- HÀM DỌN DẸP FORM CHO THÊM MỚI ---
         private void ClearFormForNewEntry()
         {
             txt_masothe.Clear();
             txt_hoten.Clear();
             txt_diachi.Clear();
             txt_vaitro.Clear();
-            txt_tinhtrang.Text = "Chưa cấp"; // Giá trị mặc định
+            txt_tinhtrang.Text = "Chưa cấp"; 
         }
 
-        // 🔹 Nút CẬP NHẬT/LƯU
         private void btn_capnhat_Click(object sender, EventArgs e)
         {
             if (_isAddingNew)
             {
-                // THỰC HIỆN INSERT (LƯU THẺ MỚI)
+               
                 HandleInsertNewThe();
             }
             else
             {
-                // THỰC HIỆN UPDATE (CẬP NHẬT THẺ CŨ)
+                
                 HandleUpdateThe();
             }
         }
 
-        // --- LOGIC INSERT THẺ MỚI (Kiểm tra trùng Mã thẻ) ---
         private void HandleInsertNewThe()
         {
             string maThe = txt_masothe.Text.Trim();
             string maTV = txt_hoten.Text.Trim();
             string tinhTrang = txt_tinhtrang.Text.Trim();
-            string hanSD = DateTime.Now.AddYears(5).ToString("yyyy-MM-dd"); // Giả định hạn sử dụng 5 năm
+            string hanSD = DateTime.Now.AddYears(5).ToString("yyyy-MM-dd"); 
 
             if (string.IsNullOrEmpty(maThe) || string.IsNullOrEmpty(maTV))
             {
@@ -130,7 +120,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
                 return;
             }
 
-            // Câu truy vấn INSERT vào THEBANDOC
             string sql = @"INSERT INTO THEBANDOC (MASOTHE, MATHANHVIEN, TINHTRANGTHE, HANSUDUNG)
                            VALUES (:maThe, :maTV, :tinhTrang, :hanSD)";
 
@@ -159,11 +148,10 @@ namespace DO_AN_BMCSDL.Phan_GUI
             finally
             {
                 Database.Close();
-                SetFormMode(false); // Quay về chế độ mặc định sau khi lưu
+                SetFormMode(false); 
             }
         }
 
-        // --- HÀM KIỂM TRA TRƯỚC KHI INSERT ---
         private bool CheckBeforeInsert(string maThe, string maTV)
         {
             string sqlCheckThe = "SELECT COUNT(*) FROM THEBANDOC WHERE TRIM(MASOTHE) = :maThe";
@@ -177,7 +165,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
 
             try
             {
-                // Kiểm tra trùng Mã số thẻ
                 int countThe = Convert.ToInt32(Database.ExecuteQuery(sqlCheckThe, new OracleParameter("maThe", maThe)).Rows[0][0]);
                 if (countThe > 0)
                 {
@@ -185,7 +172,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
                     return false;
                 }
 
-                // Đóng và mở lại kết nối để thực hiện truy vấn thứ hai an toàn hơn
                 Database.Close();
                 if (!Database.Connect())
                 {
@@ -193,7 +179,7 @@ namespace DO_AN_BMCSDL.Phan_GUI
                     return false;
                 }
 
-                // Kiểm tra Mã thành viên có tồn tại trong DOCGIA không
+               
                 int countTV = Convert.ToInt32(Database.ExecuteQuery(sqlCheckTV, new OracleParameter("maTV", maTV)).Rows[0][0]);
                 if (countTV == 0)
                 {
@@ -213,7 +199,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
             return true;
         }
 
-        // --- LOGIC UPDATE THẺ CŨ ---
         private void HandleUpdateThe()
         {
             string maSoThe = txt_masothe.Text.Trim();
@@ -228,7 +213,7 @@ namespace DO_AN_BMCSDL.Phan_GUI
                 return;
             }
 
-            // Câu truy vấn UPDATE: Cập nhật DOCGIA (Địa chỉ, Vai trò) và THEBANDOC (Tình trạng)
+            
             string sqlDocGia = @"UPDATE DOCGIA T1 
                            SET T1.DIACHI = :diaChiMoi, 
                                T1.VAITRO = :vaiTroMoi 
@@ -243,7 +228,7 @@ namespace DO_AN_BMCSDL.Phan_GUI
             {
                 if (Database.Connect())
                 {
-                    // 1. Cập nhật DOCGIA (Địa chỉ, Vai trò)
+                   
                     using (OracleCommand cmdDocGia = new OracleCommand(sqlDocGia, Database.Get_Connection()))
                     {
                         cmdDocGia.Parameters.Add(new OracleParameter("diaChiMoi", diaChi));
@@ -253,7 +238,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
                         cmdDocGia.ExecuteNonQuery();
                     }
 
-                    // 2. Cập nhật THEBANDOC (Tình trạng)
                     Database.Close();
                     if (!Database.Connect())
                     {
@@ -292,11 +276,10 @@ namespace DO_AN_BMCSDL.Phan_GUI
         }
 
 
-        // --- CÁC HÀM XỬ LÝ KHÁC ---
 
         private void dgv_thongtinthe_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Chỉ cho phép click để xem/sửa nếu không ở chế độ Thêm mới
+         
             if (_isAddingNew) return;
 
             if (e.RowIndex >= 0)
@@ -311,8 +294,8 @@ namespace DO_AN_BMCSDL.Phan_GUI
                     txt_vaitro.Text = row.Cells["Vai tro"].Value.ToString().Trim();
                     txt_tinhtrang.Text = row.Cells["Tinh trang"].Value.ToString().Trim();
 
-                    // Chuyển Form về chế độ chỉnh sửa/xem
-                    SetFormMode(false); // Gọi SetFormMode(false) để khóa Mã thẻ/Họ tên nhưng mở khóa Địa chỉ/Vai trò/Tình trạng
+                   
+                    SetFormMode(false); 
                 }
                 catch (Exception ex)
                 {

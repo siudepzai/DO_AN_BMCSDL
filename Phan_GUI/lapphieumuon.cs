@@ -22,23 +22,19 @@ namespace DO_AN_BMCSDL.Phan_GUI
 
         private void lapphieumuon_Load(object sender, EventArgs e)
         {
-            // Thiết lập DataGridView
             if (dgvDanhSachDocGia != null)
             {
                 dgvDanhSachDocGia.Font = new Font("Times New Roman", 12, FontStyle.Regular);
                 dgvDanhSachDocGia.ColumnHeadersDefaultCellStyle.Font = new Font("Times New Roman", 12, FontStyle.Bold);
                 dgvDanhSachDocGia.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-                // Gán sự kiện CellClick (Để điền Ma doc gia)
                 dgvDanhSachDocGia.CellClick -= dgvDanhSachDocGia_CellClick;
                 dgvDanhSachDocGia.CellClick += dgvDanhSachDocGia_CellClick;
 
-                // 🛠️ BỔ SUNG: Gán sự kiện CellDoubleClick (Để điền toàn bộ thông tin)
                 dgvDanhSachDocGia.CellDoubleClick -= dgvDanhSachDocGia_CellDoubleClick;
                 dgvDanhSachDocGia.CellDoubleClick += dgvDanhSachDocGia_CellDoubleClick;
             }
 
-            // Kết nối DB và tải dữ liệu độc giả
             try
             {
                 Database.Set_Database("localhost", "1521", "ORCL", "C##DO_AN", "12345");
@@ -49,12 +45,9 @@ namespace DO_AN_BMCSDL.Phan_GUI
                 MessageBox.Show("Lỗi khởi tạo hoặc kết nối DB: " + ex.Message, "Lỗi");
             }
 
-            // 🛠️ THAY ĐỔI: Để trống Ngày lập ban đầu
             txtNgayLap.Clear();
             txtNgayLap.ReadOnly = true;
         }
-
-        // --- HÀM TẢI DỮ LIỆU DANH SÁCH ĐỘC GIẢ ---
         private void LoadDanhSachDocGia()
         {
             string sql = @"
@@ -86,8 +79,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
                 Database.Close();
             }
         }
-
-        // --- SỰ KIỆN CELL CLICK (Chỉ điền Mã độc giả và xóa Ngày lập) ---
         private void dgvDanhSachDocGia_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -102,8 +93,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
                 txtNgayLap.Clear();
             }
         }
-
-        // --- 🛠️ SỰ KIỆN CELL DOUBLE CLICK (Lấy toàn bộ thông tin phiếu) ---
         private void dgvDanhSachDocGia_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -132,7 +121,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
             DateTime ngayMuon = DateTime.Now;
             txtNgayLap.Text = ngayMuon.ToString("dd/MM/yyyy HH:mm");
 
-            // 1. Kiểm tra đầu vào
             if (string.IsNullOrWhiteSpace(txtMaPhieuMuon.Text) ||
                 string.IsNullOrWhiteSpace(txtMaDocGia.Text) ||
                 string.IsNullOrWhiteSpace(txtNguoiLap.Text))
@@ -141,11 +129,9 @@ namespace DO_AN_BMCSDL.Phan_GUI
                 return;
             }
 
-            // 2. Chuẩn bị dữ liệu
             string maPhieu = txtMaPhieuMuon.Text.Trim();
             string maDocGia = txtMaDocGia.Text.Trim();
-            string maNV = txtNguoiLap.Text.Trim(); // Giá trị này bây giờ là Mã NV (<= 10 ký tự)
-
+            string maNV = txtNguoiLap.Text.Trim(); 
             string sqlInsert = @"
                 INSERT INTO PHIEUMUON (MAPHIEUMUON, MANV, MASOTHE, NGAYMUON, NGAYTRA)
                 VALUES (

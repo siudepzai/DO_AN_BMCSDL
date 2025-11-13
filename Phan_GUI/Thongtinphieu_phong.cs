@@ -14,35 +14,32 @@ namespace DO_AN_BMCSDL.Phan_GUI
 {
     public partial class Thongtinphieu_phong : Form
     {
-        // 🛠️ KHẮC PHỤC LỖI CS0103: Khai báo biến thành viên
+       
         private string _maPhieu;
-        private Label lblTrangThaiXuLy; // Khai báo cho trạng thái (giả sử tên là lblTrangThaiXuLy)
+        private Label lblTrangThaiXuLy; 
 
         public Thongtinphieu_phong()
         {
             InitializeComponent();
         }
 
-        // Bổ sung constructor nhận mã phiếu
+      
         public Thongtinphieu_phong(string maPhieu)
         {
             InitializeComponent();
-            _maPhieu = maPhieu; // Gán giá trị cho biến thành viên
+            _maPhieu = maPhieu;
 
-            // 🛠️ KHẮC PHỤC LỖI CS0103: Tìm và gán Label trạng thái
-            // Bạn cần thay thế "lbl_trangthaiphieu_control_name" bằng tên thực tế của Label trên Form
+          
             lblTrangThaiXuLy = this.Controls.Find("lbl_trangthaiphieu_control_name", true).FirstOrDefault() as Label;
 
-            // Gán sự kiện click cho các nút
+            
             if (btn_dongy != null)
             {
-                // Tránh gán lại sự kiện nếu bạn đã gán trong Designer
                 btn_dongy.Click -= btnDongY_Click;
                 btn_dongy.Click += btnDongY_Click;
             }
             if (btn_tuchoi != null)
             {
-                // Tránh gán lại sự kiện nếu bạn đã gán trong Designer
                 btn_tuchoi.Click -= btnTuChoi_Click;
                 btn_tuchoi.Click += btnTuChoi_Click;
             }
@@ -55,7 +52,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
 
         private void LoadChiTietPhieu()
         {
-            // 🛠️ ĐÃ XÓA T1.SOLANGIAHAN để khắc phục lỗi ORA-00904
             string sql = @"
         SELECT 
             T1.MADATPHONG AS MaPhieu,
@@ -94,34 +90,25 @@ namespace DO_AN_BMCSDL.Phan_GUI
                         DataRow row = dt.Rows[0];
                         string trangThai = row["TrangThaiXuLy"].ToString().Trim();
 
-                        // 2. HIỂN THỊ DỮ LIỆU LÊN CÁC CONTROL TƯƠNG ỨNG
-
-                        // Thông tin Phiếu
                         txtMaPhieu.Text = row["MaPhieu"].ToString();
                         txtYeuCau.Text = row["YeuCau"].ToString();
 
-                        // 🛠️ BỎ GÁN SOLANGIAHAN: Vì không có trong SQL
                         txtSoLanGiaHang.Text = "";
 
-                        // Sử dụng Format nếu là DateTime
                         txt_TGMuon.Text = ((DateTime)row["ThoiGianMuon"]).ToString("dd/MM/yyyy HH:mm");
                         textBox14.Text = ((DateTime)row["ThoiGianTra"]).ToString("dd/MM/yyyy HH:mm");
 
-                        // Thông tin Độc giả
                         txtMaDocGia.Text = row["MaDocGia"].ToString();
                         txtTenDocGia.Text = row["TenDocGia"].ToString();
                         txtVaiTro.Text = row["VaiTro"].ToString();
                         txtKhoa.Text = row["Khoa"].ToString();
                         txtLop.Text = row["Lop"].ToString();
 
-                        // Thông tin Phòng
                         txtMaPhong.Text = row["MaPhong"].ToString();
                         txtTenPhong.Text = row["TenPhong"].ToString();
                         
                         txtTrangThai.Text = row["TrangThaiPhong"].ToString();
 
-
-                        // Cập nhật trạng thái hiển thị và ẩn/hiện nút (Giữ nguyên logic cũ)
                         if (lblTrangThaiXuLy != null) lblTrangThaiXuLy.Text = trangThai;
 
                         if (trangThai == "Dong y" || trangThai == "Tu choi")
@@ -153,13 +140,10 @@ namespace DO_AN_BMCSDL.Phan_GUI
                 Database.Close();
             }
         }
-        // Hàm xử lý nút Dong y
         private void btnDongY_Click(object sender, EventArgs e)
         {
             CapNhatTrangThai("Dong y");
         }
-
-        // Hàm xử lý nút Tu choi
         private void btnTuChoi_Click(object sender, EventArgs e)
         {
             CapNhatTrangThai("Tu choi");
@@ -173,7 +157,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
             {
                 if (Database.Connect())
                 {
-                    // Dòng code bạn hỏi nằm ở đây:
                     int rowsAffected = Database.ExecuteNonQuery(sql,
                         new OracleParameter("trangThai", trangThaiMoi),
                         new OracleParameter("maPhieu", _maPhieu));
@@ -181,7 +164,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
                     if (rowsAffected > 0)
                     {
                         MessageBox.Show($"Đã cập nhật trạng thái phiếu {_maPhieu} thành '{trangThaiMoi}'.", "Thành công");
-                        // Thiết lập DialogResult = OK để Form cha tải lại dữ liệu
                         this.DialogResult = DialogResult.OK;
                         this.Close();
                     }

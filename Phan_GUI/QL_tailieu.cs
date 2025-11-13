@@ -30,24 +30,23 @@ namespace DO_AN_BMCSDL.Phan_GUI
                 return;
             }
 
-            // Thiết lập Font và Style cho DataGridView
             dgv_tailieu.Font = new Font("Times New Roman", 12, FontStyle.Regular);
             dgv_tailieu.ColumnHeadersDefaultCellStyle.Font = new Font("Times New Roman", 12, FontStyle.Bold);
             dgv_tailieu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            // Gán sự kiện CellClick
+           
             dgv_tailieu.CellClick += dgv_tailieu_CellClick;
 
             LoadDataTaiLieu();
 
-            // Thiết lập trạng thái ban đầu
+         
             SetFormMode(false);
         }
 
-        // --- HÀM TẢI DỮ LIỆU TÀI LIỆU ---
+      
         private void LoadDataTaiLieu(string searchTerm = "")
         {
-            // Lấy dữ liệu từ bảng TAILIEU
+           
             string sql = @"
                 SELECT 
                     ROWNUM AS STT, 
@@ -67,11 +66,10 @@ namespace DO_AN_BMCSDL.Phan_GUI
             {
                 if (Database.Connect())
                 {
-                    // Tham số tìm kiếm (đã được chuyển sang chữ thường)
+                  
                     DataTable dt = Database.ExecuteQuery(sql, new OracleParameter("searchTerm", searchTerm.ToLower()));
                     dgv_tailieu.DataSource = dt;
 
-                    // Cập nhật HeaderText hiển thị Tiếng Việt
                     dgv_tailieu.Columns["Ma tai lieu"].HeaderText = "MÃ TÀI LIỆU";
                     dgv_tailieu.Columns["Ten tai lieu"].HeaderText = "TÊN TÀI LIỆU";
                     dgv_tailieu.Columns["Ngon ngu"].HeaderText = "NGÔN NGỮ";
@@ -80,7 +78,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
                     dgv_tailieu.Columns["The loai"].HeaderText = "THỂ LOẠI";
                     dgv_tailieu.Columns["Tinh trang"].HeaderText = "TÌNH TRẠNG";
 
-                    // Căn giữa các cột
                     foreach (DataGridViewColumn col in dgv_tailieu.Columns)
                     {
                         col.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -98,15 +95,12 @@ namespace DO_AN_BMCSDL.Phan_GUI
             }
         }
 
-        // --- HÀM THIẾT LẬP TRẠNG THÁI FORM (Read-only/Editable) ---
         private void SetFormMode(bool isAdding)
         {
             _isAddingNew = isAdding;
 
-            // Mã tài liệu chỉ được phép nhập khi Thêm mới
             txt_matailieu.ReadOnly = !isAdding;
 
-            // Các trường khác luôn cho phép chỉnh sửa
             txt_tentailieu.ReadOnly = false;
             txt_ngonngu.ReadOnly = false;
             txt_chiphi.ReadOnly = false;
@@ -114,13 +108,10 @@ namespace DO_AN_BMCSDL.Phan_GUI
             txt_tentacgia.ReadOnly = false;
             txt_theloai.ReadOnly = false;
 
-            // Cập nhật nút dựa trên trạng thái
             btn_capnhattailieu.Text = isAdding ? "Lưu" : "Cập nhật";
 
           
         }
-
-        // --- HÀM DỌN DẸP FORM CHO THÊM MỚI ---
         private void ClearFormControls()
         {
             txt_matailieu.Clear();
@@ -132,10 +123,8 @@ namespace DO_AN_BMCSDL.Phan_GUI
             txt_theloai.Clear();
         }
 
-        // --- XỬ LÝ CLICK DGV ĐỂ HIỂN THỊ LÊN TEXTBOX ---
         private void dgv_tailieu_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Chỉ cho phép click để xem/sửa nếu không ở chế độ Thêm mới
             if (_isAddingNew) return;
 
             if (e.RowIndex >= 0)
@@ -144,7 +133,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
 
                 try
                 {
-                    // Chuyển dữ liệu DGV vào TextBox (Sử dụng tên cột AS trong SQL)
                     txt_matailieu.Text = row.Cells["Ma tai lieu"].Value.ToString();
                     txt_tentailieu.Text = row.Cells["Ten tai lieu"].Value.ToString();
                     txt_ngonngu.Text = row.Cells["Ngon ngu"].Value.ToString();
@@ -153,7 +141,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
                     txt_theloai.Text = row.Cells["The loai"].Value.ToString();
                     txt_tinhtrang.Text = row.Cells["Tinh trang"].Value.ToString();
 
-                    // Chuyển Form về chế độ chỉnh sửa/xem
                     SetFormMode(false);
                 }
                 catch (Exception ex)
@@ -163,7 +150,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
             }
         }
 
-        // 🔹 Nút THÊM MỚI
         private void btn_them_Click(object sender, EventArgs e)
         {
             ClearFormControls();
@@ -171,22 +157,21 @@ namespace DO_AN_BMCSDL.Phan_GUI
             txt_matailieu.Focus();
         }
 
-        // 🔹 Nút CẬP NHẬT / LƯU
+       
         private void btn_capnhat_Click(object sender, EventArgs e)
         {
             if (_isAddingNew)
             {
-                // THỰC HIỆN INSERT
+                
                 HandleInsert();
             }
             else
             {
-                // THỰC HIỆN UPDATE
+                
                 HandleUpdate();
             }
         }
 
-        // --- LOGIC INSERT (LƯU MỚI) ---
         private void HandleInsert()
         {
             string maTL = txt_matailieu.Text.Trim();
@@ -198,7 +183,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
                 return;
             }
 
-            // Xử lý Chi phí (PHIMUON là FLOAT)
             float chiPhi = 0;
             if (!float.TryParse(txt_chiphi.Text, NumberStyles.Any, CultureInfo.InvariantCulture, out chiPhi))
             {
@@ -206,7 +190,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
                 return;
             }
 
-            // Câu truy vấn INSERT
             string sql = @"INSERT INTO TAILIEU (MATAILIEU, TENSACH, NGONNGU, PHIMUON, TINHTRANG, TENTACGIA, THELOAI) 
                            VALUES (:ma, :ten, :ngonngu, :chiphi, :tinhtrang, :tacgia, :theloai)";
 
@@ -232,7 +215,7 @@ namespace DO_AN_BMCSDL.Phan_GUI
             }
             catch (OracleException ex)
             {
-                if (ex.Number == 1) // ORA-00001: Trùng khóa chính
+                if (ex.Number == 1) 
                 {
                     MessageBox.Show($"Lỗi: Mã tài liệu '{maTL}' đã tồn tại.", "Lỗi trùng lặp");
                 }
@@ -248,7 +231,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
             }
         }
 
-        // --- LOGIC UPDATE (CẬP NHẬT) ---
         private void HandleUpdate()
         {
             string maTL = txt_matailieu.Text.Trim();
@@ -312,7 +294,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
             }
         }
 
-        // 🔹 Nút XÓA
         private void btn_xoa_Click(object sender, EventArgs e)
         {
             string maTL = txt_matailieu.Text.Trim();
@@ -372,16 +353,13 @@ namespace DO_AN_BMCSDL.Phan_GUI
             }
         }
 
-        // 🔹 Nút THOÁT
         private void btn_thoat_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        // 🔹 Nút TÌM KIẾM
         private void btn_TK_Click(object sender, EventArgs e)
         {
-            // Giả định tên TextBox tìm kiếm là txt_timkiem
             string searchTerm = txt_timkiem.Text.Trim();
             LoadDataTaiLieu(searchTerm);
         }

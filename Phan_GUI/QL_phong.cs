@@ -24,7 +24,7 @@ namespace DO_AN_BMCSDL.Phan_GUI
         {
             try
             {
-                // Thiết lập Database
+                
                 Database.Set_Database("localhost", "1521", "ORCL", "C##DO_AN", "12345");
             }
             catch (ArgumentException ex)
@@ -32,31 +32,25 @@ namespace DO_AN_BMCSDL.Phan_GUI
                 MessageBox.Show("Lỗi thiết lập thông tin DB: " + ex.Message, "Lỗi nghiêm trọng");
                 return;
             }
-
-            // Thiết lập Font và Style cho DataGridView
+           
             if (dgvMuonTra != null)
             {
                 dgvMuonTra.Font = new Font("Times New Roman", 12, FontStyle.Regular);
                 dgvMuonTra.ColumnHeadersDefaultCellStyle.Font = new Font("Times New Roman", 12, FontStyle.Bold);
                 dgvMuonTra.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-                // Gán sự kiện CellClick để mở Form xử lý phiếu
-                dgvMuonTra.CellContentClick -= dgvPhieuYeuCau_CellContentClick; // Tránh gán lại
+                dgvMuonTra.CellContentClick -= dgvPhieuYeuCau_CellContentClick; 
                 dgvMuonTra.CellContentClick += dgvPhieuYeuCau_CellContentClick;
 
-                // Gán sự kiện định dạng ô để tô màu trạng thái
-                dgvMuonTra.CellFormatting -= dgvPhieuYeuCau_CellFormatting; // Tránh gán lại
+                dgvMuonTra.CellFormatting -= dgvPhieuYeuCau_CellFormatting; 
                 dgvMuonTra.CellFormatting += dgvPhieuYeuCau_CellFormatting;
 
-                // Tải dữ liệu ban đầu
                 LoadDataPhongHoc();
             }
         }
 
-        // --- HÀM TẢI DỮ LIỆU PHIẾU YÊU CẦU PHÒNG HỌC (Có hỗ trợ tìm kiếm) ---
         private void LoadDataPhongHoc(string searchTerm = "")
         {
-            // Truy vấn lấy dữ liệu PHIEU_YEU_CAU (DATPHONG)
             string sql = @"
                 SELECT 
                     ROWNUM AS STT, 
@@ -78,16 +72,13 @@ namespace DO_AN_BMCSDL.Phan_GUI
                     DataTable dt = Database.ExecuteQuery(sql, new OracleParameter("searchTerm", searchTerm.ToLower()));
                     dgvMuonTra.DataSource = dt;
 
-                    // 1. Thêm cột nút bấm nếu chưa có
                     SetupButtonColumn();
 
-                    // 2. Ẩn cột Ma phieu (Ma phieu)
                     if (dgvMuonTra.Columns.Contains("Ma phieu"))
                     {
                         dgvMuonTra.Columns["Ma phieu"].Visible = false;
                     }
 
-                    // Căn giữa các cột
                     foreach (DataGridViewColumn col in dgvMuonTra.Columns)
                     {
                         col.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -104,13 +95,8 @@ namespace DO_AN_BMCSDL.Phan_GUI
                 Database.Close();
             }
         }
-
-        // --- CÁC HÀM XỬ LÝ DATAGRIDVIEW ---
-
-        // Thêm cột nút bấm "Thông tin phiếu"
         private void SetupButtonColumn()
         {
-            // Chỉ thêm nếu cột chưa tồn tại
             if (!dgvMuonTra.Columns.Contains("btnThongTinPhieu"))
             {
                 DataGridViewButtonColumn btnColumn = new DataGridViewButtonColumn();
@@ -125,21 +111,16 @@ namespace DO_AN_BMCSDL.Phan_GUI
             }
         }
 
-        // 🔹 Xử lý click vào nút "Thông tin phiếu" (ĐÃ CẬP NHẬT)
         private void dgvPhieuYeuCau_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Kiểm tra xem có phải cột nút bấm không
             if (e.RowIndex >= 0 && dgvMuonTra.Columns[e.ColumnIndex].Name == "btnThongTinPhieu")
             {
                 try
                 {
-                    // Lấy Ma phieu từ cột ẩn (Ma phieu)
                     string maPhieu = dgvMuonTra.Rows[e.RowIndex].Cells["Ma phieu"].Value.ToString().Trim();
 
-                    // Mở Form xử lý phiếu
                     Thongtinphieu_phong formXuLy = new Thongtinphieu_phong(maPhieu);
 
-                    // Gán sự kiện FormClosed để tải lại DataGridView khi Form con đóng
                     formXuLy.FormClosed += FormXuLy_FormClosed;
 
                     formXuLy.ShowDialog();
@@ -150,11 +131,8 @@ namespace DO_AN_BMCSDL.Phan_GUI
                 }
             }
         }
-
-        // 🔹 Định dạng màu sắc cho cột "Trạng thái xử lý"
         private void dgvPhieuYeuCau_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            // Lấy tên cột "Trạng thái xử lý"
             if (dgvMuonTra != null && dgvMuonTra.Columns[e.ColumnIndex].HeaderText == "Trạng thái xử lý")
             {
                 string trangThai = e.Value?.ToString().Trim();
@@ -169,35 +147,30 @@ namespace DO_AN_BMCSDL.Phan_GUI
                     e.CellStyle.ForeColor = Color.Red;
                     e.CellStyle.Font = new Font(e.CellStyle.Font, FontStyle.Bold);
                 }
-                else if (trangThai == "Ket thuc muon") // Giả sử đây là trạng thái hoàn tất cũ
+                else if (trangThai == "Ket thuc muon") 
                 {
                     e.CellStyle.ForeColor = Color.Blue;
                     e.CellStyle.Font = new Font(e.CellStyle.Font, FontStyle.Bold);
                 }
-                else // Chờ xác nhận
-                {
+                else { 
                     e.CellStyle.ForeColor = Color.Orange;
                 }
             }
         }
 
-        // 🔹 Xử lý khi Form xử lý phiếu con đóng (để tải lại DGV) (ĐÃ CẬP NHẬT)
+       
         private void FormXuLy_FormClosed(object sender, FormClosedEventArgs e)
         {
-            // Kiểm tra DialogResult.OK để chỉ tải lại khi có thay đổi thành công
             if (sender is Thongtinphieu_phong form && form.DialogResult == DialogResult.OK)
             {
-                LoadDataPhongHoc(); // Tải lại dữ liệu sau khi Form xử lý đóng
+                LoadDataPhongHoc(); 
             }
 
-            // Hủy đăng ký sự kiện để tránh rò rỉ bộ nhớ
             if (sender is Thongtinphieu_phong formToUnsubscribe)
             {
                 formToUnsubscribe.FormClosed -= FormXuLy_FormClosed;
             }
         }
-
-        // 🔹 Xử lý nút TÌM KIẾM
         private void btn_Tim_Click(object sender, EventArgs e)
         {
             if (txt_timkiem == null)
@@ -211,8 +184,12 @@ namespace DO_AN_BMCSDL.Phan_GUI
 
         private void btn_thongtinphong_Click(object sender, EventArgs e)
         {
-            // Giữ nguyên logic cũ hoặc tải lại dữ liệu phòng học
             LoadDataPhongHoc();
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -18,18 +18,16 @@ namespace DO_AN_BMCSDL.Phan_GUI
         {
             InitializeComponent();
 
-            // 🛠️ GÁN CÁC BIẾN (Dựa trên giả định tên controls)
+          
             txt_maphieu = this.Controls.Find("txt_maphieu", true).FirstOrDefault() as TextBox;
             txt_ngay = this.Controls.Find("txt_ngay", true).FirstOrDefault() as TextBox;
             txt_ghichu = this.Controls.Find("txt_ghichu", true).FirstOrDefault() as TextBox;
 
-            // Gán sự kiện Load
             this.Load += themtailieu_thanhly_Load;
         }
 
         private void themtailieu_thanhly_Load(object sender, EventArgs e)
         {
-            // Thiết lập ngày
             if (txt_ngay != null)
             {
                 txt_ngay.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
@@ -47,26 +45,22 @@ namespace DO_AN_BMCSDL.Phan_GUI
 
         private void btn_luu_Click(object sender, EventArgs e)
         {
-            // 1. Kiểm tra đầu vào
             if (string.IsNullOrWhiteSpace(txt_maphieu?.Text))
             {
                 MessageBox.Show("Mã phiếu không được để trống.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // 2. Chuẩn bị dữ liệu
             string maPhieu = txt_maphieu.Text.Trim();
             string ghiChu = txt_ghichu?.Text.Trim() ?? "";
             string trangThai = "Da thanh ly";
 
-            // 3. Câu lệnh INSERT vào THANHLYTAILIEU
             string sqlInsert = @"
                 INSERT INTO THANHLYTAILIEU (MAHOADON, MANV, NGAYTHANHLY, TRANGTHAI, GHICHU)
                 VALUES (:maPhieu, :maNV, SYSDATE, :trangThai, :ghiChu)";
 
             try
             {
-                // Thực thi
                 if (Database.Connect())
                 {
                     OracleParameter[] parameters = new OracleParameter[]
@@ -81,8 +75,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
 
                     if (rowsAffected > 0)
                     {
-                        // 🚨 Tại đây cần thêm logic lưu CHITIET_THANHLY nếu có bảng này
-
                         MessageBox.Show("Lưu phiếu thanh lý thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.DialogResult = DialogResult.OK; // Báo Form cha tải lại
                         this.Close();

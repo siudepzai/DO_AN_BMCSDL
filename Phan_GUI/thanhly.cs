@@ -9,9 +9,7 @@ namespace DO_AN_BMCSDL.Phan_GUI
 {
     public partial class thanhly : Form
     {
-        // 🛠️ Giả định tên DataGridView là dgvThanhLy
-        // Giả định tên các Form con là themtailieu_thanhly và suathanhlytailieu
-
+       
         public thanhly()
         {
             InitializeComponent();
@@ -41,12 +39,10 @@ namespace DO_AN_BMCSDL.Phan_GUI
                     DataTable dt = Database.ExecuteQuery(sql);
                     dgvThanhLy.DataSource = dt;
 
-                    // Ẩn cột Ma NV lap
                     if (dgvThanhLy.Columns.Contains("Ma NV lap"))
                     {
                         dgvThanhLy.Columns["Ma NV lap"].Visible = false;
                     }
-                    // Định dạng cột Ngày lập
                     if (dgvThanhLy.Columns.Contains("Ngay lap phieu"))
                     {
                         dgvThanhLy.Columns["Ngay lap phieu"].DefaultCellStyle.Format = "dd/MM/yyyy";
@@ -63,7 +59,7 @@ namespace DO_AN_BMCSDL.Phan_GUI
             }
         }
 
-        // --- XỬ LÝ NÚT THÊM ---
+        
         private void btn_them_Click(object sender, EventArgs e)
         {
             themtailieu_thanhly formThem = new themtailieu_thanhly();
@@ -75,7 +71,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
             }
         }
 
-        // --- XỬ LÝ NÚT SỬA ---
         private void btn_sua_Click(object sender, EventArgs e)
         {
             if (dgvThanhLy.CurrentRow == null)
@@ -84,19 +79,17 @@ namespace DO_AN_BMCSDL.Phan_GUI
                 return;
             }
 
-            // Lấy Ma phieu thanh ly từ dòng được chọn
+            
             string maHoaDon = dgvThanhLy.CurrentRow.Cells["Ma phieu thanh ly"].Value.ToString().Trim();
 
-            suathanhlytailieu formSua = new suathanhlytailieu(maHoaDon); // Truyền Mã hóa đơn vào constructor
+            suathanhlytailieu formSua = new suathanhlytailieu(maHoaDon); 
 
-            // Tải lại dữ liệu khi Form con đóng thành công
+           
             if (formSua.ShowDialog() == DialogResult.OK)
             {
                 LoadDataThanhLy();
             }
         }
-
-        // --- XỬ LÝ NÚT XÓA ---
         private void btn_xoa_Click(object sender, EventArgs e)
         {
             if (dgvThanhLy.CurrentRow == null)
@@ -114,10 +107,8 @@ namespace DO_AN_BMCSDL.Phan_GUI
             }
         }
 
-        // --- LOGIC XÓA DỮ LIỆU ---
         private void HandleDeleteThanhLy(string maHoaDon)
         {
-            // Cần có bảng chi tiết để xóa chi tiết trước (nếu có)
             string sqlDelete = "DELETE FROM THANHLYTAILIEU WHERE TRIM(MAHOADON) = :maHoaDon";
 
             try
@@ -156,7 +147,7 @@ namespace DO_AN_BMCSDL.Phan_GUI
         {
             try
             {
-                // Thiết lập Database
+               
                 Database.Set_Database("localhost", "1521", "ORCL", "C##DO_AN", "12345");
             }
             catch (ArgumentException ex)
@@ -165,7 +156,7 @@ namespace DO_AN_BMCSDL.Phan_GUI
                 return;
             }
 
-            // Thiết lập DataGridView
+            
             if (dgvThanhLy != null)
             {
                 dgvThanhLy.Font = new Font("Times New Roman", 12, FontStyle.Regular);

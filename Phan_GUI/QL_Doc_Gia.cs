@@ -18,7 +18,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
         {
             try
             {
-                // Giả định bạn gọi Set_Database ở đây hoặc ở điểm khởi đầu ứng dụng
                 Database.Set_Database("localhost", "1521", "ORCL", "C##DO_AN", "12345");
             }
             catch (ArgumentException ex)
@@ -30,13 +29,11 @@ namespace DO_AN_BMCSDL.Phan_GUI
             dgvDocGia.Font = new Font("Times New Roman", 12, FontStyle.Regular);
             dgvDocGia.ColumnHeadersDefaultCellStyle.Font = new Font("Times New Roman", 12, FontStyle.Bold);
 
-            // Thiết lập AutoSizeColumnsMode
             dgvDocGia.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             LoadDataDocGia();
         }
 
-        // 🔹 Nút THÊM
         private void btn_them_Click(object sender, EventArgs e)
         {
             Them_doc_gia formThem = new Them_doc_gia();
@@ -47,7 +44,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
             }
         }
 
-        // 🔹 Nút SỬA
         private void btn_sua_Click(object sender, EventArgs e)
         {
             if (dgvDocGia.CurrentRow == null)
@@ -56,7 +52,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
                 return;
             }
 
-            // Lấy MA DOC GIA an toàn bằng chỉ số cột
             string maDocGia = GetSelectedMaDocGia();
             if (string.IsNullOrEmpty(maDocGia))
             {
@@ -103,7 +98,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
                 return;
             }
 
-            // ✅ SỬA LỖI: TRIM() cột MATHANHVIEN trong DB để so sánh an toàn
             string sql = "DELETE FROM DOCGIA WHERE TRIM(MATHANHVIEN) = :maDocGia";
 
             try
@@ -129,7 +123,7 @@ namespace DO_AN_BMCSDL.Phan_GUI
             }
             catch (OracleException ex)
             {
-                if (ex.Number == 2292) // Mã lỗi Khóa ngoại: ORA-02292
+                if (ex.Number == 2292) 
                 {
                     MessageBox.Show("Lỗi: Không thể xóa vì Độc giả này còn liên kết dữ liệu (thẻ, phiếu mượn, phòng học) trong hệ thống. Vui lòng xử lý dữ liệu liên quan trước.",
                                     "Lỗi ràng buộc", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -198,7 +192,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
         }
 
 
-        // 🔹 Load dữ liệu lên DataGridView
         private void LoadDataDocGia()
         {
             string sql = @"

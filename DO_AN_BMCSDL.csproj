@@ -206,7 +206,6 @@
     <Compile Include="Phan_GUI\xulyvipham.Designer.cs">
       <DependentUpon>xulyvipham.cs</DependentUpon>
     </Compile>
-    <Compile Include="Phan_xu_ly\CryptoHelper.cs" />
     <Compile Include="Phan_xu_ly\Database.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

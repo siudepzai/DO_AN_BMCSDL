@@ -21,7 +21,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
             get { return btn_thongtingoc?.Visible ?? false; }
             set
             {
-                // Kiểm tra và đặt thuộc tính Visible của nút
                 if (btn_thongtingoc != null)
                 {
                     btn_thongtingoc.Visible = value;
@@ -42,7 +41,7 @@ namespace DO_AN_BMCSDL.Phan_GUI
             }
         }
 
-        // Xóa dữ liệu cũ trên form
+    
         private void ClearFormControls()
         {
             txt_tendocgia.Clear();
@@ -59,13 +58,13 @@ namespace DO_AN_BMCSDL.Phan_GUI
         {
             if (value is byte[] bytes)
             {
-                // Chuyển mảng byte (RAW) thành chuỗi Hex
+                
                 return BitConverter.ToString(bytes).Replace("-", "");
             }
-            // Nếu dữ liệu không phải byte[] (ví dụ: null hoặc chuỗi), trả về giá trị gốc
+            
             return value?.ToString() ?? string.Empty;
         }
-        // LOAD dữ liệu từ DB
+        
         private void LoadData(string maDocGia)
         {
             ClearFormControls();
@@ -129,10 +128,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
             }
         }
 
-        // Nút TÌM
-       
-
-        // Nút LƯU (Cập nhật DB)
         private void btn_luu_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(_maDocGiaHienTai))
@@ -141,16 +136,14 @@ namespace DO_AN_BMCSDL.Phan_GUI
                 return;
             }
 
-            // 1. Lấy dữ liệu từ Form (sdt và email là dữ liệu GỐC)
             string tenTV = txt_tendocgia.Text.Trim();
             string vaiTro = txt_chucvu.Text.Trim();
             string ngaySinhString = txt_ngaysinh.Text.Trim();
             string gioiTinh = txt_gioitinh.Text.Trim();
-            string sdt = txt_sdt.Text.Trim(); // Dữ liệu gốc
-            string email = txt_email_TT.Text.Trim(); // Dữ liệu gốc
+            string sdt = txt_sdt.Text.Trim(); 
+            string email = txt_email_TT.Text.Trim(); 
             string diaChi = txtdiachi.Text.Trim();
 
-            // Chuyển ngày sinh
             if (!DateTime.TryParseExact(ngaySinhString, "dd/MM/yyyy",
                 CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime ngaySinhDate))
             {
@@ -158,13 +151,12 @@ namespace DO_AN_BMCSDL.Phan_GUI
                 return;
             }
 
-            // 🚨 SỬA LỖI SQL: Gọi hàm mã hóa trong câu lệnh UPDATE
             string sql = @"UPDATE DOCGIA SET
                        TENTV = :tenTV,
                        VAITRO = :vaiTro,
                        NGSINH = :ngSinh,
                        GIOITINH = :gt,
-                       -- 🛠️ GỌI HÀM MÃ HÓA TRONG SQL: 
+                       --GỌI HÀM MÃ HÓA TRONG SQL: 
                        SODIENTHOAI_ENC = C##DO_AN.ENCRYPT_DES(:sdt), 
                        EMAIL_ENC = C##DO_AN.ENCRYPT_DES(:email), 
                        DIACHI = :dc
@@ -185,7 +177,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
                     cmd.Parameters.Add(new OracleParameter("ngSinh", OracleDbType.Date) { Value = ngaySinhDate });
                     cmd.Parameters.Add(new OracleParameter("gt", gioiTinh));
 
-                    // 🛠️ THAY THẾ: Truyền dữ liệu GỐC (plaintext) vào tham số
                     cmd.Parameters.Add(new OracleParameter("sdt", sdt));
                     cmd.Parameters.Add(new OracleParameter("email", email));
 
@@ -233,17 +224,14 @@ namespace DO_AN_BMCSDL.Phan_GUI
 
             LoadData(maDocGia);
         }
-        // Trong file suathongtindocgia.cs
         public bool IsReadOnlyMode
         {
             set
             {
-                // Ví dụ:
                 txt_tendocgia.ReadOnly = value;
-                // ... (khóa tất cả các điều khiển nhập liệu)
 
-                btn_luu.Visible = !value; // Ẩn nút lưu
-                btn_huy.Visible = !value; // Ẩn nút hủy
+                btn_luu.Visible = !value; 
+                btn_huy.Visible = !value; 
             }
         }
 
@@ -265,13 +253,12 @@ namespace DO_AN_BMCSDL.Phan_GUI
                 }
 
                 
-                if (password != "HUITCNTT") // 
+                if (password != "HUITCNTT") 
                 {
                     MessageBox.Show("Sai mật khẩu!", "Từ chối truy cập");
                     return;
                 }
 
-                // 3️⃣ Truy vấn dữ liệu giải mã từ Oracle
                 string sql = @"
             SELECT 
                 C##DO_AN.DECRYPT_DES(SODIENTHOAI_ENC) AS SODIENTHOAI_ENC,

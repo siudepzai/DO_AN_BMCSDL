@@ -10,7 +10,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
 {
     public partial class THONGTINVIPHAM : Form
     {
-        // 🛠️ BỔ SUNG KHAI BÁO BIẾN THÀNH VIÊN
         private string _maPhieuPhat;
 
         public THONGTINVIPHAM()
@@ -24,7 +23,7 @@ namespace DO_AN_BMCSDL.Phan_GUI
             _maPhieuPhat = maPhieuPhat;
         }
 
-        // Hàm hỗ trợ tìm kiếm control (Giữ nguyên)
+     
         private T FindControl<T>(string name) where T : Control
         {
             Control[] controls = this.Controls.Find(name, true);
@@ -63,8 +62,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
                     if (dt.Rows.Count > 0)
                     {
                         DataRow row = dt.Rows[0];
-
-                        // Gán giá trị vào các control đã được tìm thấy
                         if (txt_ma != null) txt_ma.Text = row["MaDocGia"].ToString().Trim();
                         if (txt_ten != null) txt_ten.Text = row["TenDocGia"].ToString().Trim();
                         if (txt_vt != null) txt_vt.Text = row["VaiTro"].ToString().Trim();

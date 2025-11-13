@@ -24,7 +24,7 @@ namespace DO_AN_BMCSDL.Phan_GUI
         {
             try
             {
-                // Thiết lập Database
+               
                 Database.Set_Database("localhost", "1521", "ORCL", "C##DO_AN", "12345");
             }
             catch (ArgumentException ex)
@@ -33,22 +33,18 @@ namespace DO_AN_BMCSDL.Phan_GUI
                 return;
             }
 
-            // Thiết lập DataGridView
             if (dgvDocGia != null)
             {
                 dgvDocGia.Font = new Font("Times New Roman", 12, FontStyle.Regular);
                 dgvDocGia.ColumnHeadersDefaultCellStyle.Font = new Font("Times New Roman", 12, FontStyle.Bold);
                 dgvDocGia.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-                // Tải dữ liệu ban đầu
                 LoadDataDocGia();
             }
         }
 
-        // --- HÀM TẢI DỮ LIỆU ĐỘC GIẢ (Có hỗ trợ tìm kiếm) ---
         private void LoadDataDocGia(string searchTerm = "")
         {
-            // Truy vấn lấy dữ liệu độc giả
             string sql = @"
         SELECT
             ROWNUM AS STT,
@@ -76,13 +72,10 @@ namespace DO_AN_BMCSDL.Phan_GUI
                     DataTable dt = Database.ExecuteQuery(sql, param);
                     dgvDocGia.DataSource = dt;
 
-                    // Ẩn cột Mã thành viên
                     if (dgvDocGia.Columns.Contains("Ma thanh vien"))
                     {
                         dgvDocGia.Columns["Ma thanh vien"].Visible = false;
                     }
-
-                    // Định dạng cột Ngày sinh
                     if (dgvDocGia.Columns.Contains("Ngay sinh"))
                     {
                         dgvDocGia.Columns["Ngay sinh"].DefaultCellStyle.Format = "dd/MM/yyyy";

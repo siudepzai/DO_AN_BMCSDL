@@ -336,6 +336,7 @@
             this.MaximizeBox = false;
             this.Name = "Them_doc_gia";
             this.Text = "Them_doc_gia";
+            this.Load += new System.EventHandler(this.Them_doc_gia_Load);
             this.pnl_themdocgia.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

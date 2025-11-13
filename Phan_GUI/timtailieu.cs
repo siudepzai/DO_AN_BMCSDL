@@ -21,10 +21,8 @@ namespace DO_AN_BMCSDL.Phan_GUI
         {
             this.Close();
         }
-        // --- HÀM HỖ TRỢ TÌM CONTROL (Tương tự như trong các form chi tiết) ---
         private T FindControl<T>(string name) where T : Control
         {
-            // Sử dụng tên biến 'txt_timkiem' nếu nó được tạo bởi Designer
             if (name == "txtTimKiem" && this.Controls.Find("txt_timkiem", true).FirstOrDefault() is TextBox t)
             {
                 return t as T;
@@ -32,8 +30,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
             Control[] controls = this.Controls.Find(name, true);
             return controls.FirstOrDefault(c => c is T) as T;
         }
-
-        // --- HÀM TẢI DỮ LIỆU TÀI LIỆU (Có hỗ trợ tìm kiếm) ---
         private void LoadDataTaiLieu(string searchTerm = "")
         {
             string sql = @"
@@ -60,15 +56,11 @@ namespace DO_AN_BMCSDL.Phan_GUI
                     DataTable dt = Database.ExecuteQuery(sql, param);
 
                     dgvTaiLieu.DataSource = dt;
-
-                    // Định dạng cột Chi phí
                     if (dgvTaiLieu.Columns.Contains("Chi phí"))
                     {
                         dgvTaiLieu.Columns["Chi phí"].DefaultCellStyle.Format = "N0";
                         dgvTaiLieu.Columns["Chi phí"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                     }
-
-                    // Căn giữa các cột
                     foreach (DataGridViewColumn col in dgvTaiLieu.Columns)
                     {
                         col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -84,8 +76,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
                 Database.Close();
             }
         }
-
-        // --- XỬ LÝ NÚT TÌM KIẾM ---
         private void btn_TK_Click(object sender, EventArgs e)
         {
             if (txt_timkiem == null)
@@ -104,7 +94,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
 
             try
             {
-                // Thiết lập Database
                 Database.Set_Database("localhost", "1521", "ORCL", "C##DO_AN", "12345");
             }
             catch (ArgumentException ex)
@@ -113,16 +102,13 @@ namespace DO_AN_BMCSDL.Phan_GUI
                 return;
             }
 
-            txt_timkiem = FindControl<TextBox>("txtTimKiem"); // Hoặc tên thực tế của bạn
-
-            // Thiết lập DataGridView
-            if (dgvTaiLieu != null) // Giữ dgvTaiLieu
+            txt_timkiem = FindControl<TextBox>("txtTimKiem");
+            if (dgvTaiLieu != null) 
             {
                 dgvTaiLieu.Font = new Font("Times New Roman", 12, FontStyle.Regular);
                 dgvTaiLieu.ColumnHeadersDefaultCellStyle.Font = new Font("Times New Roman", 12, FontStyle.Bold);
                 dgvTaiLieu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-                // Tải dữ liệu ban đầu
                 LoadDataTaiLieu();
             }
         }

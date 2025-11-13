@@ -16,37 +16,33 @@ namespace DO_AN_BMCSDL.Phan_GUI
         {
             InitializeComponent();
 
-            // Gán sự kiện (Nếu bạn chưa gán trong Designer)
-            // Đảm bảo các sự kiện này được gán trong Designer, nếu không hãy mở Designer lên và gán.
-
-            // Hệ Thống
             btn_hethong.MouseEnter += new EventHandler(btn_hethong_MouseEnter);
             btn_hethong.MouseLeave += new EventHandler(btn_hethong_MouseLeave);
             pnl_hethongmenu.MouseEnter += new EventHandler(pnl_hethongmenu_MouseEnter);
             pnl_hethongmenu.MouseLeave += new EventHandler(pnl_hethongmenu_MouseLeave);
 
-            // Danh Mục
+          
             btn_danhmuc.MouseEnter += new EventHandler(btn_danhmuc_MouseEnter);
             btn_danhmuc.MouseLeave += new EventHandler(btn_danhmuc_MouseLeave);
             panel4.MouseEnter += new EventHandler(panel4_MouseEnter);
             panel4.MouseLeave += new EventHandler(panel4_MouseLeave);
 
-            // Mượn-Trả
+         
             btn_muontra.MouseEnter += new EventHandler(btn_muontra_MouseEnter);
             btn_muontra.MouseLeave += new EventHandler(btn_muontra_MouseLeave);
             panel5.MouseEnter += new EventHandler(panel5_MouseEnter);
             panel5.MouseLeave += new EventHandler(panel5_MouseLeave);
 
-            // Tìm Kiếm
+          
             btn_timkiem.MouseEnter += new EventHandler(btn_timkiem_MouseEnter);
             btn_timkiem.MouseLeave += new EventHandler(btn_timkiem_MouseLeave);
             panel6.MouseEnter += new EventHandler(panel6_MouseEnter);
             panel6.MouseLeave += new EventHandler(panel6_MouseLeave);
 
-            // Xử lý Timer (Nhớ tạo Timer trong Designer)
+          
             menuHideTimer.Tick += new EventHandler(menuHideTimer_Tick);
 
-            // Ẩn tất cả Panel ngay khi Form tải (chỉ để đảm bảo)
+          
             pnl_hethongmenu.Visible = false;
             panel4.Visible = false;
             panel5.Visible = false;
@@ -55,21 +51,20 @@ namespace DO_AN_BMCSDL.Phan_GUI
 
        
 
-        // Phương thức ẩn tất cả menu (giúp code sạch hơn)
+      
         private void HideAllMenuPanels()
         {
             pnl_hethongmenu.Visible = false;
             panel4.Visible = false;
             panel5.Visible = false;
             panel6.Visible = false;
-            menuHideTimer.Stop(); // Dừng timer nếu đang chạy
+            menuHideTimer.Stop(); 
         }
 
-        // === Logic cho Hệ Thống (Đã có sẵn, chỉ cần bổ sung Timer logic) ===
-
+      
         private void btn_hethong_MouseEnter(object sender, EventArgs e)
         {
-            HideAllMenuPanels(); // Ẩn các menu khác trước
+            HideAllMenuPanels(); 
             pnl_hethongmenu.Visible = true;
             menuHideTimer.Stop();
         }
@@ -85,8 +80,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
         {
             menuHideTimer.Start();
         }
-
-        // === Logic cho Danh Mục ===
 
         private void btn_danhmuc_MouseEnter(object sender, EventArgs e)
         {
@@ -107,8 +100,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
             menuHideTimer.Start();
         }
 
-        // === Logic cho Mượn-Trả ===
-
         private void btn_muontra_MouseEnter(object sender, EventArgs e)
         {
             HideAllMenuPanels();
@@ -127,8 +118,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
         {
             menuHideTimer.Start();
         }
-
-        // === Logic cho Tìm Kiếm ===
 
         private void btn_timkiem_MouseEnter(object sender, EventArgs e)
         {
@@ -153,7 +142,7 @@ namespace DO_AN_BMCSDL.Phan_GUI
 
         private void menuHideTimer_Tick(object sender, EventArgs e)
         {
-            // Khi timer hết giờ (150ms), chuột đã không vào bất kỳ khu vực menu nào khác, 
+            // Khi timer hết giờ (1000ms), chuột đã không vào bất kỳ khu vực menu nào khác, 
             // tiến hành ẩn tất cả menu con.
             HideAllMenuPanels();
         }
@@ -339,6 +328,11 @@ namespace DO_AN_BMCSDL.Phan_GUI
             qL_Phong.FormClosed += (s, args) => this.Show(); // Hiện lại form chính khi đóng QL_phong
             this.Hide();
             qL_Phong.Show();
+        }
+
+        private void thu_thu_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

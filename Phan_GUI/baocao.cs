@@ -37,14 +37,12 @@ namespace DO_AN_BMCSDL.Phan_GUI
 
             if (cb_luachon != null && cb_luachon.Items.Count > 0)
             {
-                cb_luachon.SelectedIndex = 0; // Mặc định là "Tất cả dữ liệu"
+                cb_luachon.SelectedIndex = 0; 
             }
 
-            // Tải dữ liệu ban đầu (Chi tiết Tài liệu)
             LoadBaoCaoThongKe("ALL");
         }
 
-        // --- HÀM HỖ TRỢ XÁC ĐỊNH PHẠM VI THỜI GIAN ---
         private bool TryGetDateRange(string scope, out DateTime startDate, out DateTime endDate)
         {
             startDate = DateTime.MinValue;
@@ -77,7 +75,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
 
             if (isTimeScope)
             {
-                // CHẾ ĐỘ 1: THỐNG KÊ PHIẾU MƯỢN THEO THỜI GIAN (Có thể lọc được)
                 sql = @"
                     SELECT
                         TRIM(T4.TENNV) AS ""Nguoi lap"",
@@ -101,7 +98,7 @@ namespace DO_AN_BMCSDL.Phan_GUI
 
                 sql += " GROUP BY T4.TENNV, T1.MANV ORDER BY COUNT(T1.MAPHIEUMUON) DESC";
             }
-            else // CHẾ ĐỘ 2: DANH SÁCH CHI TIẾT TÀI LIỆU (Theo yêu cầu hình ảnh)
+            else 
             {
                 sql = @"
                     SELECT
@@ -114,7 +111,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
                     FROM TAILIEU T1
                     WHERE 1=1 ";
 
-                // Lọc tìm kiếm theo Mã, Tên, hoặc Tác giả
                 if (!string.IsNullOrWhiteSpace(searchTerm))
                 {
                     sql += @" AND (LOWER(TRIM(T1.MATAILIEU)) LIKE '%' || :searchTerm || '%' OR 
@@ -131,7 +127,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
                 {
                     OracleCommand cmd = new OracleCommand(sql, Database.Get_Connection());
 
-                    // Thêm tham số
                     if (isTimeScope && TryGetDateRange(scope, out DateTime startDate, out DateTime endDate))
                     {
                         cmd.Parameters.Add(new OracleParameter("startDate", startDate));
@@ -161,8 +156,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
                 Database.Close();
             }
         }
-
-        // --- XỬ LÝ NÚT THỐNG KÊ (Kích hoạt chế độ lọc thời gian) ---
         private void btn_Thongke_Click(object sender, EventArgs e)
         {
             if (cb_luachon == null || cb_luachon.SelectedItem == null) return;
@@ -175,13 +168,10 @@ namespace DO_AN_BMCSDL.Phan_GUI
 
             LoadBaoCaoThongKe(scope);
         }
-
-        // --- XỬ LÝ NÚT TÌM KIẾM (Kích hoạt tìm kiếm, ưu tiên hiển thị chi tiết sách) ---
         private void btn_TK_Click(object sender, EventArgs e)
         {
             string searchTerm = txt_TK?.Text.Trim() ?? "";
 
-            // Khi nhấn Tìm kiếm, luôn tải danh sách chi tiết sách (scope = ALL) để tìm kiếm trực tiếp trên sách
             LoadBaoCaoThongKe("ALL", searchTerm);
         }
 
@@ -190,15 +180,12 @@ namespace DO_AN_BMCSDL.Phan_GUI
             this.Close();
         }
 
-        // --- CÁC HÀM KHÔNG DÙNG TRỰC TIẾP ---
         private void cb_luachon_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Không làm gì
         }
 
         private void dgvchitiet_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Không làm gì
         }
     }
 }

@@ -445,6 +445,7 @@
             this.MaximizeBox = false;
             this.Name = "thu_thu";
             this.Text = "Thủ_Thư";
+            this.Load += new System.EventHandler(this.thu_thu_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.panel3.ResumeLayout(false);

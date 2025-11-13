@@ -33,14 +33,14 @@ namespace DO_AN_BMCSDL.Phan_GUI
         private void btn_huy_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Hủy thêm độc giả!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            // Đặt DialogResult là Cancel (không làm gì)
+           
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
         private void btn_luu_Click(object sender, EventArgs e)
         {
-            // 1. Lấy dữ liệu từ Form (sdt và email là dữ liệu GỐC)
+           
             string maTV = txt_madocgia.Text.Trim();
             string tenTV = txt_tendocgia.Text.Trim();
             string vaiTro = txt_chucvu.Text.Trim();
@@ -51,15 +51,13 @@ namespace DO_AN_BMCSDL.Phan_GUI
             string diaChi = txtdiachi.Text.Trim();
             DateTime ngaySinhDate;
 
-            // 2. Kiểm tra và chuyển đổi Ngày sinh
+           
             if (!DateTime.TryParseExact(ngaySinhString, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out ngaySinhDate))
             {
                 MessageBox.Show("Ngày sinh không hợp lệ. Vui lòng nhập theo định dạng DD/MM/YYYY.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // 3. Thực hiện INSERT vào Oracle (Gọi hàm ENCRYPT_DES trong SQL)
-            // 🚨 SỬ DỤNG CỘT SODIENTHOAI_ENC VÀ EMAIL_ENC
             string sql = @"INSERT INTO DOCGIA (MATHANHVIEN, TENTV, VAITRO, NGSINH, GIOITINH, SODIENTHOAI_ENC, EMAIL_ENC, DIACHI, TAIKHOAN, MATKHAU)
                            VALUES (:maTV, :tenTV, :vaiTro, :ngSinh, :gt, 
                                    C##DO_AN.ENCRYPT_DES(:sdt), 
@@ -72,14 +70,14 @@ namespace DO_AN_BMCSDL.Phan_GUI
                 {
                     using (OracleCommand cmd = new OracleCommand(sql, Database.Get_Connection()))
                     {
-                        // Thêm các tham số chuỗi GỐC
+                       
                         cmd.Parameters.Add(new OracleParameter("maTV", maTV));
                         cmd.Parameters.Add(new OracleParameter("tenTV", tenTV));
                         cmd.Parameters.Add(new OracleParameter("vaiTro", vaiTro));
                         cmd.Parameters.Add(new OracleParameter("ngSinh", OracleDbType.Date) { Value = ngaySinhDate });
                         cmd.Parameters.Add(new OracleParameter("gt", gioiTinh));
 
-                        // 🛠️ THAY THẾ: Truyền dữ liệu GỐC vào SQL để Oracle tự mã hóa
+                        
                         cmd.Parameters.Add(new OracleParameter("sdt", sdt));
                         cmd.Parameters.Add(new OracleParameter("email", email));
 
@@ -96,7 +94,7 @@ namespace DO_AN_BMCSDL.Phan_GUI
                     }
                 }
             }
-            catch (Exception ex) // Bắt lỗi chung để dễ debug
+            catch (Exception ex) 
             {
                 MessageBox.Show("Lỗi CSDL khi thêm độc giả: " + ex.Message, "Lỗi SQL");
             }
@@ -104,6 +102,11 @@ namespace DO_AN_BMCSDL.Phan_GUI
             {
                 Database.Close();
             }
+        }
+
+        private void Them_doc_gia_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

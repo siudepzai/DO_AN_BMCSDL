@@ -22,18 +22,12 @@ namespace DO_AN_BMCSDL.Phan_GUI
             InitializeComponent();
         }
 
-        // Bổ sung constructor nhận mã phiếu
+      
         public thongtinphieu_dulieu(string maPhieu)
         {
             InitializeComponent();
-            _maPhieu = maPhieu; // Gán giá trị cho biến thành viên
+            _maPhieu = maPhieu; 
 
-            // 🛠️ Cần ánh xạ TÊN THẬT của các controls trên form thongtinphieu_dulieu
-            // Ví dụ:
-            // txtMaPhieu = this.Controls.Find("txtMaPhieu", true).FirstOrDefault() as TextBox; 
-            // btn_dongy = this.Controls.Find("btn_dongy", true).FirstOrDefault() as Button;
-
-            // Gán sự kiện click cho các nút
             if (btn_dongy != null)
             {
                 btn_dongy.Click -= btnDongY_Click;
@@ -51,10 +45,10 @@ namespace DO_AN_BMCSDL.Phan_GUI
             LoadChiTietPhieuMuon();
         }
 
-        // 🛠️ PHƯƠNG THỨC TẢI CHI TIẾT PHIẾU MƯỢN SÁCH
+      
         private void LoadChiTietPhieuMuon()
         {
-            // Truy vấn lấy chi tiết phiếu mượn/trả sách
+          
             string sql = @"
                 SELECT 
                     T1.MAPHIEUMUON AS MaPhieu,
@@ -85,34 +79,28 @@ namespace DO_AN_BMCSDL.Phan_GUI
                         DataRow row = dt.Rows[0];
                         string trangThai = row["TrangThaiXuLy"].ToString().Trim();
 
-                        // 2. HIỂN THỊ DỮ LIỆU LÊN CÁC CONTROL TƯƠNG ỨNG
-
-                        // Thông tin Phiếu/Sách
+                      
                         if (txtMaPhieu != null) txtMaPhieu.Text = row["MaPhieu"].ToString();
                         if (txtYeuCau != null) txtYeuCau.Text = row["YeuCau"].ToString();
                         if (txtMaTL != null) txtMaTL.Text = row["MaTaiLieu"].ToString();
                         if (txtTenTL != null) txtTenTL.Text = row["TenTaiLieu"].ToString();
-                        
-                        // Thông tin Độc giả
+                       
                         if (txtMaDocGia != null) txtMaDocGia.Text = row["MaDocGia"].ToString();
                         if (txtTenDocGia != null) txtTenDocGia.Text = row["TenDocGia"].ToString();
                         if (txtVaiTro != null) txtVaiTro.Text = row["VaiTro"].ToString();
 
-                        // Thời gian
                         if (txt_TGMuon != null) txt_TGMuon.Text = ((DateTime)row["NgayMuon"]).ToString("dd/MM/yyyy HH:mm");
                         if (txt_thoigiantra != null) txt_thoigiantra.Text = ((DateTime)row["NgayTra"]).ToString("dd/MM/yyyy HH:mm");
 
-                        // Trạng thái xử lý
                         if (lblTrangThaiXuLy != null) lblTrangThaiXuLy.Text = trangThai;
 
 
-                        // 3. Ẩn/Hiện nút và đổi màu nền
-                        if (trangThai == "Dong y" || trangThai == "Tu choi" || trangThai == "Cho duyet mat") // Cần xác định trạng thái hoàn tất
+                        if (trangThai == "Dong y" || trangThai == "Tu choi" || trangThai == "Cho duyet mat") 
                         {
                             if (btn_dongy != null) btn_dongy.Visible = false;
                             if (btn_tuchoi != null) btn_tuchoi.Visible = false;
 
-                            // Đặt màu nền form
+                            
                             this.BackColor = (trangThai == "Dong y") ? Color.Green : (trangThai == "Tu choi" ? Color.Red : this.BackColor);
                         }
                         else
@@ -138,11 +126,10 @@ namespace DO_AN_BMCSDL.Phan_GUI
             }
         }
 
-        // 🛠️ Cập nhật trạng thái (Giả định bạn muốn cập nhật HIENTRANG trong CHITIETPHIEUMUON)
+     
         private void CapNhatTrangThai(string trangThaiMoi)
         {
-            // Cần xác định bạn muốn cập nhật cột nào. 
-            // Ở đây, tôi giả định cập nhật HIENTRANG của chi tiết phiếu
+            
             string sql = "UPDATE CHITIETPHIEUMUON SET HIENTRANG = :trangThai WHERE MAPHIEUMUON = :maPhieu";
 
             try
@@ -175,13 +162,11 @@ namespace DO_AN_BMCSDL.Phan_GUI
             }
         }
 
-        // Hàm xử lý nút Dong y
         private void btnDongY_Click(object sender, EventArgs e)
         {
             CapNhatTrangThai("Dong y");
         }
 
-        // Hàm xử lý nút Tu choi
         private void btnTuChoi_Click(object sender, EventArgs e)
         {
             CapNhatTrangThai("Tu choi");

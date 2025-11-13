@@ -14,7 +14,6 @@ namespace _40_caesarOracle
         private static string _connectionString;
         private static OracleConnection _connection;
 
-        // Hàm build connection string
         public static void Set_Database(string host, string port, string serviceName, string user, string pass)
 
         {
@@ -29,7 +28,6 @@ namespace _40_caesarOracle
                 throw new ArgumentException("Thông tin kết nối không hợp lệ!");
             }
 
-            // Nếu user là SYS thì phải có DBA Privilege
             if (user.Trim().ToLower() == "sys")
             {
                 _connectionString = $"User Id={user};Password={pass};Data Source={host}:{port}/{serviceName};DBA Privilege=SYSDBA;";
@@ -42,7 +40,6 @@ namespace _40_caesarOracle
             _connection = new OracleConnection(_connectionString);
         }
 
-        // Kết nối DB
         public static bool Connect()
         {
             try
@@ -61,21 +58,17 @@ namespace _40_caesarOracle
                 return false;
             }
         }
-
-        // Đóng kết nối
         public static void Close()
         {
             if (_connection != null && _connection.State != ConnectionState.Closed)
                 _connection.Close();
         }
 
-        // Lấy connection để dùng chỗ khác
         public static OracleConnection Get_Connection()
         {
             return _connection;
         }
 
-        // Thực thi SELECT → DataTable
         public static DataTable ExecuteQuery(string sql, params OracleParameter[] parameters)
         {
             DataTable dt = new DataTable();
@@ -93,20 +86,15 @@ namespace _40_caesarOracle
         }
         public static int ExecuteNonQuery(string sql, params OracleParameter[] parameters)
         {
-            // Kiểm tra kết nối
             if (_connection == null || _connection.State != ConnectionState.Open)
             {
-                // Thay bằng logic mở kết nối nếu cần, hoặc ném lỗi nếu muốn bắt buộc phải mở trước
-                // Ví dụ: Connect(); 
                 throw new InvalidOperationException("Kết nối Oracle chưa được mở. Vui lòng gọi Database.Connect() trước.");
             }
 
             int rowsAffected = 0;
 
-            // Sử dụng using để đảm bảo đối tượng Command được giải phóng
             using (OracleCommand command = new OracleCommand(sql, _connection))
             {
-                // Thêm các tham số vào command nếu có
                 if (parameters != null)
                 {
                     command.Parameters.AddRange(parameters);
@@ -114,12 +102,10 @@ namespace _40_caesarOracle
 
                 try
                 {
-                    // Thực thi lệnh NonQuery
                     rowsAffected = command.ExecuteNonQuery();
                 }
                 catch (OracleException ex)
                 {
-                    // Ném lại lỗi để lớp gọi có thể xử lý (hoặc ghi log)
                     throw new Exception("Lỗi thực thi lệnh SQL NonQuery: " + ex.Message, ex);
                 }
             }
@@ -134,7 +120,6 @@ public static string ExecuteFunction(string funcName, params OracleParameter[] p
             {
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                // Thêm tham số return
                 OracleParameter returnVal = new OracleParameter("returnVal", OracleDbType.Varchar2, 4000);
                 returnVal.Direction = ParameterDirection.ReturnValue;
                 cmd.Parameters.Add(returnVal);
