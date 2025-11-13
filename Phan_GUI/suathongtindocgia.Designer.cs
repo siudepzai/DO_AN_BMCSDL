@@ -31,7 +31,7 @@
             this.btn_huy = new System.Windows.Forms.Button();
             this.btn_luu = new System.Windows.Forms.Button();
             this.txtdiachi = new System.Windows.Forms.TextBox();
-            this.txt_email = new System.Windows.Forms.TextBox();
+            this.txt_email_TT = new System.Windows.Forms.TextBox();
             this.txt_sdt = new System.Windows.Forms.TextBox();
             this.txt_lop = new System.Windows.Forms.TextBox();
             this.txt_khoa = new System.Windows.Forms.TextBox();
@@ -57,6 +57,7 @@
             this.lab_sauthongtindocgia = new System.Windows.Forms.Label();
             this.btn_TK = new System.Windows.Forms.Button();
             this.txt_timkiem = new System.Windows.Forms.TextBox();
+            this.btn_thongtingoc = new System.Windows.Forms.Button();
             this.pnl_themdocgia.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -92,13 +93,13 @@
             this.txtdiachi.Size = new System.Drawing.Size(627, 41);
             this.txtdiachi.TabIndex = 10;
             // 
-            // txt_email
+            // txt_email_TT
             // 
-            this.txt_email.Location = new System.Drawing.Point(137, 255);
-            this.txt_email.Multiline = true;
-            this.txt_email.Name = "txt_email";
-            this.txt_email.Size = new System.Drawing.Size(627, 41);
-            this.txt_email.TabIndex = 9;
+            this.txt_email_TT.Location = new System.Drawing.Point(137, 255);
+            this.txt_email_TT.Multiline = true;
+            this.txt_email_TT.Name = "txt_email_TT";
+            this.txt_email_TT.Size = new System.Drawing.Size(627, 41);
+            this.txt_email_TT.TabIndex = 9;
             // 
             // txt_sdt
             // 
@@ -185,7 +186,7 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel1.Controls.Add(this.txtdiachi);
-            this.panel1.Controls.Add(this.txt_email);
+            this.panel1.Controls.Add(this.txt_email_TT);
             this.panel1.Controls.Add(this.txt_sdt);
             this.panel1.Controls.Add(this.txt_lop);
             this.panel1.Controls.Add(this.txt_khoa);
@@ -341,11 +342,24 @@
             this.txt_timkiem.Size = new System.Drawing.Size(618, 30);
             this.txt_timkiem.TabIndex = 18;
             // 
+            // btn_thongtingoc
+            // 
+            this.btn_thongtingoc.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn_thongtingoc.Location = new System.Drawing.Point(346, 528);
+            this.btn_thongtingoc.Name = "btn_thongtingoc";
+            this.btn_thongtingoc.Size = new System.Drawing.Size(159, 32);
+            this.btn_thongtingoc.TabIndex = 20;
+            this.btn_thongtingoc.Text = "Thông tin gốc";
+            this.btn_thongtingoc.UseVisualStyleBackColor = false;
+            this.btn_thongtingoc.Visible = false;
+            this.btn_thongtingoc.Click += new System.EventHandler(this.btn_thongtingoc_Click);
+            // 
             // suathongtindocgia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(869, 619);
+            this.Controls.Add(this.btn_thongtingoc);
             this.Controls.Add(this.btn_TK);
             this.Controls.Add(this.txt_timkiem);
             this.Controls.Add(this.btn_huy);
@@ -370,7 +384,7 @@
         private System.Windows.Forms.Button btn_huy;
         private System.Windows.Forms.Button btn_luu;
         private System.Windows.Forms.TextBox txtdiachi;
-        private System.Windows.Forms.TextBox txt_email;
+        private System.Windows.Forms.TextBox txt_email_TT;
         private System.Windows.Forms.TextBox txt_sdt;
         private System.Windows.Forms.TextBox txt_lop;
         private System.Windows.Forms.TextBox txt_khoa;
@@ -396,5 +410,6 @@
         private System.Windows.Forms.Label lab_sauthongtindocgia;
         private System.Windows.Forms.Button btn_TK;
         private System.Windows.Forms.TextBox txt_timkiem;
+        private System.Windows.Forms.Button btn_thongtingoc;
     }
 }

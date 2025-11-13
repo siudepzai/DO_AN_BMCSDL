@@ -56,11 +56,11 @@ namespace DO_AN_BMCSDL.Phan_GUI
                 return;
             }
 
-            // Lấy Mã độc giả an toàn bằng chỉ số cột
+            // Lấy MA DOC GIA an toàn bằng chỉ số cột
             string maDocGia = GetSelectedMaDocGia();
             if (string.IsNullOrEmpty(maDocGia))
             {
-                MessageBox.Show("Không thể lấy Mã Độc giả từ dòng đã chọn.", "Lỗi dữ liệu");
+                MessageBox.Show("Không thể lấy MA DOC GIA từ dòng đã chọn.", "Lỗi dữ liệu");
                 return;
             }
 
@@ -72,13 +72,11 @@ namespace DO_AN_BMCSDL.Phan_GUI
             }
         }
 
-        // 🔹 Nút THOÁT
         private void btn_thoat_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        // 🔹 Nút XÓA (Đã sửa lỗi TRIM)
         private void btn_xoa_Click(object sender, EventArgs e)
         {
             if (dgvDocGia.CurrentRow == null)
@@ -88,11 +86,10 @@ namespace DO_AN_BMCSDL.Phan_GUI
                 return;
             }
 
-            // Lấy Mã độc giả an toàn
             string maDocGia = GetSelectedMaDocGia();
             if (string.IsNullOrEmpty(maDocGia))
             {
-                MessageBox.Show("Không thể lấy Mã Độc giả từ dòng đã chọn.", "Lỗi dữ liệu");
+                MessageBox.Show("Không thể lấy MA DOC GIA từ dòng đã chọn.", "Lỗi dữ liệu");
                 return;
             }
 
@@ -152,10 +149,8 @@ namespace DO_AN_BMCSDL.Phan_GUI
             }
         }
 
-        // 🔹 Nút THÔNG TIN (Đã hoàn thiện)
         private void btn_thongtin_Click(object sender, EventArgs e)
         {
-            // 1. Kiểm tra lựa chọn dòng
             if (dgvDocGia.CurrentRow == null)
             {
                 MessageBox.Show("Vui lòng chọn một Độc giả để xem thông tin chi tiết.", "Thông báo",
@@ -163,34 +158,29 @@ namespace DO_AN_BMCSDL.Phan_GUI
                 return;
             }
 
-            // 2. Lấy Mã độc giả an toàn
             string maDocGia = GetSelectedMaDocGia();
 
             if (string.IsNullOrEmpty(maDocGia))
             {
-                MessageBox.Show("Không thể lấy Mã Độc giả từ dòng đã chọn.", "Lỗi dữ liệu");
+                MessageBox.Show("Không thể lấy MA DOC GIA từ dòng đã chọn.", "Lỗi dữ liệu");
                 return;
             }
 
-            // 3. Mở Form Sửa Thông tin (suathongtindocgia)
             suathongtindocgia formThongTin = new suathongtindocgia(maDocGia);
 
-            // 4. THIẾT LẬP CHẾ ĐỘ CHỈ ĐỌC
-            // CHÚ Ý: Đảm bảo Form suathongtindocgia có thuộc tính IsReadOnlyMode
+            
             formThongTin.IsReadOnlyMode = true;
+            formThongTin.ShowOriginalInfoButton = true;
 
-            // 5. Hiển thị Form
             formThongTin.ShowDialog();
         }
 
-        // --- HÀM TIỆN ÍCH: Lấy Mã Độc giả từ DGV an toàn hơn (Bằng chỉ số cột) ---
         private string GetSelectedMaDocGia()
         {
             try
             {
                 if (dgvDocGia.CurrentRow != null)
                 {
-                    // Truy cập cột Mã độc giả bằng chỉ số 1 (Cột STT là 0)
                     object value = dgvDocGia.CurrentRow.Cells[1].Value;
 
                     if (value != null)
@@ -201,7 +191,7 @@ namespace DO_AN_BMCSDL.Phan_GUI
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Lỗi khi lấy Mã Độc giả từ DGV: " + ex.Message);
+                Console.WriteLine("Lỗi khi lấy MA DOC GIA từ DGV: " + ex.Message);
                 return string.Empty;
             }
             return string.Empty;
@@ -214,10 +204,10 @@ namespace DO_AN_BMCSDL.Phan_GUI
             string sql = @"
                 SELECT 
                     ROWNUM AS STT, 
-                    TRIM(T1.MATHANHVIEN) AS ""MÃ ĐỘC GIẢ"", 
-                    TRIM(T1.TENTV) AS ""TÊN ĐỘC GIẢ"", 
-                    TRIM(T1.VAITRO) AS ""VAI TRÒ"", 
-                    TO_CHAR(T1.NGSINH, 'DD/MM/YYYY') AS ""NGÀY THAM GIA""
+                    TRIM(T1.MATHANHVIEN) AS ""MA DOC GIA"", 
+                    TRIM(T1.TENTV) AS ""TEN DOC GIA"", 
+                    TRIM(T1.VAITRO) AS ""VAI TRO"", 
+                    TO_CHAR(T1.NGSINH, 'DD/MM/YYYY') AS ""NGAY THAM GIA""
                 FROM DOCGIA T1
                 ORDER BY T1.MATHANHVIEN";
 
