@@ -43,9 +43,13 @@
             this.btnGioiThieu = new System.Windows.Forms.Button();
             this.btnTrangChu = new System.Windows.Forms.Button();
             this.pnlDichVu = new System.Windows.Forms.Panel();
+            this.btnGiaHanTaiLieu = new System.Windows.Forms.Button();
+            this.btnTraTaiLieu = new System.Windows.Forms.Button();
             this.btnMuonTaiLieu = new System.Windows.Forms.Button();
             this.btnMuonPhongHoc = new System.Windows.Forms.Button();
             this.pnlTaiNguyen = new System.Windows.Forms.Panel();
+            this.btnTraCuuPhongHoc = new System.Windows.Forms.Button();
+            this.btnTraCuuTaiLieu = new System.Windows.Forms.Button();
             this.menuHideTimer = new System.Windows.Forms.Timer(this.components);
             this.panel3 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
@@ -61,10 +65,7 @@
             this.button14 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
-            this.btnTraTaiLieu = new System.Windows.Forms.Button();
-            this.btnGiaHanTaiLieu = new System.Windows.Forms.Button();
-            this.btnTraCuuTaiLieu = new System.Windows.Forms.Button();
-            this.btnTraCuuPhongHoc = new System.Windows.Forms.Button();
+            this.btnDangXuat = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -78,6 +79,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.btnDangXuat);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.button1);
@@ -247,6 +249,36 @@
             this.pnlDichVu.MouseEnter += new System.EventHandler(this.pnlDichVu_MouseEnter);
             this.pnlDichVu.MouseLeave += new System.EventHandler(this.pnlDichVu_MouseLeave);
             // 
+            // btnGiaHanTaiLieu
+            // 
+            this.btnGiaHanTaiLieu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnGiaHanTaiLieu.FlatAppearance.BorderSize = 0;
+            this.btnGiaHanTaiLieu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGiaHanTaiLieu.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGiaHanTaiLieu.ForeColor = System.Drawing.Color.White;
+            this.btnGiaHanTaiLieu.Location = new System.Drawing.Point(-7, 168);
+            this.btnGiaHanTaiLieu.Name = "btnGiaHanTaiLieu";
+            this.btnGiaHanTaiLieu.Size = new System.Drawing.Size(201, 40);
+            this.btnGiaHanTaiLieu.TabIndex = 2;
+            this.btnGiaHanTaiLieu.Text = "Gia hạn tài liệu";
+            this.btnGiaHanTaiLieu.UseVisualStyleBackColor = false;
+            this.btnGiaHanTaiLieu.Click += new System.EventHandler(this.btnGiaHanTaiLieu_Click);
+            // 
+            // btnTraTaiLieu
+            // 
+            this.btnTraTaiLieu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnTraTaiLieu.FlatAppearance.BorderSize = 0;
+            this.btnTraTaiLieu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTraTaiLieu.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTraTaiLieu.ForeColor = System.Drawing.Color.White;
+            this.btnTraTaiLieu.Location = new System.Drawing.Point(-7, 124);
+            this.btnTraTaiLieu.Name = "btnTraTaiLieu";
+            this.btnTraTaiLieu.Size = new System.Drawing.Size(201, 40);
+            this.btnTraTaiLieu.TabIndex = 1;
+            this.btnTraTaiLieu.Text = "Trả tài liệu";
+            this.btnTraTaiLieu.UseVisualStyleBackColor = false;
+            this.btnTraTaiLieu.Click += new System.EventHandler(this.btnTraTaiLieu_Click);
+            // 
             // btnMuonTaiLieu
             // 
             this.btnMuonTaiLieu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
@@ -287,6 +319,36 @@
             this.pnlTaiNguyen.TabIndex = 2;
             this.pnlTaiNguyen.MouseEnter += new System.EventHandler(this.pnlTaiNguyen_MouseEnter);
             this.pnlTaiNguyen.MouseLeave += new System.EventHandler(this.pnlTaiNguyen_MouseLeave);
+            // 
+            // btnTraCuuPhongHoc
+            // 
+            this.btnTraCuuPhongHoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnTraCuuPhongHoc.FlatAppearance.BorderSize = 0;
+            this.btnTraCuuPhongHoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTraCuuPhongHoc.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTraCuuPhongHoc.ForeColor = System.Drawing.Color.White;
+            this.btnTraCuuPhongHoc.Location = new System.Drawing.Point(0, 41);
+            this.btnTraCuuPhongHoc.Name = "btnTraCuuPhongHoc";
+            this.btnTraCuuPhongHoc.Size = new System.Drawing.Size(190, 77);
+            this.btnTraCuuPhongHoc.TabIndex = 1;
+            this.btnTraCuuPhongHoc.Text = "Tra cứu phòng học";
+            this.btnTraCuuPhongHoc.UseVisualStyleBackColor = false;
+            this.btnTraCuuPhongHoc.Click += new System.EventHandler(this.btnTraCuuPhongHoc_Click);
+            // 
+            // btnTraCuuTaiLieu
+            // 
+            this.btnTraCuuTaiLieu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnTraCuuTaiLieu.FlatAppearance.BorderSize = 0;
+            this.btnTraCuuTaiLieu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTraCuuTaiLieu.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTraCuuTaiLieu.ForeColor = System.Drawing.Color.White;
+            this.btnTraCuuTaiLieu.Location = new System.Drawing.Point(-7, -5);
+            this.btnTraCuuTaiLieu.Name = "btnTraCuuTaiLieu";
+            this.btnTraCuuTaiLieu.Size = new System.Drawing.Size(202, 40);
+            this.btnTraCuuTaiLieu.TabIndex = 0;
+            this.btnTraCuuTaiLieu.Text = "Tra cứu tài liệu";
+            this.btnTraCuuTaiLieu.UseVisualStyleBackColor = false;
+            this.btnTraCuuTaiLieu.Click += new System.EventHandler(this.btnTraCuuTaiLieu_Click);
             // 
             // menuHideTimer
             // 
@@ -472,65 +534,16 @@
             this.button9.Text = "Thông tin cá nhân";
             this.button9.UseVisualStyleBackColor = false;
             // 
-            // btnTraTaiLieu
+            // btnDangXuat
             // 
-            this.btnTraTaiLieu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnTraTaiLieu.FlatAppearance.BorderSize = 0;
-            this.btnTraTaiLieu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTraTaiLieu.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTraTaiLieu.ForeColor = System.Drawing.Color.White;
-            this.btnTraTaiLieu.Location = new System.Drawing.Point(-7, 124);
-            this.btnTraTaiLieu.Name = "btnTraTaiLieu";
-            this.btnTraTaiLieu.Size = new System.Drawing.Size(201, 40);
-            this.btnTraTaiLieu.TabIndex = 1;
-            this.btnTraTaiLieu.Text = "Trả tài liệu";
-            this.btnTraTaiLieu.UseVisualStyleBackColor = false;
-            this.btnTraTaiLieu.Click += new System.EventHandler(this.btnTraTaiLieu_Click);
-            // 
-            // btnGiaHanTaiLieu
-            // 
-            this.btnGiaHanTaiLieu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnGiaHanTaiLieu.FlatAppearance.BorderSize = 0;
-            this.btnGiaHanTaiLieu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGiaHanTaiLieu.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGiaHanTaiLieu.ForeColor = System.Drawing.Color.White;
-            this.btnGiaHanTaiLieu.Location = new System.Drawing.Point(-7, 168);
-            this.btnGiaHanTaiLieu.Name = "btnGiaHanTaiLieu";
-            this.btnGiaHanTaiLieu.Size = new System.Drawing.Size(201, 40);
-            this.btnGiaHanTaiLieu.TabIndex = 2;
-            this.btnGiaHanTaiLieu.Text = "Gia hạn tài liệu";
-            this.btnGiaHanTaiLieu.UseVisualStyleBackColor = false;
-            this.btnGiaHanTaiLieu.Click += new System.EventHandler(this.btnGiaHanTaiLieu_Click);
-            // 
-            // btnTraCuuTaiLieu
-            // 
-            this.btnTraCuuTaiLieu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnTraCuuTaiLieu.FlatAppearance.BorderSize = 0;
-            this.btnTraCuuTaiLieu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTraCuuTaiLieu.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTraCuuTaiLieu.ForeColor = System.Drawing.Color.White;
-            this.btnTraCuuTaiLieu.Location = new System.Drawing.Point(-7, -5);
-            this.btnTraCuuTaiLieu.Name = "btnTraCuuTaiLieu";
-            this.btnTraCuuTaiLieu.Size = new System.Drawing.Size(202, 40);
-            this.btnTraCuuTaiLieu.TabIndex = 0;
-            this.btnTraCuuTaiLieu.Text = "Tra cứu tài liệu";
-            this.btnTraCuuTaiLieu.UseVisualStyleBackColor = false;
-            this.btnTraCuuTaiLieu.Click += new System.EventHandler(this.btnTraCuuTaiLieu_Click);
-            // 
-            // btnTraCuuPhongHoc
-            // 
-            this.btnTraCuuPhongHoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnTraCuuPhongHoc.FlatAppearance.BorderSize = 0;
-            this.btnTraCuuPhongHoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTraCuuPhongHoc.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTraCuuPhongHoc.ForeColor = System.Drawing.Color.White;
-            this.btnTraCuuPhongHoc.Location = new System.Drawing.Point(0, 41);
-            this.btnTraCuuPhongHoc.Name = "btnTraCuuPhongHoc";
-            this.btnTraCuuPhongHoc.Size = new System.Drawing.Size(190, 77);
-            this.btnTraCuuPhongHoc.TabIndex = 1;
-            this.btnTraCuuPhongHoc.Text = "Tra cứu phòng học";
-            this.btnTraCuuPhongHoc.UseVisualStyleBackColor = false;
-            this.btnTraCuuPhongHoc.Click += new System.EventHandler(this.btnTraCuuPhongHoc_Click);
+            this.btnDangXuat.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDangXuat.Location = new System.Drawing.Point(851, 6);
+            this.btnDangXuat.Name = "btnDangXuat";
+            this.btnDangXuat.Size = new System.Drawing.Size(120, 31);
+            this.btnDangXuat.TabIndex = 5;
+            this.btnDangXuat.Text = "Đăng xuất";
+            this.btnDangXuat.UseVisualStyleBackColor = true;
+            this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
             // 
             // FormTrangChuDocGia
             // 
@@ -598,5 +611,6 @@
         private System.Windows.Forms.Button btnGiaHanTaiLieu;
         private System.Windows.Forms.Button btnTraCuuPhongHoc;
         private System.Windows.Forms.Button btnTraCuuTaiLieu;
+        private System.Windows.Forms.Button btnDangXuat;
     }
 }

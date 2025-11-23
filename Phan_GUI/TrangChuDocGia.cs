@@ -12,9 +12,12 @@ namespace DO_AN_BMCSDL.Phan_GUI
 {
     public partial class FormTrangChuDocGia : Form
     {
-        public FormTrangChuDocGia()
+        private string _tenTaiKhoan;
+        public FormTrangChuDocGia(string tenTaiKhoan)
         {
             InitializeComponent();
+
+            _tenTaiKhoan = tenTaiKhoan;
             // Trang chủ
             menuHideTimer.Tick += new EventHandler(menuHideTimer_Tick);
 
@@ -129,7 +132,7 @@ namespace DO_AN_BMCSDL.Phan_GUI
 
         private void btnThongTinThe_Click(object sender, EventArgs e)
         {
-            FormThongTinThe formthongtinthe = new FormThongTinThe();
+            FormThongTinThe formthongtinthe = new FormThongTinThe(_tenTaiKhoan);
             formthongtinthe.FormClosed += (s, args) => this.Show();
             formthongtinthe.Show();
             this.Hide();
@@ -137,14 +140,14 @@ namespace DO_AN_BMCSDL.Phan_GUI
 
         private void label1_Click(object sender, EventArgs e)
         {
-            FormThongBaoDocGia formThongBaoDocGia = new FormThongBaoDocGia();
-            formThongBaoDocGia.FormClosed += (s, args) => this.Show();
-            formThongBaoDocGia.Show();
+            FormThongBaoDocGia_V2 formThongBaoDocGia_V2 = new FormThongBaoDocGia_V2(_tenTaiKhoan);
+            formThongBaoDocGia_V2.FormClosed += (s, args) => this.Show();
+            formThongBaoDocGia_V2.Show();
         }
 
         private void btnLichSuMuon_Click(object sender, EventArgs e)
         {
-            FormLichSuMuon formLichSuMuon = new FormLichSuMuon();
+            FormLichSuMuon formLichSuMuon = new FormLichSuMuon(_tenTaiKhoan);
             formLichSuMuon.FormClosed += (s, args) => this.Show();
             formLichSuMuon.Show();
             this.Hide();
@@ -176,12 +179,23 @@ namespace DO_AN_BMCSDL.Phan_GUI
 
         private void btnTraCuuTaiLieu_Click(object sender, EventArgs e)
         {
-
+            FormMuonTaiLieu formMuonTaiLieu = new FormMuonTaiLieu();
+            formMuonTaiLieu.FormClosed += (s, args) => this.Show();
+            formMuonTaiLieu.Show();
+            this.Hide();
         }
 
         private void btnTraCuuPhongHoc_Click(object sender, EventArgs e)
         {
+            FormMuonPhong formMuonPhong = new FormMuonPhong();
+            formMuonPhong.FormClosed += (s, args) => this.Show();
+            formMuonPhong.Show();
+            this.Hide();
+        }
 
+        private void btnDangXuat_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -39,13 +39,13 @@
             this.txtNhapMaTaiLieu = new System.Windows.Forms.TextBox();
             this.txtNhapSoLuongMuon = new System.Windows.Forms.TextBox();
             this.btnDangKyMuon = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvTraCuuTaiLieu = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTraCuuTaiLieu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,6 +91,7 @@
             this.btnTim.TabIndex = 2;
             this.btnTim.Text = "Tìm";
             this.btnTim.UseVisualStyleBackColor = false;
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
             // txtTimKiem
             // 
@@ -101,6 +102,7 @@
             this.txtTimKiem.Name = "txtTimKiem";
             this.txtTimKiem.Size = new System.Drawing.Size(370, 46);
             this.txtTimKiem.TabIndex = 1;
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
             // 
             // btnTrangChu
             // 
@@ -162,15 +164,16 @@
             this.btnDangKyMuon.Text = "Đăng ký mượn";
             this.btnDangKyMuon.UseVisualStyleBackColor = false;
             // 
-            // dataGridView1
+            // dgvTraCuuTaiLieu
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 207);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(855, 150);
-            this.dataGridView1.TabIndex = 11;
+            this.dgvTraCuuTaiLieu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTraCuuTaiLieu.Location = new System.Drawing.Point(13, 207);
+            this.dgvTraCuuTaiLieu.Name = "dgvTraCuuTaiLieu";
+            this.dgvTraCuuTaiLieu.RowHeadersWidth = 51;
+            this.dgvTraCuuTaiLieu.RowTemplate.Height = 24;
+            this.dgvTraCuuTaiLieu.Size = new System.Drawing.Size(855, 150);
+            this.dgvTraCuuTaiLieu.TabIndex = 11;
+            this.dgvTraCuuTaiLieu.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTraCuuTaiLieu_CellContentClick);
             // 
             // dataGridView2
             // 
@@ -191,19 +194,20 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvTraCuuTaiLieu);
             this.Controls.Add(this.dataGridView2);
             this.Name = "FormMuonTaiLieu";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MuonTaiLieu";
+            this.Load += new System.EventHandler(this.FormMuonTaiLieu_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTraCuuTaiLieu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
@@ -221,7 +225,7 @@
         private System.Windows.Forms.TextBox txtNhapMaTaiLieu;
         private System.Windows.Forms.TextBox txtNhapSoLuongMuon;
         private System.Windows.Forms.Button btnDangKyMuon;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvTraCuuTaiLieu;
         private System.Windows.Forms.DataGridView dataGridView2;
     }
 }

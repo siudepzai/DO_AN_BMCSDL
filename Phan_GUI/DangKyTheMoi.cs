@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DO_AN_BMCSDL.Phan_xu_ly;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,7 @@ namespace DO_AN_BMCSDL.Phan_GUI
         public FormDangKyTheMoi()
         {
             InitializeComponent();
+            lblDangKyThanhCong.Visible = false;
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
@@ -24,10 +26,71 @@ namespace DO_AN_BMCSDL.Phan_GUI
 
         private void btnDangKyThe_Click(object sender, EventArgs e)
         {
-            lblDangKyThanhCong.Visible = true;
+            // 1. Thu thập dữ liệu
+            string hoTen = txtHoTen.Text.Trim();
+            DateTime ngaySinh = dateTimePicker1.Value.Date;
+            string gioiTinh = radNam.Checked ? "Nam" : (radNu.Checked ? "Nu" : null);
+            string taiKhoan = txtTaiKhoan.Text.Trim();
+            string matKhau = txtMatKhau.Text;
+            string vaiTro = cboVaiTro.SelectedItem?.ToString() ?? "Doc gia";
+            string ngheNghiep = cboNgheNghiep.SelectedItem?.ToString() ?? "Students";
+            string diaChi = txtDiaChi.Text.Trim();
+            string khoaHoc = txtKhoaHoc.Text.Trim();
+            string email = txtEmail.Text.Trim();
+            string sdt = txtDienThoai.Text.Trim();
+            string ghiChu = txtGhiChu.Text.Trim();
+
+            // 2. Kiểm tra dữ liệu bắt buộc
+            if (string.IsNullOrEmpty(hoTen) || string.IsNullOrEmpty(taiKhoan) ||
+                string.IsNullOrEmpty(matKhau) || gioiTinh == null)
+            {
+                MessageBox.Show("Vui lòng điền đầy đủ Họ tên, Tài khoản, Mật khẩu và Giới tính.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // (Thêm các validation khác như kiểm tra format email, sdt, độ dài tài khoản/mật khẩu...)
+
+            try
+            {
+                // 3. Thực hiện đăng ký
+                DangKyTheMoi.DangKyDocGiaVaThe(
+                    hoTen, ngaySinh, gioiTinh, ngheNghiep,
+                    vaiTro, diaChi, khoaHoc, email,
+                    sdt, ghiChu, taiKhoan, matKhau
+                );
+
+                // 4. Thông báo thành công
+                
+                lblDangKyThanhCong.Visible = true;
+
+                // (Tùy chọn: Xóa các trường nhập liệu sau khi đăng ký)
+            }
+            catch (Exception ex)
+            {
+                // 5. Xử lý lỗi
+                lblDangKyThanhCong.Text = "Đăng ký thất bại!";
+                lblDangKyThanhCong.BackColor = Color.Red;
+                lblDangKyThanhCong.Visible = true;
+                MessageBox.Show(ex.Message, "Lỗi Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void lblDangKyThanhCong_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cboVaiTro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }

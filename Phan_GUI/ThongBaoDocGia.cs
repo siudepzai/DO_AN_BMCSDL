@@ -21,5 +21,10 @@ namespace DO_AN_BMCSDL.Phan_GUI
         {
             this.Close();
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
     }
 }

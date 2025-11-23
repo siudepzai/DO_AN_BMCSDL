@@ -97,18 +97,20 @@
             this.radLichSuMuonPhong.TabStop = true;
             this.radLichSuMuonPhong.Text = "Lịch sử mượn phòng";
             this.radLichSuMuonPhong.UseVisualStyleBackColor = true;
+            this.radLichSuMuonPhong.CheckedChanged += new System.EventHandler(this.radLichSuMuonPhong_CheckedChanged);
             // 
             // radLichSuMuonTaiLieu
             // 
             this.radLichSuMuonTaiLieu.AutoSize = true;
+            this.radLichSuMuonTaiLieu.Cursor = System.Windows.Forms.Cursors.Default;
             this.radLichSuMuonTaiLieu.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radLichSuMuonTaiLieu.Location = new System.Drawing.Point(70, 221);
             this.radLichSuMuonTaiLieu.Name = "radLichSuMuonTaiLieu";
             this.radLichSuMuonTaiLieu.Size = new System.Drawing.Size(189, 27);
             this.radLichSuMuonTaiLieu.TabIndex = 2;
-            this.radLichSuMuonTaiLieu.TabStop = true;
             this.radLichSuMuonTaiLieu.Text = "Lịch sử mượn tài liệu";
             this.radLichSuMuonTaiLieu.UseVisualStyleBackColor = true;
+            this.radLichSuMuonTaiLieu.CheckedChanged += new System.EventHandler(this.radLichSuMuonTaiLieu_CheckedChanged);
             // 
             // dataGridView1
             // 
@@ -119,6 +121,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(854, 314);
             this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // FormLichSuMuon
             // 
@@ -135,6 +138,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LichSuMuon";
+            this.Load += new System.EventHandler(this.FormLichSuMuon_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);

@@ -32,21 +32,21 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnTrangChu = new System.Windows.Forms.Button();
-            this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.btnTim = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.txtTimKiem = new System.Windows.Forms.TextBox();
+            this.btnTrangChu = new System.Windows.Forms.Button();
+            this.dgvTraCuuPhong = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.txtNhapSoGioMuon = new System.Windows.Forms.TextBox();
-            this.txtNhapMaPhong = new System.Windows.Forms.TextBox();
-            this.btnDangKyMuon = new System.Windows.Forms.Button();
-            this.btnTraPhongSom = new System.Windows.Forms.Button();
             this.btnGiaHan = new System.Windows.Forms.Button();
+            this.txtNhapMaPhong = new System.Windows.Forms.TextBox();
+            this.txtNhapSoGioMuon = new System.Windows.Forms.TextBox();
+            this.btnTraPhongSom = new System.Windows.Forms.Button();
+            this.btnDangKyMuon = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTraCuuPhong)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -82,6 +82,30 @@
             this.panel2.Size = new System.Drawing.Size(878, 52);
             this.panel2.TabIndex = 5;
             // 
+            // btnTim
+            // 
+            this.btnTim.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnTim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTim.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTim.Location = new System.Drawing.Point(761, 4);
+            this.btnTim.Name = "btnTim";
+            this.btnTim.Size = new System.Drawing.Size(75, 45);
+            this.btnTim.TabIndex = 2;
+            this.btnTim.Text = "Tìm";
+            this.btnTim.UseVisualStyleBackColor = false;
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
+            // 
+            // txtTimKiem
+            // 
+            this.txtTimKiem.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTimKiem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTimKiem.Location = new System.Drawing.Point(385, 3);
+            this.txtTimKiem.Multiline = true;
+            this.txtTimKiem.Name = "txtTimKiem";
+            this.txtTimKiem.Size = new System.Drawing.Size(370, 46);
+            this.txtTimKiem.TabIndex = 1;
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
+            // 
             // btnTrangChu
             // 
             this.btnTrangChu.BackColor = System.Drawing.Color.Black;
@@ -97,37 +121,17 @@
             this.btnTrangChu.UseVisualStyleBackColor = false;
             this.btnTrangChu.Click += new System.EventHandler(this.btnTrangChu_Click);
             // 
-            // txtTimKiem
+            // dgvTraCuuPhong
             // 
-            this.txtTimKiem.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTimKiem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTimKiem.Location = new System.Drawing.Point(385, 3);
-            this.txtTimKiem.Multiline = true;
-            this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.Size = new System.Drawing.Size(370, 46);
-            this.txtTimKiem.TabIndex = 1;
-            // 
-            // btnTim
-            // 
-            this.btnTim.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btnTim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTim.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTim.Location = new System.Drawing.Point(761, 4);
-            this.btnTim.Name = "btnTim";
-            this.btnTim.Size = new System.Drawing.Size(75, 45);
-            this.btnTim.TabIndex = 2;
-            this.btnTim.Text = "Tìm";
-            this.btnTim.UseVisualStyleBackColor = false;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 204);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(855, 150);
-            this.dataGridView1.TabIndex = 6;
+            this.dgvTraCuuPhong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTraCuuPhong.Cursor = System.Windows.Forms.Cursors.Default;
+            this.dgvTraCuuPhong.Location = new System.Drawing.Point(13, 204);
+            this.dgvTraCuuPhong.Name = "dgvTraCuuPhong";
+            this.dgvTraCuuPhong.RowHeadersWidth = 51;
+            this.dgvTraCuuPhong.RowTemplate.Height = 24;
+            this.dgvTraCuuPhong.Size = new System.Drawing.Size(855, 150);
+            this.dgvTraCuuPhong.TabIndex = 6;
+            this.dgvTraCuuPhong.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTraCuuPhong_CellContentClick);
             // 
             // panel3
             // 
@@ -142,15 +146,19 @@
             this.panel3.Size = new System.Drawing.Size(855, 71);
             this.panel3.TabIndex = 7;
             // 
-            // txtNhapSoGioMuon
+            // btnGiaHan
             // 
-            this.txtNhapSoGioMuon.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNhapSoGioMuon.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNhapSoGioMuon.Location = new System.Drawing.Point(203, 16);
-            this.txtNhapSoGioMuon.Multiline = true;
-            this.txtNhapSoGioMuon.Name = "txtNhapSoGioMuon";
-            this.txtNhapSoGioMuon.Size = new System.Drawing.Size(169, 42);
-            this.txtNhapSoGioMuon.TabIndex = 0;
+            this.btnGiaHan.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnGiaHan.FlatAppearance.BorderSize = 0;
+            this.btnGiaHan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGiaHan.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGiaHan.ForeColor = System.Drawing.Color.White;
+            this.btnGiaHan.Location = new System.Drawing.Point(722, 16);
+            this.btnGiaHan.Name = "btnGiaHan";
+            this.btnGiaHan.Size = new System.Drawing.Size(116, 42);
+            this.btnGiaHan.TabIndex = 1;
+            this.btnGiaHan.Text = "Gia hạn";
+            this.btnGiaHan.UseVisualStyleBackColor = false;
             // 
             // txtNhapMaPhong
             // 
@@ -162,20 +170,15 @@
             this.txtNhapMaPhong.Size = new System.Drawing.Size(169, 42);
             this.txtNhapMaPhong.TabIndex = 0;
             // 
-            // btnDangKyMuon
+            // txtNhapSoGioMuon
             // 
-            this.btnDangKyMuon.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnDangKyMuon.FlatAppearance.BorderSize = 0;
-            this.btnDangKyMuon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDangKyMuon.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDangKyMuon.ForeColor = System.Drawing.Color.White;
-            this.btnDangKyMuon.Location = new System.Drawing.Point(393, 16);
-            this.btnDangKyMuon.Name = "btnDangKyMuon";
-            this.btnDangKyMuon.Size = new System.Drawing.Size(159, 42);
-            this.btnDangKyMuon.TabIndex = 1;
-            this.btnDangKyMuon.Text = "Đăng ký mượn";
-            this.btnDangKyMuon.UseVisualStyleBackColor = false;
-            this.btnDangKyMuon.Click += new System.EventHandler(this.btnDangKyMuon_Click);
+            this.txtNhapSoGioMuon.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNhapSoGioMuon.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNhapSoGioMuon.Location = new System.Drawing.Point(203, 16);
+            this.txtNhapSoGioMuon.Multiline = true;
+            this.txtNhapSoGioMuon.Name = "txtNhapSoGioMuon";
+            this.txtNhapSoGioMuon.Size = new System.Drawing.Size(169, 42);
+            this.txtNhapSoGioMuon.TabIndex = 0;
             // 
             // btnTraPhongSom
             // 
@@ -191,19 +194,20 @@
             this.btnTraPhongSom.Text = "Trả phòng sớm";
             this.btnTraPhongSom.UseVisualStyleBackColor = false;
             // 
-            // btnGiaHan
+            // btnDangKyMuon
             // 
-            this.btnGiaHan.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnGiaHan.FlatAppearance.BorderSize = 0;
-            this.btnGiaHan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGiaHan.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGiaHan.ForeColor = System.Drawing.Color.White;
-            this.btnGiaHan.Location = new System.Drawing.Point(722, 16);
-            this.btnGiaHan.Name = "btnGiaHan";
-            this.btnGiaHan.Size = new System.Drawing.Size(116, 42);
-            this.btnGiaHan.TabIndex = 1;
-            this.btnGiaHan.Text = "Gia hạn";
-            this.btnGiaHan.UseVisualStyleBackColor = false;
+            this.btnDangKyMuon.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnDangKyMuon.FlatAppearance.BorderSize = 0;
+            this.btnDangKyMuon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDangKyMuon.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDangKyMuon.ForeColor = System.Drawing.Color.White;
+            this.btnDangKyMuon.Location = new System.Drawing.Point(393, 16);
+            this.btnDangKyMuon.Name = "btnDangKyMuon";
+            this.btnDangKyMuon.Size = new System.Drawing.Size(159, 42);
+            this.btnDangKyMuon.TabIndex = 1;
+            this.btnDangKyMuon.Text = "Đăng ký mượn";
+            this.btnDangKyMuon.UseVisualStyleBackColor = false;
+            this.btnDangKyMuon.Click += new System.EventHandler(this.btnDangKyMuon_Click);
             // 
             // dataGridView2
             // 
@@ -223,18 +227,19 @@
             this.ClientSize = new System.Drawing.Size(880, 609);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvTraCuuPhong);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Name = "FormMuonPhong";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mượn Phòng";
+            this.Load += new System.EventHandler(this.FormMuonPhong_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTraCuuPhong)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
@@ -250,7 +255,7 @@
         private System.Windows.Forms.Button btnTrangChu;
         private System.Windows.Forms.Button btnTim;
         private System.Windows.Forms.TextBox txtTimKiem;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvTraCuuPhong;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnGiaHan;
         private System.Windows.Forms.TextBox txtNhapMaPhong;
