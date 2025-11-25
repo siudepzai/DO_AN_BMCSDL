@@ -207,6 +207,7 @@
       <DependentUpon>xulyvipham.cs</DependentUpon>
     </Compile>
     <Compile Include="Phan_xu_ly\Database.cs" />
+    <Compile Include="Phan_xu_ly\Thuat_Toan_RSA.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Phan_GUI\baocao.resx">

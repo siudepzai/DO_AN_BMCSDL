@@ -10,7 +10,7 @@ namespace DO_AN_BMCSDL.Phan_GUI
 {
     public partial class QL_tailieu : Form
     {
-       
+
         private bool _isAddingNew = false;
 
         public QL_tailieu()
@@ -34,19 +34,19 @@ namespace DO_AN_BMCSDL.Phan_GUI
             dgv_tailieu.ColumnHeadersDefaultCellStyle.Font = new Font("Times New Roman", 12, FontStyle.Bold);
             dgv_tailieu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-           
+
             dgv_tailieu.CellClick += dgv_tailieu_CellClick;
 
             LoadDataTaiLieu();
 
-         
+
             SetFormMode(false);
         }
 
-      
+
         private void LoadDataTaiLieu(string searchTerm = "")
         {
-           
+
             string sql = @"
                 SELECT 
                     ROWNUM AS STT, 
@@ -66,7 +66,7 @@ namespace DO_AN_BMCSDL.Phan_GUI
             {
                 if (Database.Connect())
                 {
-                  
+
                     DataTable dt = Database.ExecuteQuery(sql, new OracleParameter("searchTerm", searchTerm.ToLower()));
                     dgv_tailieu.DataSource = dt;
 
@@ -110,7 +110,7 @@ namespace DO_AN_BMCSDL.Phan_GUI
 
             btn_capnhattailieu.Text = isAdding ? "Lưu" : "Cập nhật";
 
-          
+
         }
         private void ClearFormControls()
         {
@@ -157,17 +157,17 @@ namespace DO_AN_BMCSDL.Phan_GUI
             txt_matailieu.Focus();
         }
 
-       
+
         private void btn_capnhat_Click(object sender, EventArgs e)
         {
             if (_isAddingNew)
             {
-                
+
                 HandleInsert();
             }
             else
             {
-                
+
                 HandleUpdate();
             }
         }
@@ -215,7 +215,7 @@ namespace DO_AN_BMCSDL.Phan_GUI
             }
             catch (OracleException ex)
             {
-                if (ex.Number == 1) 
+                if (ex.Number == 1)
                 {
                     MessageBox.Show($"Lỗi: Mã tài liệu '{maTL}' đã tồn tại.", "Lỗi trùng lặp");
                 }

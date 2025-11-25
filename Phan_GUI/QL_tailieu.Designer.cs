@@ -46,6 +46,7 @@
             this.btn_xoa = new System.Windows.Forms.Button();
             this.txt_ngonngu = new System.Windows.Forms.TextBox();
             this.pnl_thanhquanly = new System.Windows.Forms.Panel();
+            this.btn_thongtingoc = new System.Windows.Forms.Button();
             this.btn_capnhattailieu = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lab_ = new System.Windows.Forms.Label();
@@ -211,6 +212,7 @@
             // 
             // pnl_thanhquanly
             // 
+            this.pnl_thanhquanly.Controls.Add(this.btn_thongtingoc);
             this.pnl_thanhquanly.Controls.Add(this.btn_thoat);
             this.pnl_thanhquanly.Controls.Add(this.btn_giahanthe);
             this.pnl_thanhquanly.Controls.Add(this.btn_xoa);
@@ -219,6 +221,17 @@
             this.pnl_thanhquanly.Name = "pnl_thanhquanly";
             this.pnl_thanhquanly.Size = new System.Drawing.Size(1173, 67);
             this.pnl_thanhquanly.TabIndex = 29;
+            // 
+            // btn_thongtingoc
+            // 
+            this.btn_thongtingoc.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn_thongtingoc.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_thongtingoc.Location = new System.Drawing.Point(1007, 19);
+            this.btn_thongtingoc.Name = "btn_thongtingoc";
+            this.btn_thongtingoc.Size = new System.Drawing.Size(136, 35);
+            this.btn_thongtingoc.TabIndex = 1;
+            this.btn_thongtingoc.Text = "Thông tin gốc";
+            this.btn_thongtingoc.UseVisualStyleBackColor = false;
             // 
             // btn_capnhattailieu
             // 
@@ -422,5 +435,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txt_theloai;
         private System.Windows.Forms.Button btn_capnhattailieu;
+        private System.Windows.Forms.Button btn_thongtingoc;
     }
 }

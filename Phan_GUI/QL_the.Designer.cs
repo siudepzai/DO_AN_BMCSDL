@@ -56,6 +56,7 @@
             this.txt_tinhtrang = new System.Windows.Forms.TextBox();
             this.txt_diachi = new System.Windows.Forms.TextBox();
             this.lab_thongtinthedocgia = new System.Windows.Forms.Label();
+            this.btn_thongtingoc = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
@@ -153,6 +154,7 @@
             // 
             // pnl_thanhquanly
             // 
+            this.pnl_thanhquanly.Controls.Add(this.btn_thongtingoc);
             this.pnl_thanhquanly.Controls.Add(this.btn_X);
             this.pnl_thanhquanly.Controls.Add(this.btn_thoat);
             this.pnl_thanhquanly.Controls.Add(this.btn_xoa);
@@ -178,7 +180,7 @@
             // 
             this.btn_thoat.BackColor = System.Drawing.Color.RoyalBlue;
             this.btn_thoat.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_thoat.Location = new System.Drawing.Point(787, 9);
+            this.btn_thoat.Location = new System.Drawing.Point(740, 9);
             this.btn_thoat.Name = "btn_thoat";
             this.btn_thoat.Size = new System.Drawing.Size(190, 45);
             this.btn_thoat.TabIndex = 0;
@@ -317,6 +319,17 @@
             this.lab_thongtinthedocgia.TabIndex = 21;
             this.lab_thongtinthedocgia.Text = "Thông tin thẻ đọc giả";
             // 
+            // btn_thongtingoc
+            // 
+            this.btn_thongtingoc.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn_thongtingoc.Location = new System.Drawing.Point(951, 23);
+            this.btn_thongtingoc.Name = "btn_thongtingoc";
+            this.btn_thongtingoc.Size = new System.Drawing.Size(128, 31);
+            this.btn_thongtingoc.TabIndex = 2;
+            this.btn_thongtingoc.Text = "Thông tin gốc";
+            this.btn_thongtingoc.UseVisualStyleBackColor = false;
+            this.btn_thongtingoc.Click += new System.EventHandler(this.btn_thongtingoc_Click);
+            // 
             // QL_the
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
@@ -381,5 +394,6 @@
         private System.Windows.Forms.Button btn_TK;
         private System.Windows.Forms.Label lab_thongtinthedocgia;
         private System.Windows.Forms.Button btn_X;
+        private System.Windows.Forms.Button btn_thongtingoc;
     }
 }

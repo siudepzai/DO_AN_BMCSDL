@@ -1,9 +1,12 @@
 ﻿using _40_caesarOracle;
+using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Data;
 using System.Drawing;
+using System.IO;
+using System.Security.Cryptography;
+using System.Text;
 using System.Windows.Forms;
-using Oracle.ManagedDataAccess.Client;
 
 namespace DO_AN_BMCSDL.Phan_GUI
 {
@@ -11,7 +14,7 @@ namespace DO_AN_BMCSDL.Phan_GUI
     {
         
         private bool _isAddingNew = false;
-
+        private const string KEY_DES = "HUITCNTT";
 
         public QL_the()
         {
@@ -203,7 +206,7 @@ namespace DO_AN_BMCSDL.Phan_GUI
         {
             string maSoThe = txt_masothe.Text.Trim();
             string tinhTrang = txt_tinhtrang.Text.Trim();
-            string diaChi = txt_diachi.Text.Trim();
+            string diaChi = Encrypt_DES(txt_diachi.Text.Trim(), KEY_DES);
             string vaiTro = txt_vaitro.Text.Trim();
 
 
@@ -394,6 +397,15 @@ namespace DO_AN_BMCSDL.Phan_GUI
                 {
                     // Tham số tìm kiếm
                     DataTable dt = Database.ExecuteQuery(sql, new OracleParameter("searchTerm", searchTerm.ToLower()));
+                    foreach (DataRow r in dt.Rows)
+                    {
+                        try
+                        {
+                            r["Dia chi"] = Encrypt_DES(r["Dia chi"].ToString(), KEY_DES);
+                        }
+                        catch { }
+                    }
+
                     dgv_thongtinthe.DataSource = dt;
 
                     // Cập nhật HeaderText hiển thị Tiếng Việt
@@ -427,7 +439,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
 
         private void btn_TK_Click(object sender, EventArgs e)
         {
-            // Giả định tên TextBox tìm kiếm là txt_timkiem
             if (txt_timkiem == null)
             {
                 MessageBox.Show("Lỗi: Không tìm thấy TextBox tìm kiếm (txt_timkiem).", "Lỗi hệ thống");
@@ -447,5 +458,91 @@ namespace DO_AN_BMCSDL.Phan_GUI
             txt_tinhtrang.Clear();
             LoadDataTheDocGia();
         }
+        private void LoadDataGoc()
+        {
+            string sql = @"
+        SELECT 
+            ROWNUM AS STT,
+            TRIM(T2.MASOTHE) AS ""Ma so the"",
+            TRIM(T1.TENTV) AS ""Ho ten"",
+            TRIM(T1.DIACHI) AS ""Dia chi"",
+            TRIM(T1.VAITRO) AS ""Vai tro"",
+            TRIM(T2.TINHTRANGTHE) AS ""Tinh trang""
+        FROM DOCGIA T1
+        JOIN THEBANDOC T2 ON T1.MATHANHVIEN = T2.MATHANHVIEN
+        ORDER BY T2.MASOTHE";
+
+            if (!Database.Connect())
+            {
+                MessageBox.Show("Không kết nối được Oracle.");
+                return;
+            }
+
+            DataTable dt = Database.ExecuteQuery(sql);
+            
+            foreach (DataRow r in dt.Rows)
+            {
+                try
+                {
+                    r["Dia chi"] = Decrypt_DES(r["Dia chi"].ToString(), KEY_DES);
+                }
+                catch { }
+            }
+
+            dgv_thongtinthe.DataSource = dt;
+        }
+
+        private void btn_thongtingoc_Click(object sender, EventArgs e)
+        {
+            string mk = Microsoft.VisualBasic.Interaction.InputBox(
+        "Nhập mật khẩu để xem địa chỉ gốc:", "Xác thực", "");
+
+            if (mk != "HUITCNTT") 
+            {
+                MessageBox.Show("Sai mật khẩu! Không thể xem thông tin gốc.");
+                return;
+            }
+
+            LoadDataGoc();
+        }
+        // hàm mã hóa và giải mã
+        public static string Encrypt_DES(string plainText, string key)
+        {
+            using (DESCryptoServiceProvider des = new DESCryptoServiceProvider())
+            {
+                des.Key = Encoding.UTF8.GetBytes(key);
+                des.IV = Encoding.UTF8.GetBytes(key);
+
+                byte[] data = Encoding.UTF8.GetBytes(plainText);
+
+                using (var ms = new MemoryStream())
+                using (var cs = new CryptoStream(ms, des.CreateEncryptor(), CryptoStreamMode.Write))
+                {
+                    cs.Write(data, 0, data.Length);
+                    cs.FlushFinalBlock();
+                    return Convert.ToBase64String(ms.ToArray());
+                }
+            }
+        }
+
+        public static string Decrypt_DES(string cipherText, string key)
+        {
+            using (DESCryptoServiceProvider des = new DESCryptoServiceProvider())
+            {
+                des.Key = Encoding.UTF8.GetBytes(key);
+                des.IV = Encoding.UTF8.GetBytes(key);
+
+                byte[] buffer = Convert.FromBase64String(cipherText);
+
+                using (var ms = new MemoryStream())
+                using (var cs = new CryptoStream(ms, des.CreateDecryptor(), CryptoStreamMode.Write))
+                {
+                    cs.Write(buffer, 0, buffer.Length);
+                    cs.FlushFinalBlock();
+                    return Encoding.UTF8.GetString(ms.ToArray());
+                }
+            }
+        }
+
     }
 }
