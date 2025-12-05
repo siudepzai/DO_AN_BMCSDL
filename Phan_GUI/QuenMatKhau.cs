@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DO_AN_BMCSDL
+namespace DO_AN_BMCSDL.Phan_GUI
 {
-    public partial class Form1 : Form
+    public partial class FormQuenMatKhau : Form
     {
-        public Form1()
+        public FormQuenMatKhau()
         {
             InitializeComponent();
         }

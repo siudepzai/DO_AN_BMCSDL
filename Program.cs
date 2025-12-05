@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DO_AN_BMCSDL.Phan_GUI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,9 +15,13 @@ namespace DO_AN_BMCSDL
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
+           Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            //Application.Run(new thu_thu());
+
+            Application.Run(new FormDangNhap());
+
         }
     }
 }
