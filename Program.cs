@@ -17,7 +17,11 @@ namespace DO_AN_BMCSDL
         {
            Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new thu_thu());
+
+            //Application.Run(new thu_thu());
+
+            Application.Run(new FormDangNhap());
+
         }
     }
 }

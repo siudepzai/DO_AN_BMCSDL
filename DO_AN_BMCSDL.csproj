@@ -36,7 +36,10 @@
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
+
     <Reference Include="Microsoft.VisualBasic" />
+
+
     <Reference Include="Oracle.ManagedDataAccess, Version=4.122.23.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
       <HintPath>packages\Oracle.ManagedDataAccess.23.26.0\lib\net472\Oracle.ManagedDataAccess.dll</HintPath>
     </Reference>
@@ -44,17 +47,25 @@
     <Reference Include="System.Buffers, Version=4.0.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Buffers.4.6.0\lib\net462\System.Buffers.dll</HintPath>
     </Reference>
+
+    <Reference Include="System.Configuration" />
+
     <Reference Include="System.Core" />
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=6.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Diagnostics.DiagnosticSource.6.0.2\lib\net461\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
+
     <Reference Include="System.DirectoryServices" />
+
     <Reference Include="System.Formats.Asn1, Version=8.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Formats.Asn1.8.0.1\lib\net462\System.Formats.Asn1.dll</HintPath>
     </Reference>
     <Reference Include="System.Memory, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Memory.4.6.0\lib\net462\System.Memory.dll</HintPath>
     </Reference>
+
+    <Reference Include="System.Messaging" />
+
     <Reference Include="System.Numerics" />
     <Reference Include="System.Numerics.Vectors, Version=4.1.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Numerics.Vectors.4.6.0\lib\net462\System.Numerics.Vectors.dll</HintPath>
@@ -62,7 +73,10 @@
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Runtime.CompilerServices.Unsafe.6.1.0\lib\net462\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+
     <Reference Include="System.Security" />
+
+
     <Reference Include="System.Text.Encodings.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Text.Encodings.Web.8.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
     </Reference>
@@ -92,6 +106,7 @@
     <Compile Include="Create_key.Designer.cs">
       <DependentUpon>Create_key.cs</DependentUpon>
     </Compile>
+
     <Compile Include="Phan_GUI\baocao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -270,6 +285,172 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Phan_GUI\xulyvipham.resx">
       <DependentUpon>xulyvipham.cs</DependentUpon>
+
+    <Compile Include="Phan_GUI\DangKyCapLaiThe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Phan_GUI\DangKyCapLaiThe.Designer.cs">
+      <DependentUpon>DangKyCapLaiThe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Phan_GUI\DangKyCapThe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Phan_GUI\DangKyCapThe.Designer.cs">
+      <DependentUpon>DangKyCapThe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Phan_GUI\DangKyTheMoi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Phan_GUI\DangKyTheMoi.Designer.cs">
+      <DependentUpon>DangKyTheMoi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Phan_GUI\DangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Phan_GUI\DangNhap.Designer.cs">
+      <DependentUpon>DangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Phan_GUI\DoiMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Phan_GUI\DoiMatKhau.Designer.cs">
+      <DependentUpon>DoiMatKhau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Phan_GUI\GiaHanTaiLieu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Phan_GUI\GiaHanTaiLieu.Designer.cs">
+      <DependentUpon>GiaHanTaiLieu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Phan_GUI\LichSuMuon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Phan_GUI\LichSuMuon.Designer.cs">
+      <DependentUpon>LichSuMuon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Phan_GUI\MuonPhong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Phan_GUI\MuonPhong.Designer.cs">
+      <DependentUpon>MuonPhong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Phan_GUI\MuonTaiLieu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Phan_GUI\MuonTaiLieu.Designer.cs">
+      <DependentUpon>MuonTaiLieu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Phan_GUI\PhieuGiaHan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Phan_GUI\PhieuGiaHan.Designer.cs">
+      <DependentUpon>PhieuGiaHan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Phan_GUI\ThongBaoDangKy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Phan_GUI\ThongBaoDangKy.Designer.cs">
+      <DependentUpon>ThongBaoDangKy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Phan_GUI\ThongBaoDocGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Phan_GUI\ThongBaoDocGia.Designer.cs">
+      <DependentUpon>ThongBaoDocGia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Phan_GUI\ThongTinThe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Phan_GUI\ThongTinThe.Designer.cs">
+      <DependentUpon>ThongTinThe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Phan_GUI\ThongTinViPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Phan_GUI\ThongTinViPham.Designer.cs">
+      <DependentUpon>ThongTinViPham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Phan_GUI\TrangChuDocGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Phan_GUI\TrangChuDocGia.Designer.cs">
+      <DependentUpon>TrangChuDocGia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Phan_GUI\TraTaiLieu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Phan_GUI\TraTaiLieu.Designer.cs">
+      <DependentUpon>TraTaiLieu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Phan_xu_ly\DangKyTheMoi.cs" />
+    <Compile Include="Phan_xu_ly\DangNhap.cs" />
+    <Compile Include="Phan_xu_ly\Data.cs" />
+    <Compile Include="Phan_xu_ly\DoiMatKhau.cs" />
+    <Compile Include="Phan_xu_ly\LichSuMuon.cs" />
+    <Compile Include="Phan_xu_ly\ThongBao.cs" />
+    <Compile Include="Phan_xu_ly\ThongTinThe.cs" />
+    <Compile Include="Phan_xu_ly\TraCuu.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Phan_GUI\ThongBaoDocGia_V2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Phan_GUI\ThongBaoDocGia_V2.Designer.cs">
+      <DependentUpon>ThongBaoDocGia_V2.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Phan_GUI\DangKyCapLaiThe.resx">
+      <DependentUpon>DangKyCapLaiThe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Phan_GUI\DangKyCapThe.resx">
+      <DependentUpon>DangKyCapThe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Phan_GUI\DangKyTheMoi.resx">
+      <DependentUpon>DangKyTheMoi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Phan_GUI\DangNhap.resx">
+      <DependentUpon>DangNhap.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Phan_GUI\DoiMatKhau.resx">
+      <DependentUpon>DoiMatKhau.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Phan_GUI\GiaHanTaiLieu.resx">
+      <DependentUpon>GiaHanTaiLieu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Phan_GUI\LichSuMuon.resx">
+      <DependentUpon>LichSuMuon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Phan_GUI\MuonPhong.resx">
+      <DependentUpon>MuonPhong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Phan_GUI\MuonTaiLieu.resx">
+      <DependentUpon>MuonTaiLieu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Phan_GUI\PhieuGiaHan.resx">
+      <DependentUpon>PhieuGiaHan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Phan_GUI\ThongBaoDangKy.resx">
+      <DependentUpon>ThongBaoDangKy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Phan_GUI\ThongBaoDocGia.resx">
+      <DependentUpon>ThongBaoDocGia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Phan_GUI\ThongBaoDocGia_V2.resx">
+      <DependentUpon>ThongBaoDocGia_V2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Phan_GUI\ThongTinThe.resx">
+      <DependentUpon>ThongTinThe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Phan_GUI\ThongTinViPham.resx">
+      <DependentUpon>ThongTinViPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Phan_GUI\TrangChuDocGia.resx">
+      <DependentUpon>TrangChuDocGia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Phan_GUI\TraTaiLieu.resx">
+      <DependentUpon>TraTaiLieu.cs</DependentUpon>
+
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -301,7 +482,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
+
     <COMReference Include="Microsoft.Office.Core">
       <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
       <VersionMajor>2</VersionMajor>
@@ -326,6 +509,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\nen_thu_thu.png" />
+
+    <Content Include="Resources\Background.jpg" />
+    <Content Include="Resources\Logo.png" />
+
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
