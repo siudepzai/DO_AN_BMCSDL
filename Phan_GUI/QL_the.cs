@@ -15,7 +15,7 @@ namespace DO_AN_BMCSDL.Phan_GUI
         
         private bool _isAddingNew = false;
         private const string KEY_DES = "HUITCNTT";
-
+       
         public QL_the()
         {
             InitializeComponent();
@@ -544,5 +544,9 @@ namespace DO_AN_BMCSDL.Phan_GUI
             }
         }
 
+        private void dgv_thongtinthe_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

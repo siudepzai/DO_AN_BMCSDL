@@ -220,7 +220,10 @@ namespace DO_AN_BMCSDL.Phan_GUI
 
         private void btn_doimk_Click(object sender, EventArgs e)
         {
-
+            Create_key create_Key = new Create_key();
+            create_Key.FormClosed += (s, args) => this.Show(); // Hiện lại form chính khi đóng Create_key
+            this.Hide();
+            create_Key.Show();
         }
 
         private void btn_thongtincanhan_Click(object sender, EventArgs e)

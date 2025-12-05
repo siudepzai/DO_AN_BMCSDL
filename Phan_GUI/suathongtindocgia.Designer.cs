@@ -321,6 +321,7 @@
             this.lab_sauthongtindocgia.TabIndex = 3;
             this.lab_sauthongtindocgia.Text = "SỬA THÔNG TIN ĐỌC GIẢ";
             this.lab_sauthongtindocgia.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lab_sauthongtindocgia.Click += new System.EventHandler(this.lab_sauthongtindocgia_Click);
             // 
             // btn_TK
             // 

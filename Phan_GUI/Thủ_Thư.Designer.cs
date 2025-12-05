@@ -59,6 +59,7 @@
             this.btn_timtailieu = new System.Windows.Forms.Button();
             this.menuHideTimer = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btn_taokhoa = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.panel3.SuspendLayout();
@@ -219,11 +220,12 @@
             // 
             this.pnl_hethongmenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.pnl_hethongmenu.Controls.Add(this.btn_dangxuat);
+            this.pnl_hethongmenu.Controls.Add(this.btn_taokhoa);
             this.pnl_hethongmenu.Controls.Add(this.btn_doimk);
             this.pnl_hethongmenu.Controls.Add(this.btn_thongtincanhan);
             this.pnl_hethongmenu.Location = new System.Drawing.Point(6, 135);
             this.pnl_hethongmenu.Name = "pnl_hethongmenu";
-            this.pnl_hethongmenu.Size = new System.Drawing.Size(190, 141);
+            this.pnl_hethongmenu.Size = new System.Drawing.Size(190, 185);
             this.pnl_hethongmenu.TabIndex = 3;
             this.pnl_hethongmenu.Visible = false;
             this.pnl_hethongmenu.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl_hethongmenu_Paint);
@@ -232,7 +234,7 @@
             // 
             this.btn_dangxuat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.btn_dangxuat.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_dangxuat.Location = new System.Drawing.Point(3, 96);
+            this.btn_dangxuat.Location = new System.Drawing.Point(4, 141);
             this.btn_dangxuat.Name = "btn_dangxuat";
             this.btn_dangxuat.Size = new System.Drawing.Size(183, 41);
             this.btn_dangxuat.TabIndex = 0;
@@ -428,6 +430,18 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // btn_taokhoa
+            // 
+            this.btn_taokhoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btn_taokhoa.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_taokhoa.Location = new System.Drawing.Point(4, 94);
+            this.btn_taokhoa.Name = "btn_taokhoa";
+            this.btn_taokhoa.Size = new System.Drawing.Size(183, 41);
+            this.btn_taokhoa.TabIndex = 0;
+            this.btn_taokhoa.Text = "Tạo khóa";
+            this.btn_taokhoa.UseVisualStyleBackColor = false;
+            this.btn_taokhoa.Click += new System.EventHandler(this.btn_doimk_Click);
+            // 
             // thu_thu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
@@ -489,5 +503,6 @@
         private System.Windows.Forms.Button btn_timdocgia;
         private System.Windows.Forms.Button btn_timtailieu;
         private System.Windows.Forms.Timer menuHideTimer;
+        private System.Windows.Forms.Button btn_taokhoa;
     }
 }

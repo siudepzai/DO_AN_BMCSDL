@@ -40,6 +40,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.logo = new System.Windows.Forms.PictureBox();
             this.pnl_thanhquanly = new System.Windows.Forms.Panel();
+            this.btn_thongtingoc = new System.Windows.Forms.Button();
             this.btn_X = new System.Windows.Forms.Button();
             this.btn_thoat = new System.Windows.Forms.Button();
             this.btn_xoa = new System.Windows.Forms.Button();
@@ -56,7 +57,6 @@
             this.txt_tinhtrang = new System.Windows.Forms.TextBox();
             this.txt_diachi = new System.Windows.Forms.TextBox();
             this.lab_thongtinthedocgia = new System.Windows.Forms.Label();
-            this.btn_thongtingoc = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
@@ -164,6 +164,17 @@
             this.pnl_thanhquanly.Size = new System.Drawing.Size(1173, 67);
             this.pnl_thanhquanly.TabIndex = 19;
             // 
+            // btn_thongtingoc
+            // 
+            this.btn_thongtingoc.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn_thongtingoc.Location = new System.Drawing.Point(951, 23);
+            this.btn_thongtingoc.Name = "btn_thongtingoc";
+            this.btn_thongtingoc.Size = new System.Drawing.Size(128, 31);
+            this.btn_thongtingoc.TabIndex = 2;
+            this.btn_thongtingoc.Text = "Thông tin gốc";
+            this.btn_thongtingoc.UseVisualStyleBackColor = false;
+            this.btn_thongtingoc.Click += new System.EventHandler(this.btn_thongtingoc_Click);
+            // 
             // btn_X
             // 
             this.btn_X.BackColor = System.Drawing.Color.Red;
@@ -220,6 +231,7 @@
             this.dgv_thongtinthe.RowTemplate.Height = 24;
             this.dgv_thongtinthe.Size = new System.Drawing.Size(1170, 284);
             this.dgv_thongtinthe.TabIndex = 20;
+            this.dgv_thongtinthe.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_thongtinthe_CellContentClick);
             // 
             // label1
             // 
@@ -318,17 +330,6 @@
             this.lab_thongtinthedocgia.Size = new System.Drawing.Size(186, 23);
             this.lab_thongtinthedocgia.TabIndex = 21;
             this.lab_thongtinthedocgia.Text = "Thông tin thẻ đọc giả";
-            // 
-            // btn_thongtingoc
-            // 
-            this.btn_thongtingoc.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btn_thongtingoc.Location = new System.Drawing.Point(951, 23);
-            this.btn_thongtingoc.Name = "btn_thongtingoc";
-            this.btn_thongtingoc.Size = new System.Drawing.Size(128, 31);
-            this.btn_thongtingoc.TabIndex = 2;
-            this.btn_thongtingoc.Text = "Thông tin gốc";
-            this.btn_thongtingoc.UseVisualStyleBackColor = false;
-            this.btn_thongtingoc.Click += new System.EventHandler(this.btn_thongtingoc_Click);
             // 
             // QL_the
             // 

@@ -280,7 +280,7 @@ namespace DO_AN_BMCSDL.Phan_GUI
                     txt_sdt.Text = row["SODIENTHOAI_ENC"]?.ToString();
                     txt_email_TT.Text = row["EMAIL"]?.ToString();
 
-                    MessageBox.Show("✅ Giải mã thành công!", "Thông báo");
+                    MessageBox.Show(" Giải mã thành công!", "Thông báo");
                 }
                 else
                 {
@@ -295,6 +295,11 @@ namespace DO_AN_BMCSDL.Phan_GUI
             {
                 Database.Close();
             }
+        }
+
+        private void lab_sauthongtindocgia_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -184,6 +184,7 @@
             // 
             // dgv_tailieu
             // 
+            this.dgv_tailieu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_tailieu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_tailieu.Location = new System.Drawing.Point(5, 460);
             this.dgv_tailieu.Name = "dgv_tailieu";
@@ -191,6 +192,7 @@
             this.dgv_tailieu.RowTemplate.Height = 24;
             this.dgv_tailieu.Size = new System.Drawing.Size(1170, 247);
             this.dgv_tailieu.TabIndex = 30;
+            this.dgv_tailieu.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_tailieu_CellContentClick);
             // 
             // btn_xoa
             // 
@@ -232,6 +234,7 @@
             this.btn_thongtingoc.TabIndex = 1;
             this.btn_thongtingoc.Text = "Thông tin gốc";
             this.btn_thongtingoc.UseVisualStyleBackColor = false;
+            this.btn_thongtingoc.Click += new System.EventHandler(this.btn_thongtingoc_Click);
             // 
             // btn_capnhattailieu
             // 
@@ -243,6 +246,7 @@
             this.btn_capnhattailieu.TabIndex = 0;
             this.btn_capnhattailieu.Text = "Cập nhật";
             this.btn_capnhattailieu.UseVisualStyleBackColor = false;
+            //this.btn_capnhattailieu.Click += new System.EventHandler(this.btn_capnhattailieu_Click);
             // 
             // panel1
             // 
