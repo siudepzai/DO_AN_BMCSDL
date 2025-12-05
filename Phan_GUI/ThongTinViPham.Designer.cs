@@ -1,6 +1,6 @@
 ﻿namespace DO_AN_BMCSDL.Phan_GUI
 {
-    partial class FormThongTinViPham
+    partial class THONGTINVIPHAM
     {
         /// <summary>
         /// Required designer variable.
@@ -28,179 +28,163 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtMaDocGia = new System.Windows.Forms.TextBox();
-            this.txtTenDocGia = new System.Windows.Forms.TextBox();
-            this.txtVaiTro = new System.Windows.Forms.TextBox();
-            this.txtLiDoViPham = new System.Windows.Forms.TextBox();
-            this.txtThoiGianTreHen = new System.Windows.Forms.TextBox();
-            this.txtHinhPhat = new System.Windows.Forms.TextBox();
+            this.txt_tgt = new System.Windows.Forms.TextBox();
+            this.txt_HP = new System.Windows.Forms.TextBox();
+            this.txt_ld = new System.Windows.Forms.TextBox();
+            this.txt_vt = new System.Windows.Forms.TextBox();
+            this.txt_ten = new System.Windows.Forms.TextBox();
+            this.txt_ma = new System.Windows.Forms.TextBox();
+            this.lab_TGT = new System.Windows.Forms.Label();
+            this.lab_LD = new System.Windows.Forms.Label();
+            this.lab_VT = new System.Windows.Forms.Label();
+            this.lab_TDG = new System.Windows.Forms.Label();
+            this.lab_HP = new System.Windows.Forms.Label();
+            this.lab_MDG = new System.Windows.Forms.Label();
+            this.lab_tieude = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
-            // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(776, 72);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "THÔNG TIN VI PHẠM";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.panel1.Controls.Add(this.txtHinhPhat);
-            this.panel1.Controls.Add(this.txtThoiGianTreHen);
-            this.panel1.Controls.Add(this.txtLiDoViPham);
-            this.panel1.Controls.Add(this.txtVaiTro);
-            this.panel1.Controls.Add(this.txtTenDocGia);
-            this.panel1.Controls.Add(this.txtMaDocGia);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(12, 75);
+            this.panel1.Controls.Add(this.txt_tgt);
+            this.panel1.Controls.Add(this.txt_HP);
+            this.panel1.Controls.Add(this.txt_ld);
+            this.panel1.Controls.Add(this.txt_vt);
+            this.panel1.Controls.Add(this.txt_ten);
+            this.panel1.Controls.Add(this.txt_ma);
+            this.panel1.Controls.Add(this.lab_TGT);
+            this.panel1.Controls.Add(this.lab_LD);
+            this.panel1.Controls.Add(this.lab_VT);
+            this.panel1.Controls.Add(this.lab_TDG);
+            this.panel1.Controls.Add(this.lab_HP);
+            this.panel1.Controls.Add(this.lab_MDG);
+            this.panel1.Location = new System.Drawing.Point(21, 54);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(747, 294);
-            this.panel1.TabIndex = 1;
+            this.panel1.Size = new System.Drawing.Size(545, 256);
+            this.panel1.TabIndex = 0;
             // 
-            // label2
+            // txt_tgt
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(73, 15);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(123, 28);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Mã độc giả:";
+            this.txt_tgt.Location = new System.Drawing.Point(133, 161);
+            this.txt_tgt.Name = "txt_tgt";
+            this.txt_tgt.Size = new System.Drawing.Size(409, 30);
+            this.txt_tgt.TabIndex = 4;
             // 
-            // label3
+            // txt_HP
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(73, 62);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(126, 28);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Tên độc giả:";
+            this.txt_HP.Location = new System.Drawing.Point(133, 197);
+            this.txt_HP.Name = "txt_HP";
+            this.txt_HP.Size = new System.Drawing.Size(409, 30);
+            this.txt_HP.TabIndex = 5;
             // 
-            // label4
+            // txt_ld
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(117, 109);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(79, 28);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Vai trò:";
+            this.txt_ld.Location = new System.Drawing.Point(133, 125);
+            this.txt_ld.Name = "txt_ld";
+            this.txt_ld.Size = new System.Drawing.Size(409, 30);
+            this.txt_ld.TabIndex = 3;
             // 
-            // label5
+            // txt_vt
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(49, 154);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(145, 28);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Lí do vi phạm:";
+            this.txt_vt.Location = new System.Drawing.Point(133, 89);
+            this.txt_vt.Name = "txt_vt";
+            this.txt_vt.Size = new System.Drawing.Size(409, 30);
+            this.txt_vt.TabIndex = 2;
             // 
-            // label6
+            // txt_ten
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(13, 201);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(181, 28);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Thời gian trễ hẹn:";
+            this.txt_ten.Location = new System.Drawing.Point(133, 53);
+            this.txt_ten.Name = "txt_ten";
+            this.txt_ten.Size = new System.Drawing.Size(409, 30);
+            this.txt_ten.TabIndex = 1;
             // 
-            // label7
+            // txt_ma
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(85, 247);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(111, 28);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Hình phạt:";
+            this.txt_ma.Location = new System.Drawing.Point(133, 17);
+            this.txt_ma.Name = "txt_ma";
+            this.txt_ma.Size = new System.Drawing.Size(409, 30);
+            this.txt_ma.TabIndex = 0;
             // 
-            // txtMaDocGia
+            // lab_TGT
             // 
-            this.txtMaDocGia.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMaDocGia.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaDocGia.Location = new System.Drawing.Point(203, 12);
-            this.txtMaDocGia.Name = "txtMaDocGia";
-            this.txtMaDocGia.Size = new System.Drawing.Size(504, 27);
-            this.txtMaDocGia.TabIndex = 1;
+            this.lab_TGT.AutoSize = true;
+            this.lab_TGT.Location = new System.Drawing.Point(4, 164);
+            this.lab_TGT.Name = "lab_TGT";
+            this.lab_TGT.Size = new System.Drawing.Size(118, 22);
+            this.lab_TGT.TabIndex = 0;
+            this.lab_TGT.Text = "Thời gian trễ:";
             // 
-            // txtTenDocGia
+            // lab_LD
             // 
-            this.txtTenDocGia.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTenDocGia.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTenDocGia.Location = new System.Drawing.Point(203, 56);
-            this.txtTenDocGia.Name = "txtTenDocGia";
-            this.txtTenDocGia.Size = new System.Drawing.Size(504, 27);
-            this.txtTenDocGia.TabIndex = 1;
+            this.lab_LD.AutoSize = true;
+            this.lab_LD.Location = new System.Drawing.Point(64, 128);
+            this.lab_LD.Name = "lab_LD";
+            this.lab_LD.Size = new System.Drawing.Size(58, 22);
+            this.lab_LD.TabIndex = 0;
+            this.lab_LD.Text = "Lí do:";
             // 
-            // txtVaiTro
+            // lab_VT
             // 
-            this.txtVaiTro.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtVaiTro.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtVaiTro.Location = new System.Drawing.Point(203, 103);
-            this.txtVaiTro.Name = "txtVaiTro";
-            this.txtVaiTro.Size = new System.Drawing.Size(504, 27);
-            this.txtVaiTro.TabIndex = 1;
+            this.lab_VT.AutoSize = true;
+            this.lab_VT.Location = new System.Drawing.Point(53, 97);
+            this.lab_VT.Name = "lab_VT";
+            this.lab_VT.Size = new System.Drawing.Size(69, 22);
+            this.lab_VT.TabIndex = 0;
+            this.lab_VT.Text = "Vai trò:";
             // 
-            // txtLiDoViPham
+            // lab_TDG
             // 
-            this.txtLiDoViPham.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtLiDoViPham.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLiDoViPham.Location = new System.Drawing.Point(203, 151);
-            this.txtLiDoViPham.Name = "txtLiDoViPham";
-            this.txtLiDoViPham.Size = new System.Drawing.Size(504, 27);
-            this.txtLiDoViPham.TabIndex = 1;
+            this.lab_TDG.AutoSize = true;
+            this.lab_TDG.Location = new System.Drawing.Point(13, 61);
+            this.lab_TDG.Name = "lab_TDG";
+            this.lab_TDG.Size = new System.Drawing.Size(109, 22);
+            this.lab_TDG.TabIndex = 0;
+            this.lab_TDG.Text = "Tên đọc giả:";
             // 
-            // txtThoiGianTreHen
+            // lab_HP
             // 
-            this.txtThoiGianTreHen.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtThoiGianTreHen.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtThoiGianTreHen.Location = new System.Drawing.Point(203, 198);
-            this.txtThoiGianTreHen.Name = "txtThoiGianTreHen";
-            this.txtThoiGianTreHen.Size = new System.Drawing.Size(504, 27);
-            this.txtThoiGianTreHen.TabIndex = 1;
+            this.lab_HP.AutoSize = true;
+            this.lab_HP.Location = new System.Drawing.Point(30, 205);
+            this.lab_HP.Name = "lab_HP";
+            this.lab_HP.Size = new System.Drawing.Size(92, 22);
+            this.lab_HP.TabIndex = 0;
+            this.lab_HP.Text = "Hình phạt:";
             // 
-            // txtHinhPhat
+            // lab_MDG
             // 
-            this.txtHinhPhat.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtHinhPhat.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHinhPhat.Location = new System.Drawing.Point(203, 244);
-            this.txtHinhPhat.Name = "txtHinhPhat";
-            this.txtHinhPhat.Size = new System.Drawing.Size(504, 27);
-            this.txtHinhPhat.TabIndex = 1;
+            this.lab_MDG.AutoSize = true;
+            this.lab_MDG.Location = new System.Drawing.Point(17, 25);
+            this.lab_MDG.Name = "lab_MDG";
+            this.lab_MDG.Size = new System.Drawing.Size(105, 22);
+            this.lab_MDG.TabIndex = 0;
+            this.lab_MDG.Text = "Mã đọc giả:";
             // 
-            // FormThongTinViPham
+            // lab_tieude
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.lab_tieude.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lab_tieude.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lab_tieude.Location = new System.Drawing.Point(0, 0);
+            this.lab_tieude.Name = "lab_tieude";
+            this.lab_tieude.Size = new System.Drawing.Size(595, 62);
+            this.lab_tieude.TabIndex = 1;
+            this.lab_tieude.Text = "THÔNG TIN VI PHẠM";
+            this.lab_tieude.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // THONGTINVIPHAM
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(776, 383);
+            this.ClientSize = new System.Drawing.Size(595, 358);
+            this.Controls.Add(this.lab_tieude);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label1);
-            this.Name = "FormThongTinViPham";
-            this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Thông tin vi phạm";
+            this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "THONGTINVIPHAM";
+            this.Text = "THONGTINVIPHAM";
+            this.Load += new System.EventHandler(this.THONGTINVIPHAM_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -209,19 +193,19 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtHinhPhat;
-        private System.Windows.Forms.TextBox txtThoiGianTreHen;
-        private System.Windows.Forms.TextBox txtLiDoViPham;
-        private System.Windows.Forms.TextBox txtVaiTro;
-        private System.Windows.Forms.TextBox txtTenDocGia;
-        private System.Windows.Forms.TextBox txtMaDocGia;
+        private System.Windows.Forms.TextBox txt_tgt;
+        private System.Windows.Forms.TextBox txt_HP;
+        private System.Windows.Forms.TextBox txt_ld;
+        private System.Windows.Forms.TextBox txt_vt;
+        private System.Windows.Forms.TextBox txt_ten;
+        private System.Windows.Forms.TextBox txt_ma;
+        private System.Windows.Forms.Label lab_TGT;
+        private System.Windows.Forms.Label lab_LD;
+        private System.Windows.Forms.Label lab_VT;
+        private System.Windows.Forms.Label lab_TDG;
+        private System.Windows.Forms.Label lab_HP;
+        private System.Windows.Forms.Label lab_MDG;
+        private System.Windows.Forms.Label lab_tieude;
     }
 }
