@@ -191,12 +191,6 @@
     <Compile Include="Phan_GUI\QL_phieumuon.Designer.cs">
       <DependentUpon>QL_phieumuon.cs</DependentUpon>
     </Compile>
-    <Compile Include="Phan_GUI\THONGTINVIPHAM.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Phan_GUI\THONGTINVIPHAM.Designer.cs">
-      <DependentUpon>THONGTINVIPHAM.cs</DependentUpon>
-    </Compile>
     <Compile Include="Phan_GUI\Thủ_Thư.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -271,9 +265,7 @@
     <EmbeddedResource Include="Phan_GUI\QL_phieumuon.resx">
       <DependentUpon>QL_phieumuon.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Phan_GUI\THONGTINVIPHAM.resx">
-      <DependentUpon>THONGTINVIPHAM.cs</DependentUpon>
-    </EmbeddedResource>
+    
     <EmbeddedResource Include="Phan_GUI\Thủ_Thư.resx">
       <DependentUpon>Thủ_Thư.cs</DependentUpon>
     </EmbeddedResource>
@@ -285,7 +277,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Phan_GUI\xulyvipham.resx">
       <DependentUpon>xulyvipham.cs</DependentUpon>
-
+    </EmbeddedResource>
     <Compile Include="Phan_GUI\DangKyCapLaiThe.cs">
       <SubType>Form</SubType>
     </Compile>

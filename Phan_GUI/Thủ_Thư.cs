@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DO_AN_BMCSDL.Phan_xu_ly;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -215,20 +216,26 @@ namespace DO_AN_BMCSDL.Phan_GUI
 
         private void btn_dangxuat_Click(object sender, EventArgs e)
         {
-
+            FormDangNhap dangNhap = new FormDangNhap();
+            dangNhap.FormClosed += (s, args) => this.Close(); // Đóng form chính khi đóng FormDangNhap
+            this.Hide();
+            dangNhap.Show();
         }
 
         private void btn_doimk_Click(object sender, EventArgs e)
         {
-            Create_key create_Key = new Create_key();
-            create_Key.FormClosed += (s, args) => this.Show(); // Hiện lại form chính khi đóng Create_key
+           FormDoiMatKhau doiMatKhau = new FormDoiMatKhau();
+            doiMatKhau.FormClosed += (s, args) => this.Show(); // Hiện lại form chính khi đóng FormDoiMatKhau
             this.Hide();
-            create_Key.Show();
+            doiMatKhau.Show();
         }
 
         private void btn_thongtincanhan_Click(object sender, EventArgs e)
         {
-
+         FormThongTinThe the = new FormThongTinThe();
+            the.FormClosed += (s, args) => this.Show(); // Hiện lại form chính khi đóng FormThongTinThe
+            this.Hide();
+            the.Show();
         }
 
         private void panel4_Paint(object sender, PaintEventArgs e)
@@ -336,6 +343,14 @@ namespace DO_AN_BMCSDL.Phan_GUI
         private void thu_thu_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_taokhoa_Click(object sender, EventArgs e)
+        {
+            Create_key create_Key = new Create_key();
+            create_Key.FormClosed += (s, args) => this.Show(); // Hiện lại form chính khi đóng Create_key
+            this.Hide();
+            create_Key.Show();
         }
     }
 }

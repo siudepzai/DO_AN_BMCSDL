@@ -20,7 +20,7 @@ namespace DO_AN_BMCSDL
 
             //Application.Run(new thu_thu());
 
-            Application.Run(new FormDangNhap());
+            Application.Run(new thu_thu());
 
         }
     }

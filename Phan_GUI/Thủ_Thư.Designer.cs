@@ -219,8 +219,8 @@
             // pnl_hethongmenu
             // 
             this.pnl_hethongmenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.pnl_hethongmenu.Controls.Add(this.btn_dangxuat);
             this.pnl_hethongmenu.Controls.Add(this.btn_taokhoa);
+            this.pnl_hethongmenu.Controls.Add(this.btn_dangxuat);
             this.pnl_hethongmenu.Controls.Add(this.btn_doimk);
             this.pnl_hethongmenu.Controls.Add(this.btn_thongtincanhan);
             this.pnl_hethongmenu.Location = new System.Drawing.Point(6, 135);
@@ -433,14 +433,14 @@
             // btn_taokhoa
             // 
             this.btn_taokhoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btn_taokhoa.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_taokhoa.Location = new System.Drawing.Point(4, 94);
+            this.btn_taokhoa.ForeColor = System.Drawing.Color.White;
+            this.btn_taokhoa.Location = new System.Drawing.Point(6, 97);
             this.btn_taokhoa.Name = "btn_taokhoa";
-            this.btn_taokhoa.Size = new System.Drawing.Size(183, 41);
-            this.btn_taokhoa.TabIndex = 0;
+            this.btn_taokhoa.Size = new System.Drawing.Size(181, 38);
+            this.btn_taokhoa.TabIndex = 1;
             this.btn_taokhoa.Text = "Tạo khóa";
             this.btn_taokhoa.UseVisualStyleBackColor = false;
-            this.btn_taokhoa.Click += new System.EventHandler(this.btn_doimk_Click);
+            this.btn_taokhoa.Click += new System.EventHandler(this.btn_taokhoa_Click);
             // 
             // thu_thu
             // 

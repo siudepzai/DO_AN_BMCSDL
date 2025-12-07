@@ -114,7 +114,8 @@ namespace DO_AN_BMCSDL.Phan_GUI
                         // Giả định bạn có FormTrangChuThuThu cho vai trò "Nhan vien"
                         // Bạn cần tự tạo Form này
                         // nextForm = new FormTrangChuThuThu();
-
+                        nextForm = new thu_thu();
+                        nextForm.FormClosed += (s, args) => this.Show();
                         // Tạm thời hiển thị thông báo nếu chưa có Form
                         MessageBox.Show("Đã đăng nhập vai trò Thủ thư. Cần mở Form Trang Chủ Thủ Thư (chưa có).", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;

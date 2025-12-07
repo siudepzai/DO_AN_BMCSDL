@@ -104,7 +104,7 @@ namespace DO_AN_BMCSDL.Phan_GUI
         {
             FormDangNhap formDangNhap = new FormDangNhap();
             formDangNhap.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
