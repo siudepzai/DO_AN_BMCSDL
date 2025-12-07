@@ -116,6 +116,8 @@ namespace DO_AN_BMCSDL.Phan_GUI
                         // nextForm = new FormTrangChuThuThu();
                         nextForm = new thu_thu();
                         nextForm.FormClosed += (s, args) => this.Show();
+                        this.Hide();
+                        nextForm.Show();
                         // Tạm thời hiển thị thông báo nếu chưa có Form
                         MessageBox.Show("Đã đăng nhập vai trò Thủ thư. Cần mở Form Trang Chủ Thủ Thư (chưa có).", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;

@@ -1,4 +1,5 @@
 ﻿using DO_AN_BMCSDL.Phan_GUI;
+using DO_AN_BMCSDL.Phan_xu_ly;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace DO_AN_BMCSDL
 
             //Application.Run(new thu_thu());
 
-            Application.Run(new thu_thu());
+            Application.Run(new FormDangNhap());
 
         }
     }
