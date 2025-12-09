@@ -34,8 +34,6 @@ namespace DO_AN_BMCSDL
 
                 if (dt != null && dt.Rows.Count > 0)
                 {
-                    // Thiết lập Header Text theo yêu cầu
-                    // MAPHIEUPHAT, MANV, MAPHIEUMUON, PHIPHAT, LYDOPHAT, SACHTHAYTHE, TINHTRANGTAILIEU, LYDO, NGTAO, NGUOILAP, SOLAN
                     dgvThongBao.Columns["MAPHIEUPHAT"].HeaderText = "Mã Phiếu Phạt";
                     dgvThongBao.Columns["MANV"].HeaderText = "Mã NV Lập";
                     dgvThongBao.Columns["MAPHIEUMUON"].HeaderText = "Mã Phiếu Mượn";
@@ -43,12 +41,10 @@ namespace DO_AN_BMCSDL
                     dgvThongBao.Columns["LYDOPHAT"].HeaderText = "Lý Do Phạt";
                     dgvThongBao.Columns["SACHTHAYTHE"].HeaderText = "Sách Thay Thế";
                     dgvThongBao.Columns["TINHTRANGTAILIEU"].HeaderText = "Tình Trạng TL";
-                    dgvThongBao.Columns["LYDO"].HeaderText = "Lý Do Hủy"; // Giả định đây là lý do phụ
-                    dgvThongBao.Columns["NGTAO"].HeaderText = "Ngày Lập";
+                    dgvThongBao.Columns["LYDO"].HeaderText = "Lý Do Hủy"; dgvThongBao.Columns["NGTAO"].HeaderText = "Ngày Lập";
                     dgvThongBao.Columns["NGUOILAP"].HeaderText = "Người Lập";
                     dgvThongBao.Columns["SOLAN"].HeaderText = "Số Lần";
 
-                    // Định dạng cột tiền tệ
                     if (dgvThongBao.Columns.Contains("PHIPHAT"))
                     {
                         dgvThongBao.Columns["PHIPHAT"].DefaultCellStyle.Format = "N0";

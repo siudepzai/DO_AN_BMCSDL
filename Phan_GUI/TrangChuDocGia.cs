@@ -18,33 +18,27 @@ namespace DO_AN_BMCSDL.Phan_GUI
             InitializeComponent();
 
             _tenTaiKhoan = tenTaiKhoan;
-            // Trang chủ
             menuHideTimer.Tick += new EventHandler(menuHideTimer_Tick);
 
-            // Đảm bảo các Panel con bị ẩn khi Form khởi động
             HideAllMenuPanels();
         }
 
         private void HideAllMenuPanels()
         {
-            // Thay thế bằng TÊN PANEL menu con của bạn
             pnlTrangChu.Visible = false;
             pnlDichVu.Visible = false;
             pnlTaiNguyen.Visible = false;
 
-            // Đảm bảo Timer luôn dừng lại sau khi ẩn menu
             menuHideTimer.Stop();
         }
 
         private void menuHideTimer_Tick(object sender, EventArgs e)
         {
-            // Khi timer chạy hết, nghĩa là chuột đã rời khỏi khu vực menu
-            // Tiến hành ẩn tất cả menu con.
             HideAllMenuPanels();
         }
         private void btnMuonTaiLieu_Click(object sender, EventArgs e)
         {
-            FormMuonTaiLieu formMuonTaiLieu = new FormMuonTaiLieu();
+            FormMuonTaiLieu formMuonTaiLieu = new FormMuonTaiLieu(_tenTaiKhoan);
             formMuonTaiLieu.FormClosed += (s, args) => this.Show();
             formMuonTaiLieu.Show();
             this.Hide();
@@ -66,31 +60,27 @@ namespace DO_AN_BMCSDL.Phan_GUI
 
         private void btnTrangChu_MouseEnter(object sender, EventArgs e)
         {
-            HideAllMenuPanels(); // Ẩn các menu khác trước
-            pnlTrangChu.Visible = true; // Hiện menu con Trang Chủ
-            menuHideTimer.Stop(); // Dừng timer ẩn
+            HideAllMenuPanels(); pnlTrangChu.Visible = true; menuHideTimer.Stop();
         }
 
         private void btnTrangChu_MouseLeave(object sender, EventArgs e)
         {
-            menuHideTimer.Start(); // Bật timer đếm ngược
+            menuHideTimer.Start();
         }
 
         private void pnlTrangChu_MouseEnter(object sender, EventArgs e)
         {
-            menuHideTimer.Stop(); // Hủy lệnh ẩn menu khi chuột đi vào Panel con
+            menuHideTimer.Stop();
         }
 
         private void pnlTrangChu_MouseLeave(object sender, EventArgs e)
         {
-            menuHideTimer.Start(); // Bật lại lệnh ẩn menu khi chuột rời khỏi Panel con
+            menuHideTimer.Start();
         }
 
         private void btnDichVu_MouseEnter(object sender, EventArgs e)
         {
-            HideAllMenuPanels(); // Ẩn các menu khác trước
-            pnlDichVu.Visible = true; // Hiện menu con Trang Chủ
-            menuHideTimer.Stop(); // Dừng timer ẩn
+            HideAllMenuPanels(); pnlDichVu.Visible = true; menuHideTimer.Stop();
         }
 
         private void pnlDichVu_MouseEnter(object sender, EventArgs e)
@@ -110,9 +100,9 @@ namespace DO_AN_BMCSDL.Phan_GUI
 
         private void btnTaiNguyen_MouseEnter(object sender, EventArgs e)
         {
-            HideAllMenuPanels(); // Ẩn các menu khác trước
-            pnlTaiNguyen.Visible = true; // Hiện menu con Trang Chủ
-            menuHideTimer.Stop(); // Dừng timer ẩn
+            HideAllMenuPanels();
+            pnlTaiNguyen.Visible = true;
+            menuHideTimer.Stop();
         }
 
         private void btnTaiNguyen_MouseLeave(object sender, EventArgs e)
@@ -155,7 +145,7 @@ namespace DO_AN_BMCSDL.Phan_GUI
 
         private void btnMuonPhongHoc_Click(object sender, EventArgs e)
         {
-            FormMuonPhong formMuonPhong = new FormMuonPhong();
+            FormMuonPhong formMuonPhong = new FormMuonPhong(_tenTaiKhoan);
             formMuonPhong.FormClosed += (s, args) => this.Show();
             formMuonPhong.Show();
             this.Hide();
@@ -163,7 +153,7 @@ namespace DO_AN_BMCSDL.Phan_GUI
 
         private void btnTraTaiLieu_Click(object sender, EventArgs e)
         {
-            FormTraTaiLieu formTraTaiLieu = new FormTraTaiLieu();
+            FormTraTaiLieu formTraTaiLieu = new FormTraTaiLieu(_tenTaiKhoan);
             formTraTaiLieu.FormClosed += (s, args) => this.Show();
             formTraTaiLieu.Show();
             this.Hide();

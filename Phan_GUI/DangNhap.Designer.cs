@@ -65,6 +65,7 @@
             this.txtTenDangNhap.Name = "txtTenDangNhap";
             this.txtTenDangNhap.Size = new System.Drawing.Size(400, 50);
             this.txtTenDangNhap.TabIndex = 0;
+            this.txtTenDangNhap.Text = "hungvu                   ";
             this.txtTenDangNhap.TextChanged += new System.EventHandler(this.txtTenDangNhap_TextChanged);
             // 
             // txtMatKhau
@@ -77,6 +78,7 @@
             this.txtMatKhau.PasswordChar = '*';
             this.txtMatKhau.Size = new System.Drawing.Size(400, 50);
             this.txtMatKhau.TabIndex = 1;
+            this.txtMatKhau.Text = "password123         ";
             this.txtMatKhau.TextChanged += new System.EventHandler(this.txtMatKhau_TextChanged);
             // 
             // label1

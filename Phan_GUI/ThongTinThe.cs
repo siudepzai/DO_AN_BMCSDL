@@ -21,7 +21,7 @@ namespace DO_AN_BMCSDL.Phan_GUI
             LoadDocGiaData();
         }
 
-        public FormThongTinThe() // Giữ lại constructor không tham số nếu cần cho Designer
+        public FormThongTinThe()
         {
             InitializeComponent();
         }
@@ -30,28 +30,22 @@ namespace DO_AN_BMCSDL.Phan_GUI
         {
             try
             {
-                // Gọi phương thức từ Phan_xu_ly để lấy thông tin
                 ThongTinThe.DocGiaInfo docGia = ThongTinThe.GetDocGiaInfo(_tenTaiKhoan);
 
                 if (docGia != null)
                 {
-                    // Đổ dữ liệu vào các TextBox trên Form (Cần đảm bảo tên TextBox khớp)
-                    // (Giả sử bạn có các TextBox: txtTenTV, txtNgaySinh, txtCCCD,...)
                     textBox1.Text = docGia.MaThanhVien;
                     textBox2.Text = docGia.TenThanhVien;
-                    textBox3.Text = docGia.NgaySinh?.ToShortDateString(); // Xử lý null
-                    textBox4.Text = docGia.Email;
+                    textBox3.Text = docGia.NgaySinh?.ToShortDateString(); textBox4.Text = docGia.Email;
                     textBox5.Text = docGia.NgheNghiep;
                     textBox6.Text = docGia.GioiTinh;
                     textBox7.Text = docGia.KhoaHoc;
                     textBox8.Text = docGia.DiaChi;
-                    // ... điền các textbox còn lại (Email, Tài khoản, Thông tin Thẻ)
 
-                    // Thông tin thẻ
                     textBox9.Text = docGia.MaSoThe;
                     textBox10.Text = docGia.TinhTrangThe;
                     textBox11.Text = docGia.VaiTro;
-                    textBox12.Text = docGia.HanSuDung?.ToShortDateString(); // Xử lý null
+                    textBox12.Text = docGia.HanSuDung?.ToShortDateString();
                 }
                 else
                 {
@@ -103,6 +97,11 @@ namespace DO_AN_BMCSDL.Phan_GUI
         }
 
         private void textBox8_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCapNhatThongTin_Click(object sender, EventArgs e)
         {
 
         }

@@ -26,7 +26,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
 
         private void btnDangKyThe_Click(object sender, EventArgs e)
         {
-            // 1. Thu thập dữ liệu
             string hoTen = txtHoTen.Text.Trim();
             DateTime ngaySinh = dateTimePicker1.Value.Date;
             string gioiTinh = radNam.Checked ? "Nam" : (radNu.Checked ? "Nu" : null);
@@ -40,34 +39,21 @@ namespace DO_AN_BMCSDL.Phan_GUI
             string sdt = txtDienThoai.Text.Trim();
             string ghiChu = txtGhiChu.Text.Trim();
 
-            // 2. Kiểm tra dữ liệu bắt buộc
-            if (string.IsNullOrEmpty(hoTen) || string.IsNullOrEmpty(taiKhoan) ||
-                string.IsNullOrEmpty(matKhau) || gioiTinh == null)
+            if (string.IsNullOrEmpty(hoTen) || string.IsNullOrEmpty(taiKhoan) || string.IsNullOrEmpty(matKhau) || gioiTinh == null)
             {
                 MessageBox.Show("Vui lòng điền đầy đủ Họ tên, Tài khoản, Mật khẩu và Giới tính.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
-            // (Thêm các validation khác như kiểm tra format email, sdt, độ dài tài khoản/mật khẩu...)
-
             try
             {
-                // 3. Thực hiện đăng ký
-                DangKyTheMoi.DangKyDocGiaVaThe(
-                    hoTen, ngaySinh, gioiTinh, ngheNghiep,
-                    vaiTro, diaChi, khoaHoc, email,
-                    sdt, ghiChu, taiKhoan, matKhau
-                );
+                DangKyTheMoi.DangKyDocGiaVaThe(hoTen, ngaySinh, gioiTinh, ngheNghiep, vaiTro, diaChi, khoaHoc, email, sdt, ghiChu, taiKhoan, matKhau);
 
-                // 4. Thông báo thành công
-                
+
                 lblDangKyThanhCong.Visible = true;
 
-                // (Tùy chọn: Xóa các trường nhập liệu sau khi đăng ký)
             }
             catch (Exception ex)
             {
-                // 5. Xử lý lỗi
                 lblDangKyThanhCong.Text = "Đăng ký thất bại!";
                 lblDangKyThanhCong.BackColor = Color.Red;
                 lblDangKyThanhCong.Visible = true;

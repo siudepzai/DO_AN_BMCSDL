@@ -19,9 +19,9 @@ namespace _40_caesarOracle
         {
             host = "localhost";
             port = "1521";
-            serviceName = "ORCL";
-            user = "C##DO_AN";
-            pass = "12345";
+            serviceName = "ORCL";       
+            user = "C##DO_AN";         
+            pass = "12345";             
             if (string.IsNullOrWhiteSpace(host) || string.IsNullOrWhiteSpace(port) ||
                 string.IsNullOrWhiteSpace(serviceName) || string.IsNullOrWhiteSpace(user))
             {

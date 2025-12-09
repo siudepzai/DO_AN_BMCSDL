@@ -32,22 +32,19 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnTrangChu = new System.Windows.Forms.Button();
             this.btnTim = new System.Windows.Forms.Button();
             this.txtTimKiem = new System.Windows.Forms.TextBox();
-            this.btnTrangChu = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnBaoMat = new System.Windows.Forms.Button();
             this.btnTraTaiLieu = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvPhieuMuon = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPhieuMuon)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -79,6 +76,21 @@
             this.panel2.Size = new System.Drawing.Size(878, 52);
             this.panel2.TabIndex = 10;
             // 
+            // btnTrangChu
+            // 
+            this.btnTrangChu.BackColor = System.Drawing.Color.Black;
+            this.btnTrangChu.FlatAppearance.BorderSize = 0;
+            this.btnTrangChu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTrangChu.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTrangChu.ForeColor = System.Drawing.Color.White;
+            this.btnTrangChu.Location = new System.Drawing.Point(31, 3);
+            this.btnTrangChu.Name = "btnTrangChu";
+            this.btnTrangChu.Size = new System.Drawing.Size(135, 46);
+            this.btnTrangChu.TabIndex = 0;
+            this.btnTrangChu.Text = "Trang chủ";
+            this.btnTrangChu.UseVisualStyleBackColor = false;
+            this.btnTrangChu.Click += new System.EventHandler(this.btnTrangChu_Click);
+            // 
             // btnTim
             // 
             this.btnTim.BackColor = System.Drawing.SystemColors.ControlDark;
@@ -100,21 +112,6 @@
             this.txtTimKiem.Name = "txtTimKiem";
             this.txtTimKiem.Size = new System.Drawing.Size(370, 46);
             this.txtTimKiem.TabIndex = 1;
-            // 
-            // btnTrangChu
-            // 
-            this.btnTrangChu.BackColor = System.Drawing.Color.Black;
-            this.btnTrangChu.FlatAppearance.BorderSize = 0;
-            this.btnTrangChu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTrangChu.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTrangChu.ForeColor = System.Drawing.Color.White;
-            this.btnTrangChu.Location = new System.Drawing.Point(31, 3);
-            this.btnTrangChu.Name = "btnTrangChu";
-            this.btnTrangChu.Size = new System.Drawing.Size(135, 46);
-            this.btnTrangChu.TabIndex = 0;
-            this.btnTrangChu.Text = "Trang chủ";
-            this.btnTrangChu.UseVisualStyleBackColor = false;
-            this.btnTrangChu.Click += new System.EventHandler(this.btnTrangChu_Click);
             // 
             // panel3
             // 
@@ -155,26 +152,17 @@
             this.btnTraTaiLieu.TabIndex = 1;
             this.btnTraTaiLieu.Text = "Trả tài liệu";
             this.btnTraTaiLieu.UseVisualStyleBackColor = false;
+            this.btnTraTaiLieu.Click += new System.EventHandler(this.btnTraTaiLieu_Click);
             // 
-            // dataGridView2
+            // dgvPhieuMuon
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(13, 335);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(855, 150);
-            this.dataGridView2.TabIndex = 13;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 545);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(855, 150);
-            this.dataGridView1.TabIndex = 13;
+            this.dgvPhieuMuon.ColumnHeadersHeight = 29;
+            this.dgvPhieuMuon.Location = new System.Drawing.Point(12, 335);
+            this.dgvPhieuMuon.Name = "dgvPhieuMuon";
+            this.dgvPhieuMuon.RowHeadersWidth = 51;
+            this.dgvPhieuMuon.Size = new System.Drawing.Size(856, 360);
+            this.dgvPhieuMuon.TabIndex = 15;
+            this.dgvPhieuMuon.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPhieuMuon_CellContentClick_1);
             // 
             // label1
             // 
@@ -186,29 +174,17 @@
             this.label1.TabIndex = 14;
             this.label1.Text = "Phiếu mượn";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 519);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(189, 23);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "Chi tiết tài liệu đã mượn";
-            // 
             // FormTraTaiLieu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(880, 707);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.dgvPhieuMuon);
             this.Name = "FormTraTaiLieu";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -218,8 +194,7 @@
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPhieuMuon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -236,9 +211,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnBaoMat;
         private System.Windows.Forms.Button btnTraTaiLieu;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvPhieuMuon;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
     }
 }

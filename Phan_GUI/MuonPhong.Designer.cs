@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMuonPhong));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -42,13 +46,13 @@
             this.txtNhapSoGioMuon = new System.Windows.Forms.TextBox();
             this.btnTraPhongSom = new System.Windows.Forms.Button();
             this.btnDangKyMuon = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dgvPhongDaMuon = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTraCuuPhong)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPhongDaMuon)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -123,8 +127,25 @@
             // 
             // dgvTraCuuPhong
             // 
+            this.dgvTraCuuPhong.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTraCuuPhong.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvTraCuuPhong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTraCuuPhong.Cursor = System.Windows.Forms.Cursors.Default;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTraCuuPhong.DefaultCellStyle = dataGridViewCellStyle10;
             this.dgvTraCuuPhong.Location = new System.Drawing.Point(13, 204);
             this.dgvTraCuuPhong.Name = "dgvTraCuuPhong";
             this.dgvTraCuuPhong.RowHeadersWidth = 51;
@@ -193,6 +214,7 @@
             this.btnTraPhongSom.TabIndex = 1;
             this.btnTraPhongSom.Text = "Trả phòng sớm";
             this.btnTraPhongSom.UseVisualStyleBackColor = false;
+            this.btnTraPhongSom.Click += new System.EventHandler(this.btnTraPhongSom_Click);
             // 
             // btnDangKyMuon
             // 
@@ -209,15 +231,33 @@
             this.btnDangKyMuon.UseVisualStyleBackColor = false;
             this.btnDangKyMuon.Click += new System.EventHandler(this.btnDangKyMuon_Click);
             // 
-            // dataGridView2
+            // dgvPhongDaMuon
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(13, 453);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(855, 150);
-            this.dataGridView2.TabIndex = 8;
+            this.dgvPhongDaMuon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPhongDaMuon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            this.dgvPhongDaMuon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPhongDaMuon.DefaultCellStyle = dataGridViewCellStyle12;
+            this.dgvPhongDaMuon.Location = new System.Drawing.Point(13, 453);
+            this.dgvPhongDaMuon.Name = "dgvPhongDaMuon";
+            this.dgvPhongDaMuon.RowHeadersWidth = 51;
+            this.dgvPhongDaMuon.RowTemplate.Height = 24;
+            this.dgvPhongDaMuon.Size = new System.Drawing.Size(855, 150);
+            this.dgvPhongDaMuon.TabIndex = 8;
+            this.dgvPhongDaMuon.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPhongDaMuon_CellContentClick_1);
             // 
             // FormMuonPhong
             // 
@@ -225,7 +265,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(880, 609);
-            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.dgvPhongDaMuon);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.dgvTraCuuPhong);
             this.Controls.Add(this.panel1);
@@ -242,7 +282,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvTraCuuPhong)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPhongDaMuon)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -262,6 +302,6 @@
         private System.Windows.Forms.TextBox txtNhapSoGioMuon;
         private System.Windows.Forms.Button btnTraPhongSom;
         private System.Windows.Forms.Button btnDangKyMuon;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgvPhongDaMuon;
     }
 }

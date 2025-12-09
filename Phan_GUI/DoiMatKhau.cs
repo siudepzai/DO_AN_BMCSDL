@@ -50,7 +50,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
             string matKhauCu = txtMatKhauCu.Text;
             string matKhauMoi = txtMatKhauMoi.Text;
 
-            // 2. Kiểm tra nhập liệu cơ bản (Validation)
             if (string.IsNullOrWhiteSpace(taiKhoan) || string.IsNullOrWhiteSpace(matKhauCu) || string.IsNullOrWhiteSpace(matKhauMoi))
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ Tài khoản, Mật khẩu cũ và Mật khẩu mới.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -65,21 +64,15 @@ namespace DO_AN_BMCSDL.Phan_GUI
 
             try
             {
-                // 3. Gọi hàm xử lý đổi mật khẩu
                 string result = DoiMatKhau.ChangePassword(taiKhoan, matKhauCu, matKhauMoi);
 
-                // 4. Xử lý kết quả trả về từ Stored Procedure
                 if (result.StartsWith("SUCCESS"))
                 {
-                    // a. Thành công
                     lblDoiMatKhauThanhCong.Text = "Đổi mật khẩu thành công";
                     lblDoiMatKhauThanhCong.Visible = true;
 
-                    // b. Xóa thông tin trên ô nhập
                     txtMatKhauCu.Clear();
                     txtMatKhauMoi.Clear();
-                    // txtThongTinTaiKhoan.Clear(); // Giữ lại nếu Form được sử dụng thường xuyên (ví dụ: đăng nhập rồi đổi)
-                    // Nếu bạn muốn người dùng nhập lại tài khoản sau khi đổi (cho mục đích bảo mật/quên MK), hãy thêm dòng này.
                 }
                 else if (result.StartsWith("INVALID_CREDENTIALS"))
                 {
@@ -89,7 +82,7 @@ namespace DO_AN_BMCSDL.Phan_GUI
                 {
                     MessageBox.Show("Tài khoản không tồn tại. Vui lòng kiểm tra lại tên tài khoản.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                else // ERROR hoặc lỗi hệ thống khác
+                else
                 {
                     MessageBox.Show("Lỗi hệ thống khi đổi mật khẩu. Chi tiết: " + result, "Lỗi Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }

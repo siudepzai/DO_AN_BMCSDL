@@ -29,7 +29,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
         {
             dataGridView1.DataSource = dt;
 
-            // Đảm bảo DataGridView có cột nếu có dữ liệu
             if (dt == null || dt.Rows.Count == 0)
             {
                 dataGridView1.Columns.Clear();
@@ -37,7 +36,6 @@ namespace DO_AN_BMCSDL.Phan_GUI
                 return;
             }
 
-            // Thiết lập Header Text
             if (type == "Mượn Tài liệu")
             {
                 dataGridView1.Columns["MATAILIEU"].HeaderText = "Mã Tài Liệu";

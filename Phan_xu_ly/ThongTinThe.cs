@@ -10,13 +10,11 @@ namespace DO_AN_BMCSDL.Phan_xu_ly
 {
     internal class ThongTinThe
     {
-        // Đặt class DocGiaInfo bên ngoài class Data hoặc trong cùng namespace
         public class DocGiaInfo
         {
-            // Thông tin độc giả (từ bảng DOCGIA)
             public string MaThanhVien { get; set; }
             public string TenThanhVien { get; set; }
-            public DateTime? NgaySinh { get; set; } // Sử dụng DateTime? cho ngày tháng
+            public DateTime? NgaySinh { get; set; }
             public string GioiTinh { get; set; }
             public string NgheNghiep { get; set; }
             public string VaiTro { get; set; }
@@ -25,18 +23,10 @@ namespace DO_AN_BMCSDL.Phan_xu_ly
             public string KhoaHoc { get; set; }
             public string Email { get; set; }
             public string TaiKhoan { get; set; }
-
-            // Thông tin thẻ (từ bảng THEBANDOC)
             public string MaSoThe { get; set; }
             public string TinhTrangThe { get; set; }
-            public DateTime? HanSuDung { get; set; } // Sử dụng DateTime? cho ngày tháng
+            public DateTime? HanSuDung { get; set; }
         }
-
-        // ... (Giữ nguyên các hàm GetConnectionString, CreateOpenConnection, Login) ...
-
-        /// <summary>
-        /// Lấy thông tin chi tiết của độc giả bao gồm thông tin thẻ dựa trên tên đăng nhập.
-        /// </summary>
         public static DocGiaInfo GetDocGiaInfo(string username)
         {
             DocGiaInfo info = null;
@@ -44,7 +34,6 @@ namespace DO_AN_BMCSDL.Phan_xu_ly
             {
                 using (OracleConnection con = Data.CreateOpenConnection())
                 {
-                    // JOIN DOCGIA và THEBANDOC để lấy tất cả thông tin liên quan
                     string sql = @"
                         SELECT 
                             dg.MATHANHVIEN, dg.TENTV, dg.NGSINH, dg.GIOITINH, dg.NGHENGHIEP, dg.VAITRO, dg.KHOAHOC, 
@@ -78,8 +67,6 @@ namespace DO_AN_BMCSDL.Phan_xu_ly
                                     Sdt = reader["SODIENTHOAI"].ToString(),
                                     Email = reader["EMAIL"].ToString(),
                                     TaiKhoan = reader["TAIKHOAN"].ToString(),
-
-                                    // Xử lý trường hợp độc giả chưa có thẻ (LEFT JOIN)
                                     MaSoThe = reader["MASOTHE"] is DBNull ? "Chưa có thẻ" : reader["MASOTHE"].ToString(),
                                     TinhTrangThe = reader["TINHTRANGTHE"] is DBNull ? "Chưa cấp" : reader["TINHTRANGTHE"].ToString(),
                                     HanSuDung = reader["HANSUDUNG"] is DBNull ? (DateTime?)null : Convert.ToDateTime(reader["HANSUDUNG"])

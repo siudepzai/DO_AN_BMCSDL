@@ -40,13 +40,13 @@
             this.txtNhapSoLuongMuon = new System.Windows.Forms.TextBox();
             this.btnDangKyMuon = new System.Windows.Forms.Button();
             this.dgvTraCuuTaiLieu = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dgvTaiLieuDaMuon = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTraCuuTaiLieu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTaiLieuDaMuon)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -163,6 +163,7 @@
             this.btnDangKyMuon.TabIndex = 1;
             this.btnDangKyMuon.Text = "Đăng ký mượn";
             this.btnDangKyMuon.UseVisualStyleBackColor = false;
+            this.btnDangKyMuon.Click += new System.EventHandler(this.btnDangKyMuon_Click);
             // 
             // dgvTraCuuTaiLieu
             // 
@@ -175,15 +176,16 @@
             this.dgvTraCuuTaiLieu.TabIndex = 11;
             this.dgvTraCuuTaiLieu.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTraCuuTaiLieu_CellContentClick);
             // 
-            // dataGridView2
+            // dgvTaiLieuDaMuon
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(13, 456);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(855, 150);
-            this.dataGridView2.TabIndex = 13;
+            this.dgvTaiLieuDaMuon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTaiLieuDaMuon.Location = new System.Drawing.Point(13, 456);
+            this.dgvTaiLieuDaMuon.Name = "dgvTaiLieuDaMuon";
+            this.dgvTaiLieuDaMuon.RowHeadersWidth = 51;
+            this.dgvTaiLieuDaMuon.RowTemplate.Height = 24;
+            this.dgvTaiLieuDaMuon.Size = new System.Drawing.Size(855, 150);
+            this.dgvTaiLieuDaMuon.TabIndex = 13;
+            this.dgvTaiLieuDaMuon.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTaiLieuDaMuon_CellContentClick_1);
             // 
             // FormMuonTaiLieu
             // 
@@ -195,7 +197,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.dgvTraCuuTaiLieu);
-            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.dgvTaiLieuDaMuon);
             this.Name = "FormMuonTaiLieu";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -208,7 +210,7 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTraCuuTaiLieu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTaiLieuDaMuon)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -226,6 +228,6 @@
         private System.Windows.Forms.TextBox txtNhapSoLuongMuon;
         private System.Windows.Forms.Button btnDangKyMuon;
         private System.Windows.Forms.DataGridView dgvTraCuuTaiLieu;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgvTaiLieuDaMuon;
     }
 }

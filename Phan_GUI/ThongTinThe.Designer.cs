@@ -288,6 +288,7 @@
             this.btnCapNhatThongTin.TabIndex = 2;
             this.btnCapNhatThongTin.Text = "Cập nhật thông tin";
             this.btnCapNhatThongTin.UseVisualStyleBackColor = false;
+            this.btnCapNhatThongTin.Click += new System.EventHandler(this.btnCapNhatThongTin_Click);
             // 
             // label8
             // 

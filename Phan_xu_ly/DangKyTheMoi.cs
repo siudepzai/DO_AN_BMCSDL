@@ -10,13 +10,11 @@ namespace DO_AN_BMCSDL.Phan_xu_ly
 {
     internal class DangKyTheMoi
     {
-        // Hàm tạo ID tự động dựa trên thời gian và hash nhẹ, đảm bảo độ dài 13 ký tự cho MATHANHVIEN
         private static string GenerateUniqueId(int length)
         {
             long timestamp = DateTime.Now.Ticks;
             string baseId = timestamp.ToString();
 
-            // Đảm bảo đủ độ dài 13 (ví dụ)
             if (baseId.Length > length)
             {
                 return baseId.Substring(baseId.Length - length);
@@ -28,13 +26,11 @@ namespace DO_AN_BMCSDL.Phan_xu_ly
             return baseId;
         }
 
-        // Tạo mã số thẻ (10 ký tự)
         public static string GenerateMaSoThe()
         {
             return GenerateUniqueId(10);
         }
 
-        // Tạo mã thành viên (13 ký tự)
         public static string GenerateMaThanhVien()
         {
             return GenerateUniqueId(13);
@@ -45,23 +41,18 @@ namespace DO_AN_BMCSDL.Phan_xu_ly
             string vaiTro, string diaChi, string khoaHoc, string email,
             string sdt, string ghiChu, string taiKhoan, string matKhau)
         {
-            // Tên trường mặc định
             const string TENTRUONG_DEFAULT = "DH Cong Thuong TPHCM";
 
-            // Tạo ID cho độc giả và thẻ
             string maThanhVien = GenerateMaThanhVien();
             string maSoThe = GenerateMaSoThe();
 
-            // Thiết lập hạn sử dụng 5 năm sau ngày đăng ký
             DateTime hanSuDung = DateTime.Now.AddYears(5);
 
-            // Bắt đầu Transaction
             using (OracleConnection con = Data.CreateOpenConnection())
             using (OracleTransaction transaction = con.BeginTransaction())
             {
                 try
                 {
-                    // --- 1. INSERT VÀO BẢNG DOCGIA ---
                     string sqlDocGia = @"
                         INSERT INTO DOCGIA (
                             MATHANHVIEN, TENTV, NGSINH, GIOITINH, NGHENGHIEP, 
@@ -93,8 +84,6 @@ namespace DO_AN_BMCSDL.Phan_xu_ly
 
                         cmdDocGia.ExecuteNonQuery();
                     }
-
-                    // --- 2. INSERT VÀO BẢNG THEBANDOC ---
                     string sqlTheBandoc = @"
                         INSERT INTO THEBANDOC (MASOTHE, MATHANHVIEN, TINHTRANGTHE, HANSUDUNG) 
                         VALUES (:p_msthe, :p_mtv, :p_tthe, :p_hsd)";
@@ -103,18 +92,15 @@ namespace DO_AN_BMCSDL.Phan_xu_ly
                     {
                         cmdThe.Parameters.Add(":p_msthe", OracleDbType.Char, 10).Value = maSoThe;
                         cmdThe.Parameters.Add(":p_mtv", OracleDbType.Char, 13).Value = maThanhVien;
-                        cmdThe.Parameters.Add(":p_tthe", OracleDbType.Varchar2).Value = "Chưa cấp"; // Tình trạng ban đầu
-                        cmdThe.Parameters.Add(":p_hsd", OracleDbType.Varchar2).Value = hanSuDung.ToString("yyyy-MM-dd"); // Lưu dưới dạng chuỗi 'yyyy-MM-dd' cho an toàn (theo schema trong file Do_an.txt)
+                        cmdThe.Parameters.Add(":p_tthe", OracleDbType.Varchar2).Value = "Chưa cấp"; 
+                        cmdThe.Parameters.Add(":p_hsd", OracleDbType.Varchar2).Value = hanSuDung.ToString("yyyy-MM-dd"); 
 
                         cmdThe.ExecuteNonQuery();
                     }
-
-                    // Commit transaction nếu cả hai lệnh INSERT đều thành công
                     transaction.Commit();
                 }
                 catch (Exception ex)
                 {
-                    // Rollback nếu có lỗi xảy ra
                     transaction.Rollback();
                     throw new Exception("Lỗi đăng ký tài khoản hoặc thẻ. Chi tiết: " + ex.Message, ex);
                 }

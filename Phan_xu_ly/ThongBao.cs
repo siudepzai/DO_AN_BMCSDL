@@ -10,7 +10,6 @@ namespace DO_AN_BMCSDL.Phan_xu_ly
 {
     internal class ThongBao
     {
-        // Hàm gọi SP_THONGBAO để lấy danh sách phiếu phạt của độc giả
         public static DataTable GetPhieuPhatByUsername(string username)
         {
             DataTable dt = new DataTable();
@@ -21,12 +20,8 @@ namespace DO_AN_BMCSDL.Phan_xu_ly
                     using (OracleCommand cmd = new OracleCommand("SP_THONGBAO", con))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-
-                        // Tham số đầu vào: Tên tài khoản
                         cmd.Parameters.Add("p_username", OracleDbType.Varchar2).Value = username;
 
-                        // Tham số đầu ra: REF CURSOR (kết quả truy vấn)
-                        // Giả định SP_THONGBAO trả về kết quả qua tham số p_result
                         cmd.Parameters.Add("p_result", OracleDbType.RefCursor, ParameterDirection.Output);
 
                         using (OracleDataAdapter da = new OracleDataAdapter(cmd))
